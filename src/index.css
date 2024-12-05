@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles for the `.sides` arrows */
+#root{
+  background: #000;
+}
+
+.homewall{
+  background-image: url("./assets/dunebgd.jpg");
+  background-size: cover; 
+    
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat; 
+  
+  /* Position the background image at the top center */
+  background-position: center top; 
+  
+  /* Ensure the background remains fixed during scrolling */
+  /* background-attachment: fixed;  */
+}
+.festtitle{
+  font-family: sans-serif;
+  color: #443521;
+  letter-spacing: 5px;
+}
+.festname{
+  background-image: url("./assets/name.png");
+  background-size: contain;
+    
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat; 
+  
+  /* Position the background image at the top center */
+  background-position: center top; 
+}
+.sides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+.sides:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    border-top: 1px solid #f4cf8b;
+    border-left: 1px solid #f4cf8b;
+    transform-origin: left top;
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 0;
+    transition: transform .3s ease,opacity .3s ease
+}
+
+.sides:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    border-right: 1px solid #f4cf8b;
+    border-top: 1px solid #f4cf8b;
+    transform-origin: right top;
+    transform: translate(0, 0) rotate(45deg);
+    opacity: 0;
+    transition: transform .3s ease,opacity .3s ease
+}
+
+
+
+/* Hover effect for the arrows */
+.sides:hover::before {
+  opacity: 1;
+  transform: translate(-8px, 0) scale(1) rotate(-45deg);
+}
+
+.sides:hover::after {
+  opacity: 1;
+  transform: translate(8px, 0) scale(1) rotate(45deg);
+}
+
+.line{
+    top: 50%;
+    width: 13px;
+    height: 1px;
+    background: #f4cf8b
+
+}
+/* .button-new-design::before,.button-new-design::after {
+  content: "";
+  display: block;
+  width: calc(100% - 2 * 0.55rem);
+  height: 2px;
+  background-color: #d7bb8b;
+  position: absolute;
+  left: .6rem
+} */

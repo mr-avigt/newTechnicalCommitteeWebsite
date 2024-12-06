@@ -6,9 +6,11 @@
 #root{
   background: #000;
 }
-
+.outer{
+  background-color: #23201d;
+}
 .homewall{
-  background-image: url("./assets/dunebgd.jpg");
+  /* background-image: url("./assets/dunebgd.jpg"); */
   background-size: cover; 
     
   /* Prevent the image from repeating */
@@ -24,6 +26,16 @@
   font-family: sans-serif;
   color: #443521;
   letter-spacing: 5px;
+}
+#drawer-navigation{
+  background-image: url("../src/assets/drawerbgd.jpg");
+  background-size: cover;
+    
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat; 
+  
+  /* Position the background image at the top center */
+  background-position: center center; 
 }
 .festname{
   background-image: url("./assets/name.png");
@@ -49,8 +61,8 @@
     left: 0;
     width: 60%;
     height: 60%;
-    border-top: 1px solid #f4cf8b;
-    border-left: 1px solid #f4cf8b;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
     transform-origin: left top;
     transform: translate(0, 0) rotate(-45deg);
     opacity: 0;
@@ -64,8 +76,8 @@
     right: 0;
     width: 60%;
     height: 60%;
-    border-right: 1px solid #f4cf8b;
-    border-top: 1px solid #f4cf8b;
+    border-right: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
     transform-origin: right top;
     transform: translate(0, 0) rotate(45deg);
     opacity: 0;
@@ -89,7 +101,7 @@
     top: 50%;
     width: 13px;
     height: 1px;
-    background: #f4cf8b
+    background: #ffffff
 
 }
 /* .button-new-design::before,.button-new-design::after {
@@ -101,3 +113,32 @@
   position: absolute;
   left: .6rem
 } */
+
+.menu-item:hover{
+  background: linear-gradient(to right, #311C36 30.56%, rgba(49, 28, 54, 0) 100%);
+transition: ease-in;
+transition-duration: 1000s;
+.menu-link-wrapper{
+  color: #faa9ff;
+}
+}
+.menu-link-wrapper{
+  color: #f4cf8b;
+  font-family: sans-serif;
+  letter-spacing: 1.68px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.frame:after {
+  content: "";
+  position: absolute;
+  --size: 10%;
+  top: 10%;
+  left: -2%;
+  width: calc(94% + var(--size));
+  height: calc(100% - var(--size) * 2);
+  border: 1px solid #f4cf8b;
+  pointer-events: none;
+  z-index: -1
+}

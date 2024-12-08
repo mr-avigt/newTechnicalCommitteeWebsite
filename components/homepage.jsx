@@ -24,23 +24,25 @@ const HOMEpage = () => {
           // markers: true,
         },
       });
+
       t.to(".inner", {
         scale: 3,
         ease: "none",
-      });
+        duration: 7, // Adjust as needed
+      }).to(
+        ".base",
+        {
+          opacity: 1,
+          ease: "none",
+          duration: 1, // Adjust to match the `.inner` scaling duration
+        },
+        "<" // Ensures the animations happen at the same time
+      );
 
-      t.to(".line2", {
-        opacity: 1,
-      }).to(".frame", {
-        opacity: 1,
-      });
-      t.to(".base", {
-        opacity: 1,
-        duration: 2,
-      });
       t.to(".Events", {
         opacity: 1,
-        duration: 3,
+
+        duration: 2, // Increase this for slower, longer animation
       });
 
       t.to([".sideimg", ".bottomimg"], {
@@ -49,12 +51,13 @@ const HOMEpage = () => {
           target.classList.contains("sideimg") ? 0 : undefined, // Ensures sqimg animates right
         bottom: (index, target) =>
           target.classList.contains("bottomimg") ? 0 : undefined, // Ensures sqimg animates right
-        duration: 1,
+        duration: 11,
       });
 
       gsap.utils.toArray(".page").forEach((page) => {
         t.to(page, {
           opacity: 1,
+          duration: 4,
         });
         t.to(
           [page.querySelector(".sqimg"), page.querySelector(".section2")],
@@ -63,7 +66,7 @@ const HOMEpage = () => {
             bottom: 0,
             right: (index, target) =>
               target.classList.contains("sqimg") ? 0 : undefined, // Ensures sqimg animates right
-            duration: 1.5, // Simultaneous entry
+            duration: 5, // Simultaneous entry
             // Start overlapping with the previous animation
           },
           "-=0.5"
@@ -73,7 +76,7 @@ const HOMEpage = () => {
           bottom: (index, target) =>
             target.classList.contains("sqimg") ? "-100%" : "100%", // Ensures different animations for .sqimg and .section2
           right: "-90%",
-          duration: 1.5, // Smooth exit
+          duration: 5, // Smooth exit
           delay: 1,
         });
       }, "-=1.5");
@@ -101,23 +104,7 @@ const HOMEpage = () => {
 
     // Update ScrollTrigger to sync with Lenis
     lenis.on("scroll", ScrollTrigger.update);
-    // Smooth fade-in for the HOMEwall
-    gsap.to(".HOMEwall", {
-      opacity: 1,
-      delay: 1,
-      duration: 1.5, // Smooth transition
-      ease: "power1.out", // Soft easing for opacity
-    });
 
-    // Animation for the fest name
-    gsap.to(".festname", {
-      top: "100px",
-      duration: 1.5,
-      delay: 1,
-      ease: "power2.out", // Add easing for smooth movement
-    });
-
-    // Animation for the fest title
     gsap.to(".circle-glyph", {
       rotate: 180,
       opacity: 0.3,
@@ -135,7 +122,7 @@ const HOMEpage = () => {
               {/* <span className="line  text-white w-[80%]"></span> */}
               {/* <li className="relative border flex items-center justify-center">
                 <span className="relative cursor-pointer flex items-center justify-center">
-                  <span class="sides"></span>
+                  <span className="sides"></span>
                   <span className="sides absolute inset-0"></span>
                   <svg
                     width="45px"
@@ -256,7 +243,6 @@ const HOMEpage = () => {
                   </svg>
                 </span>
               </li>
-
               {/* <span className="line  text-white w-[20px]"></span> */}
             </ul>
           </div>
@@ -674,16 +660,11 @@ const HOMEpage = () => {
             <path d="M1172.45 1172.45 200.551 200.551" stroke="#f4cf8b"></path>
             <path d="m200.551 1172.45 971.899-971.899" stroke="#f4cf8b"></path>
           </svg>
-          <div className="flex items-center absolute justify-center h-full w-[33.4%] sm:w-[33.1%] md:w-[27%]">
+          <div className="flex items-center absolute justify-center h-full w-[33.4%] sm:w-[33.1%] lg:w-[25%] 2xl:w-[27%] ">
             <div className="inner relative flex border border-custom-border h-[33.2%] sm:h-[31%] md:h-auto">
-              <span className="frame opacity-70 md:opacity-50">
-                <span className="vidleft absolute min400:-left-[157.5%] w-[150.5%] -left-[158.3%] sm:-left-[156.5%] md:-left-[156.8%] lg:-left-[156.3%] xl:-left-[156.1%] top-[50%] 2xl:-left-[155.8%] flex items-center justify-end gap-2">
-                  <span className="line2 w-full h-[0.5px] border-custom-border"></span>
-                  <span className="square absolute -right-[12px] z-0 bg-[#23201d] rotate-45 w-4 h-4 border-b border-l  border-custom-border"></span>
-                </span>
-                <span className="vidright absolute  -right-[155%] md:w-[150%] w-[150.5%] top-[50%] flex items-center justify-end gap-2 ">
-                  <span className="line2 w-full h-[0.5px] border-custom-border"></span>
-                </span>
+              <span className="frame ">
+                <div className="left"></div>
+                <div className="right"></div>
               </span>
               <video
                 className="base h-auto object-cover opacity-50"
@@ -727,43 +708,74 @@ const HOMEpage = () => {
                 stroke="#f4cf8b"
               ></path>
             </svg>
-            <div class="container h-full w-full mx-auto p-8">
-              <h2 class="text-xl text-white  mb-4 text-center">LATEST NEWS</h2>
-              <div class="grid grid-cols-1 md:grid-cols-4  gap-4">
+            <div className="container h-full w-full mx-auto p-8">
+              <h2 className="text-xl text-white  mb-4 text-center">
+                LATEST NEWS
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-4  gap-4">
                 {/* <!-- Card 1 --> */}
-                <div class="card  border-[1.5px] border-custom-border relative">
-                  <div class=" flex flex-col m-1 border-[1.5px] border-[#3b3631]">
+                <div className="card  border-[1.5px] border-custom-border relative">
+                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                     <div className="thumbnail">
                       <img src="../src/assets/thumb1.png" alt="" />
                     </div>
-                    <div className="content relative border p-2 border-custom-border">
-                      <div class="absolute left-[45%] -top-[25%]">
-                        <div class="w-7 h-7 rotate-45">
-                          <div class="absolute inset-0 bg-[#f4cf8b]"></div>
-                          <div class="absolute inset-1 bg-[#151515]"></div>
+                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
+                      <div className="absolute left-[45%] -top-[25%] ">
+                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                          <div className="absolute inset-0 bg-[#23201d]"></div>
+                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
                         </div>
                       </div>
-                      <h3 class="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
                         Communinet Signal #2
                       </h3>
-                      <p></p>
-                      <p></p>
                     </div>
                   </div>
                 </div>
-
-                {/* <!-- Card 2 --> */}
-                <div class="card bg-black border border-gray-600 rounded-lg overflow-hidden relative">
-                  <div class="p-4">
-                    <h3 class="text-white text-lg">Communinet Signal #2</h3>
+                <div className="card  border-[1.5px] border-custom-border relative">
+                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                    <div className="thumbnail">
+                      <img src="../src/assets/thumb1.png" alt="" />
+                    </div>
+                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
+                      <div className="absolute left-[45%] -top-[25%] ">
+                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                          <div className="absolute inset-0 bg-[#23201d]"></div>
+                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
+                        </div>
+                      </div>
+                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                        Communinet Signal #2
+                      </h3>
+                    </div>
                   </div>
-                  <div class="absolute bottom-0 right-0 p-2 text-white bg-black bg-opacity-50 rounded-tl-lg"></div>
+                </div>
+                <div className="card  border-[1.5px] border-custom-border relative">
+                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                    <div className="thumbnail">
+                      <img src="../src/assets/thumb1.png" alt="" />
+                    </div>
+                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
+                      <div className="absolute left-[45%] -top-[25%] ">
+                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                          <div className="absolute inset-0 bg-[#23201d]"></div>
+                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
+                        </div>
+                      </div>
+                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                        Communinet Signal #2
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="sideimg hidden md:flex  absolute w-full h-full -left-[90%] z-50"></div>
+          <div className="sideimg hidden md:flex  absolute w-full h-full -left-[100%] z-50"></div>
           <div className="bottomimg flex  md:hidden absolute w-full h-full -bottom-[100%] z-30"></div>
           <div className="page page1 bg-blue-500 flex-col md:flex-row absolute w-full h-full flex opacity-0 z-20 ">
             <div className="section1 border border-red-500 h-full w-[25%]"></div>

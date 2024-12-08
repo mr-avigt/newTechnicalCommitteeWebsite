@@ -129,7 +129,7 @@ const HOMEpage = () => {
   return (
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
-        <div className="borderbox border border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
+        <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -299,8 +299,8 @@ const HOMEpage = () => {
             ></path>
           </svg>
         </div>
-        <div className="navigation items-center absolute  bottom-[2%] w-[40vw] h-[7%] hidden lg:flex">
-          <ul className="main-menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
+        <div className="navigation items-center absolute bottom-[2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
+          <ul className="main-menu laptop_home_bottom_menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center tracking-widest font-semibold">

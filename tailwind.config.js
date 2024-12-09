@@ -9,6 +9,9 @@ export default {
   theme: {
     extend: { colors: {
       'custom-border': '#f4cf8b', // Replace with your hex color
+    },
+    screens: {
+      'min400': '400px', // Custom breakpoint for min-width 400px
     },},
   },
   plugins: [],

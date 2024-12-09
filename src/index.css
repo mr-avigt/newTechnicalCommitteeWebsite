@@ -3,76 +3,88 @@
 @tailwind utilities;
 
 /* Styles for the `.sides` arrows */
-#root{
+#root {
   background: #000;
 }
-
-.homewall{
-  background-image: url("./assets/dunebgd.jpg");
-  background-size: cover; 
-    
+.outer {
+  background-color: #23201d;
+}
+.navigation {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+}
+.HOME {
+  background-image: url("./assets/HOMEBGD.png");
+  background-size: cover;
   /* Prevent the image from repeating */
-  background-repeat: no-repeat; 
-  
+  background-repeat: no-repeat;
   /* Position the background image at the top center */
-  background-position: center top; 
-  
+  background-position: center top;
+
   /* Ensure the background remains fixed during scrolling */
   /* background-attachment: fixed;  */
 }
-.festtitle{
+.festtitle {
   font-family: sans-serif;
   color: #443521;
   letter-spacing: 5px;
 }
-.festname{
+#drawer-navigation {
+  background-image: url("../src/assets/drawerbgd.jpg");
+  background-size: cover;
+
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+
+  /* Position the background image at the top center */
+  background-position: center center;
+}
+.festname {
   background-image: url("./assets/name.png");
   background-size: contain;
-    
+
   /* Prevent the image from repeating */
-  background-repeat: no-repeat; 
-  
+  background-repeat: no-repeat;
+
   /* Position the background image at the top center */
-  background-position: center top; 
+  background-position: center top;
 }
 .sides {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .sides:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 60%;
-    height: 60%;
-    border-top: 1px solid #f4cf8b;
-    border-left: 1px solid #f4cf8b;
-    transform-origin: left top;
-    transform: translate(0, 0) rotate(-45deg);
-    opacity: 0;
-    transition: transform .3s ease,opacity .3s ease
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  border-top: 1.5px solid #f4cf8b;
+  border-left: 1.5px solid #f4cf8b;
+  transform-origin: left top;
+  transform: translate(0, 0) rotate(-45deg);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .sides:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 60%;
-    height: 60%;
-    border-right: 1px solid #f4cf8b;
-    border-top: 1px solid #f4cf8b;
-    transform-origin: right top;
-    transform: translate(0, 0) rotate(45deg);
-    opacity: 0;
-    transition: transform .3s ease,opacity .3s ease
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  border-right: 1.5px solid #f4cf8b;
+  border-top: 1.5px solid #f4cf8b;
+  transform-origin: right top;
+  transform: translate(0, 0) rotate(45deg);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-
 
 /* Hover effect for the arrows */
 .sides:hover::before {
@@ -84,20 +96,94 @@
   opacity: 1;
   transform: translate(8px, 0) scale(1) rotate(45deg);
 }
+.sideimg {
+  background-image: url("../src/assets/sideopener.png");
+  background-size: contain;
 
-.line{
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+
+  /* Position the background image at the top center */
+  background-position: left center;
+}
+.bottomimg {
+  background-image: url("../src/assets/bg_mobile.png");
+  background-size: cover;
+
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+
+  /* Position the background image at the top center */
+  background-position: center 0;
+}
+.line {
+  top: 50%;
+  width: 13px;
+  height: 1px;
+  background: #f4cf8b;
+}
+.line2 {
+  top: 50%;
+  width: 13px;
+  opacity: 0.5;
+  height: 0.5px;
+  background: #f4cf8b;
+}
+
+.left{
+  --spacing: 0px;
+    position: absolute;
     top: 50%;
-    width: 13px;
-    height: 1px;
-    background: #f4cf8b
+    right: calc(103.5% + var(--spacing));
+    width: 50vw;
+    height: 0.5px;
+    background: #f4cf8b;
 
 }
-/* .button-new-design::before,.button-new-design::after {
+
+.right{
+  --spacing: 0px;
+    position: absolute;
+    top: 50%;
+    left: calc(103.5% + var(--spacing));
+    right: auto;
+    width: 50vw;
+    height: 0.5px;
+    background: #f4cf8b;
+
+}
+
+
+.menu-item:hover {
+  background: linear-gradient(
+    to right,
+    #311c36 30.56%,
+    rgba(49, 28, 54, 0) 100%
+  );
+  transition: ease-in;
+  transition-duration: 1000s;
+  .menu-link-wrapper {
+    color: #faa9ff;
+  }
+}
+.menu-link-wrapper {
+  color: #f4cf8b;
+  font-family: sans-serif;
+  letter-spacing: 1.68px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.frame:after {
   content: "";
-  display: block;
-  width: calc(100% - 2 * 0.55rem);
-  height: 2px;
-  background-color: #d7bb8b;
   position: absolute;
-  left: .6rem
-} */
+  --size: 8%;
+  top: -2%;
+  left: -3.6%;
+  width: calc(99% + var(--size));
+  border-top: l;
+  height: calc(120% - var(--size) * 2);
+  border: 0.5px solid #f4cf8b;
+  pointer-events: none;
+  z-index: -2;
+}

@@ -1,27 +1,86 @@
 import React from "react";
 import gsap from "gsap";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useGSAP } from "@gsap/react";
+import {
+  useGLTF,
+  Stage,
+  PresentationControls,
+  Environment,
+} from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
+function Model(props) {
+  const { scene } = useGLTF("/Orinthopter.glb");
+  const modelRef = useRef();
 
+  // Add continuous rotation
+  useFrame(() => {
+    if (modelRef.current) {
+      modelRef.current.rotation.y += 0.01; // Adjust the rotation speed as needed
+    }
+  });
+
+  return <primitive ref={modelRef} object={scene} {...props} />;
+}
 const HOMEpage = () => {
   const lenisRef = useRef(null);
   const box = useRef();
+  const [SideImgVisible, setSideImgVisible] = useState(false);
+  const [BottomImgVisible, setBottomImgVisible] = useState(false);
   const [showdropdown, setShowdropdown] = useState(true);
-
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const checkVisibility = () => {
+      const sideimg = document.querySelector(".sideimg");
+      const bottomimg = document.querySelector(".bottomimg");
+
+      if (sideimg) {
+        const sideimgPosition = sideimg.getBoundingClientRect().left;
+
+        // Check if sideimg is visible
+        if (sideimgPosition === 0) {
+          setSideImgVisible(true);
+        } else {
+          setSideImgVisible(false);
+        }
+      }
+
+      if (bottomimg) {
+        const bottomimgPosition = bottomimg.getBoundingClientRect().bottom;
+
+        // Check if bottomimg is visible
+        if (bottomimgPosition === 0) {
+          setBottomImgVisible(true);
+        } else {
+          setBottomImgVisible(false);
+        }
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", checkVisibility);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("scroll", checkVisibility);
+    };
+  }, []); // Run this effect only once when the component mounts
+
   useGSAP(
     () => {
       let t = gsap.timeline({
         scrollTrigger: {
           trigger: ".outer",
           start: "top top",
-          end: "1000% top",
+          end: "700% top",
           pin: true,
           scrub: 2,
-          // markers: true,
+          markers: true,
         },
       });
 
@@ -42,17 +101,57 @@ const HOMEpage = () => {
       t.to(".Events", {
         opacity: 1,
 
-        duration: 2, // Increase this for slower, longer animation
+        duration: 4, // Increase this for slower, longer animation
       });
 
-      t.to([".sideimg", ".bottomimg"], {
-        opacity: 1,
-        left: (index, target) =>
-          target.classList.contains("sideimg") ? 0 : undefined, // Ensures sqimg animates right
-        bottom: (index, target) =>
-          target.classList.contains("bottomimg") ? 0 : undefined, // Ensures sqimg animates right
-        duration: 11,
-      });
+      const cardsContainer = document.querySelector(".cards");
+      if (cardsContainer) {
+        const cardHeight =
+          cardsContainer.querySelector(".card").offsetHeight + 16; // Card height + gap
+        const gridColumns =
+          window.innerWidth < 768 // Check if screen width is less than 768px (phone)
+            ? 1 // Mobile: single column
+            : window
+                .getComputedStyle(cardsContainer)
+                .gridTemplateColumns.split(" ").length; // Desktop: grid column count
+        const totalRows = Math.ceil(
+          cardsContainer.childElementCount / gridColumns
+        );
+        const totalHeight =
+          totalRows * cardHeight -
+          cardsContainer.querySelector(".card").offsetHeight;
+
+        t.to(
+          cardsContainer.querySelectorAll(".card"),
+          {
+            y: `-${totalHeight}px`, // Move cards up dynamically
+            ease: "none",
+            duration: totalRows * 2, // Adjust speed dynamically based on rows
+          },
+          "+=1"
+        );
+      }
+
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        t.to(
+          [".sideimg"],
+          {
+            opacity: 1,
+            left: 0,
+            duration: 7,
+          },
+          "-=3"
+        );
+      }
+      t.to(
+        [".bottomimg"],
+        {
+          opacity: 1,
+          bottom: 0,
+          duration: 7,
+        },
+        "-=3"
+      );
 
       gsap.utils.toArray(".page").forEach((page) => {
         t.to(page, {
@@ -104,19 +203,58 @@ const HOMEpage = () => {
 
     // Update ScrollTrigger to sync with Lenis
     lenis.on("scroll", ScrollTrigger.update);
-
     gsap.to(".circle-glyph", {
       rotate: 180,
       opacity: 0.3,
       duration: 3.5, // Longer duration for smoother animation
       ease: "expo.out", // Use exponential easing for a polished look
     });
+    return () => {
+      lenis.destroy();
+    };
   }, []); // Run once when the component mounts
 
   return (
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
+          {/* <Canvas
+            dpr={[1, 2]}
+            shadows
+            camera={{ fov: 45 }}
+            style={{
+              position: "relative",
+              zIndex: "1",
+              left: "10vw",
+              top: "10vh",
+              width: "80%",
+              height: "80%",
+              backgroundColor: "transparent",
+            }}
+          >
+            <color attach="backgroundColor" args={["transparent"]} />
+            <ambientLight intensity={0.3} />
+            <directionalLight
+              position={[10, 10, 10]}
+              intensity={1}
+              castShadow
+            />
+            <pointLight position={[5, 5, 5]} intensity={0.8} />
+
+            <PresentationControls
+              speed={1.5}
+              global
+              zoom={2}
+              polar={[-Math.PI / 2, Math.PI / 2]}
+              azimuth={[-Infinity, Infinity]}
+              minZoom={0}
+              maxZoom={0}
+            >
+              <Stage environment={null}>
+                <Model scale={0.02} style={{ scale: "0.8" }} />
+              </Stage>
+            </PresentationControls>
+          </Canvas> */}
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -285,7 +423,7 @@ const HOMEpage = () => {
             ></path>
           </svg>
         </div>
-        <div className="navigation items-center absolute bottom-[2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
+        <div className="navigation z-10 items-center absolute bottom-[2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
           <ul className="main-menu laptop_home_bottom_menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
@@ -317,7 +455,7 @@ const HOMEpage = () => {
             </li>
           </ul>
         </div>
-        <div className="menu-button lg:hidden absolute top-[4%] right-[0%] z-10 h-10 flex gap-1 items-center w-[130px]">
+        <div className="menu-button lg:hidden absolute top-[4%] right-[0%] z-20 h-10 flex gap-1 items-center w-[130px]">
           {/* Line with Gradient */}
           <div className="bg-gradient-to-l from-[#F4CF8B] to-transparent h-[2px] w-[45%]"></div>
 
@@ -364,7 +502,7 @@ const HOMEpage = () => {
         </div>
         <div
           id="drawer-navigation"
-          className={`text-white absolute left-0 text-center w-full  top-0 right-0 h-full ${
+          className={`text-white absolute z-10 left-0 text-center w-full  top-0 right-0 h-full ${
             showdropdown ? "-translate-x-full" : "-translate-x"
           } overflow-y-auto transition-transform duration-1000`}
         >
@@ -676,13 +814,13 @@ const HOMEpage = () => {
               ></video>
             </div>
           </div>
-          <div className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-2 border-green-500">
+          <div className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500">
             <svg
-              className="circle-glyph2 absolute "
+              className="circle-glyph2 absolute"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1373 1373"
-              width="110%" // Set width and height as per your need
+              width="110%"
               height="110%"
               opacity={0.4}
             >
@@ -708,76 +846,55 @@ const HOMEpage = () => {
                 stroke="#f4cf8b"
               ></path>
             </svg>
-            <div className="container h-full w-full mx-auto p-8">
-              <h2 className="text-xl text-white  mb-4 text-center">
+            <div className="container2 relative  h-full w-full  p-8">
+              <h2 className="text-xl text-white mb-4 text-center">
                 LATEST NEWS
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-4  gap-4">
-                {/* <!-- Card 1 --> */}
-                <div className="card  border-[1.5px] border-custom-border relative">
-                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                    <div className="thumbnail">
-                      <img src="../src/assets/thumb1.png" alt="" />
-                    </div>
-                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
-                      <div className="absolute left-[45%] -top-[25%] ">
-                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
-                          <div className="absolute inset-0 bg-[#23201d]"></div>
-                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
-                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
-                        </div>
+              <div
+                className={`cards ${BottomImgVisible ? "md:grid" : ""} ${
+                  SideImgVisible ? "md:z-0" : ""
+                } absolute left-0 z-50 p-8 overflow-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}
+              >
+                {/* Card Components */}
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((card, index) => (
+                  <div
+                    key={index}
+                    className="card cursor-pointer border-[1.5px] border-custom-border relative"
+                  >
+                    <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                      <div className="thumbnail">
+                        <img src="../src/assets/thumb1.png" alt="" />
                       </div>
-                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
-                        Communinet Signal #2
-                      </h3>
+                      <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
+                        <div className="absolute left-[45%] -top-[25%]">
+                          <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                            <div className="absolute inset-0 bg-[#23201d]"></div>
+                            <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                            <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
+                          </div>
+                        </div>
+                        <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                          Communinet Signal #{card}
+                        </h3>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="card  border-[1.5px] border-custom-border relative">
-                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                    <div className="thumbnail">
-                      <img src="../src/assets/thumb1.png" alt="" />
-                    </div>
-                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
-                      <div className="absolute left-[45%] -top-[25%] ">
-                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
-                          <div className="absolute inset-0 bg-[#23201d]"></div>
-                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
-                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
-                        </div>
-                      </div>
-                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
-                        Communinet Signal #2
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="card  border-[1.5px] border-custom-border relative">
-                  <div className=" flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                    <div className="thumbnail">
-                      <img src="../src/assets/thumb1.png" alt="" />
-                    </div>
-                    <div className="content relative border-t-[1.5px] p-2  border-t-[#5C4033]">
-                      <div className="absolute left-[45%] -top-[25%] ">
-                        <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
-                          <div className="absolute inset-0 bg-[#23201d]"></div>
-                          <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
-                          <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
-                        </div>
-                      </div>
-                      <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
-                        Communinet Signal #2
-                      </h3>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="sideimg hidden md:flex  absolute w-full h-full -left-[100%] z-50"></div>
-          <div className="bottomimg flex  md:hidden absolute w-full h-full -bottom-[100%] z-30"></div>
-          <div className="page page1 bg-blue-500 flex-col md:flex-row absolute w-full h-full flex opacity-0 z-20 ">
+          <div
+            className={`sideimg hidden md:flex  absolute w-full h-full -left-[150%]  ${
+              SideImgVisible ? "z-[50]" : "z-[30]"
+            }`}
+          ></div>
+          <div
+            className={`bottomimg flex md:hidden absolute w-full h-full  ${
+              BottomImgVisible ? "z-[50]" : "z-[30]"
+            } -bottom-[150%]`}
+          ></div>
+          <div className="page page1 bg-blue-500 flex-col md:flex-row absolute w-full h-full flex opacity-0 ">
             <div className="section1 border border-red-500 h-full w-[25%]"></div>
             <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page1</p>
@@ -794,7 +911,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="page page2 absolute w-full h-full flex opacity-0 z-20 bg-blue-900">
+          <div className="page page2 absolute w-full h-full flex opacity-0 bg-blue-900">
             <div className="section1 border border-red-500 h-full w-[25%]"></div>
             <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page2</p>

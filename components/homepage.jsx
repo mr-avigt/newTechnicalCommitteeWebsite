@@ -29,159 +29,118 @@ const HOMEpage = () => {
   const lenisRef = useRef(null);
   const box = useRef();
   const [SideImgVisible, setSideImgVisible] = useState(false);
-  const [BottomImgVisible, setBottomImgVisible] = useState(false);
   const [showdropdown, setShowdropdown] = useState(true);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const checkVisibility = () => {
-      const sideimg = document.querySelector(".sideimg");
-      const bottomimg = document.querySelector(".bottomimg");
+  useGSAP(() => {
+    let t = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".outer",
+        start: "top top",
+        end: "600% top",
+        pin: true,
+        scrub: 2,
+        // markers: true,
+      },
+    });
 
-      if (sideimg) {
-        const sideimgPosition = sideimg.getBoundingClientRect().left;
-
-        // Check if sideimg is visible
-        if (sideimgPosition === 0) {
-          setSideImgVisible(true);
-        } else {
-          setSideImgVisible(false);
-        }
-      }
-
-      if (bottomimg) {
-        const bottomimgPosition = bottomimg.getBoundingClientRect().bottom;
-
-        // Check if bottomimg is visible
-        if (bottomimgPosition === 0) {
-          setBottomImgVisible(true);
-        } else {
-          setBottomImgVisible(false);
-        }
-      }
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", checkVisibility);
-
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener("scroll", checkVisibility);
-    };
-  }, []); // Run this effect only once when the component mounts
-
-  useGSAP(
-    () => {
-      let t = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".outer",
-          start: "top top",
-          end: "700% top",
-          pin: true,
-          scrub: 2,
-          markers: true,
-        },
-      });
-
-      t.to(".inner", {
-        scale: 3,
-        ease: "none",
-        duration: 7, // Adjust as needed
-      }).to(
-        ".base",
-        {
-          opacity: 1,
-          ease: "none",
-          duration: 1, // Adjust to match the `.inner` scaling duration
-        },
-        "<" // Ensures the animations happen at the same time
-      );
-
-      t.to(".Events", {
+    t.to(".inner", {
+      scale: 3,
+      ease: "none",
+      duration: 7, // Adjust as needed
+    }).to(
+      ".base",
+      {
         opacity: 1,
+        ease: "none",
+        duration: 1, // Adjust to match the `.inner` scaling duration
+      },
+      "<" // Ensures the animations happen at the same time
+    );
 
-        duration: 4, // Increase this for slower, longer animation
-      });
+    t.to(".Events", {
+      opacity: 1,
 
-      const cardsContainer = document.querySelector(".cards");
-      if (cardsContainer) {
-        const cardHeight =
-          cardsContainer.querySelector(".card").offsetHeight + 16; // Card height + gap
-        const gridColumns =
-          window.innerWidth < 768 // Check if screen width is less than 768px (phone)
-            ? 1 // Mobile: single column
-            : window
-                .getComputedStyle(cardsContainer)
-                .gridTemplateColumns.split(" ").length; // Desktop: grid column count
-        const totalRows = Math.ceil(
-          cardsContainer.childElementCount / gridColumns
-        );
-        const totalHeight =
-          totalRows * cardHeight -
-          cardsContainer.querySelector(".card").offsetHeight;
-
-        t.to(
-          cardsContainer.querySelectorAll(".card"),
-          {
-            y: `-${totalHeight}px`, // Move cards up dynamically
-            ease: "none",
-            duration: totalRows * 2, // Adjust speed dynamically based on rows
-          },
-          "+=1"
-        );
-      }
-
-      if (window.matchMedia("(min-width: 768px)").matches) {
-        t.to(
-          [".sideimg"],
-          {
-            opacity: 1,
-            left: 0,
-            duration: 7,
-          },
-          "-=3"
-        );
-      }
+      duration: 4, // Increase this for slower, longer animation
+    });
+    const cardsContainer = document.querySelector(".cards");
+    if (cardsContainer) {
+      const cardHeight = 249;
+      const gridColumns =
+        window.innerWidth < 768
+          ? 1
+          : window
+              .getComputedStyle(cardsContainer)
+              .gridTemplateColumns.split(" ")
+              .filter(Boolean).length; // Ensure proper column count
+      const totalRows = Math.ceil(
+        cardsContainer.childElementCount / gridColumns
+      );
+      const totalHeight = totalRows * cardHeight - 175;
+      console.log(cardHeight);
       t.to(
-        [".bottomimg"],
+        document.querySelector(".cards").querySelectorAll(".card"),
+        {
+          y: `-${totalHeight}px`, // Move cards up dynamically
+          ease: "none",
+          duration: totalRows * 4, // Adjust speed dynamically based on rows
+        },
+        "+=1"
+      );
+    }
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      t.to(
+        [".sideimg"],
         {
           opacity: 1,
-          bottom: 0,
+          left: 0,
           duration: 7,
         },
         "-=3"
-      );
+      ).to(".cards", {
+        zIndex: "0",
+      });
+    }
+    t.to(
+      [".bottomimg"],
+      {
+        opacity: 1,
+        bottom: 0,
+        duration: 7,
+      },
+      "-=3"
+    ).to(".cards", {
+      zIndex: "0",
+    });
 
-      gsap.utils.toArray(".page").forEach((page) => {
-        t.to(page, {
+    gsap.utils.toArray(".page").forEach((page) => {
+      t.to(page, {
+        opacity: 1,
+        duration: 4,
+      });
+      t.to(
+        [page.querySelector(".sqimg"), page.querySelector(".section2")],
+        {
           opacity: 1,
-          duration: 4,
-        });
-        t.to(
-          [page.querySelector(".sqimg"), page.querySelector(".section2")],
-          {
-            opacity: 1,
-            bottom: 0,
-            right: (index, target) =>
-              target.classList.contains("sqimg") ? 0 : undefined, // Ensures sqimg animates right
-            duration: 5, // Simultaneous entry
-            // Start overlapping with the previous animation
-          },
-          "-=0.5"
-        );
-        t.to([page.querySelector(".sqimg"), page.querySelector(".section2")], {
-          opacity: 0,
-          bottom: (index, target) =>
-            target.classList.contains("sqimg") ? "-100%" : "100%", // Ensures different animations for .sqimg and .section2
-          right: "-90%",
-          duration: 5, // Smooth exit
-          delay: 1,
-        });
-      }, "-=1.5");
-    },
-    { scope: box }
-  );
+          bottom: 0,
+          right: (index, target) =>
+            target.classList.contains("sqimg") ? 0 : undefined, // Ensures sqimg animates right
+          duration: 5, // Simultaneous entry
+          // Start overlapping with the previous animation
+        },
+        "-=0.5"
+      );
+      t.to([page.querySelector(".sqimg"), page.querySelector(".section2")], {
+        opacity: 0,
+        bottom: (index, target) =>
+          target.classList.contains("sqimg") ? "-100%" : "100%", // Ensures different animations for .sqimg and .section2
+        right: "-90%",
+        duration: 5, // Smooth exit
+        delay: 1,
+      });
+    }, "-=1.5");
+  });
   useLayoutEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis({
@@ -190,7 +149,7 @@ const HOMEpage = () => {
       smoothWheel: true, // Enable smooth scrolling for wheel events
       wheelMultiplier: 0.7, // Adjust scroll sensitivity for mouse wheels (default is 1)
       smoothTouch: true, // Enable smooth scrolling for touch devices
-      touchMultiplier: 1.5, // Adjust scroll sensitivity for touch gestures (default is 2)
+      touchMultiplier: 2, // Adjust scroll sensitivity for touch gestures (default is 2)
       infinite: false, // Disable infinite scroll if enabled
     });
     lenisRef.current = lenis;
@@ -218,7 +177,7 @@ const HOMEpage = () => {
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
-          {/* <Canvas
+          <Canvas
             dpr={[1, 2]}
             shadows
             camera={{ fov: 45 }}
@@ -254,7 +213,7 @@ const HOMEpage = () => {
                 <Model scale={0.02} style={{ scale: "0.8" }} />
               </Stage>
             </PresentationControls>
-          </Canvas> */}
+          </Canvas>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -387,7 +346,7 @@ const HOMEpage = () => {
         </div>
         <div className="drone w-full h-full flex items-center justify-center">
           <svg
-            className="circle-glyph opacity-0 absolute opacity-30"
+            className="circle-glyph absolute opacity-30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1373 1373"
@@ -806,7 +765,7 @@ const HOMEpage = () => {
               </span>
               <video
                 className="base h-auto object-cover opacity-50"
-                src="../src/assets/video.mp4"
+                src="../src/assets/TECHF.mp4"
                 muted
                 loop
                 autoPlay
@@ -851,9 +810,7 @@ const HOMEpage = () => {
                 LATEST NEWS
               </h2>
               <div
-                className={`cards ${BottomImgVisible ? "md:grid" : ""} ${
-                  SideImgVisible ? "md:z-0" : ""
-                } absolute left-0 z-50 p-8 overflow-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}
+                className={`cards z-50 absolute left-0 p-8 overflow-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}
               >
                 {/* Card Components */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((card, index) => (
@@ -890,9 +847,7 @@ const HOMEpage = () => {
             }`}
           ></div>
           <div
-            className={`bottomimg flex md:hidden absolute w-full h-full  ${
-              BottomImgVisible ? "z-[50]" : "z-[30]"
-            } -bottom-[150%]`}
+            className={`bottomimg z-50 flex md:hidden absolute w-full h-full -bottom-[150%]`}
           ></div>
           <div className="page page1 bg-blue-500 flex-col md:flex-row absolute w-full h-full flex opacity-0 ">
             <div className="section1 border border-red-500 h-full w-[25%]"></div>

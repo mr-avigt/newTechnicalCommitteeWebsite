@@ -765,7 +765,7 @@ const HOMEpage = () => {
               </span>
               <video
                 className="base h-auto object-cover opacity-50"
-                src="../src/assets/TECHF.mp4"
+                src="TECHF.mp4"
                 muted
                 loop
                 autoPlay
@@ -820,7 +820,7 @@ const HOMEpage = () => {
                   >
                     <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                       <div className="thumbnail">
-                        <img src="../src/assets/thumb1.png" alt="" />
+                        <img src="thumb1.png" alt="" />
                       </div>
                       <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
                         <div className="absolute left-[45%] -top-[25%]">

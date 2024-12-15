@@ -14,7 +14,7 @@
   background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
 }
 .HOME {
-  background-image: url("./assets/HOMEBGD.png");
+  background-image: url("./assets/HOMEBGD2.webp");
   background-size: cover;
   /* Prevent the image from repeating */
   background-repeat: no-repeat;

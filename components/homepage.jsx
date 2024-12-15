@@ -44,29 +44,42 @@ const HOMEpage = () => {
         // markers: true,
       },
     });
-
+    let video = document.querySelector('.inner video'); // Select the video inside ".inner"
     t.to(".inner", {
-      scale: 3,
+      scale: 3.1,
       ease: "none",
-      duration: 7, // Adjust as needed
+      duration:"4",
+      scrollTrigger: {
+        trigger: ".outer",
+        end:"bottom",
+        markers:true,
+        onEnter: () => {
+          video.play(); // Play the video when ".inner" enters the viewport
+        },
+        onLeave: () => {
+          video.pause(); // Optionally pause the video when scrolling out
+        },
+        onEnterBack: () => {
+          video.play(); // Play again when scrolling back
+        },
+        onLeaveBack: () => {
+          video.pause(); // Optionally pause again when scrolling out backward
+        }}
     }).to(
       ".base",
       {
         opacity: 1,
         ease: "none",
-        duration: 1, // Adjust to match the `.inner` scaling duration
+        duration: 4, // Adjust to match the `.inner` scaling duration
       },
       "<" // Ensures the animations happen at the same time
-    );
-
-    t.to(".Events", {
+    ).to(".Events", {
       opacity: 1,
+    },"+=1");
 
-      duration: 4, // Increase this for slower, longer animation
-    });
     const cardsContainer = document.querySelector(".cards");
     if (cardsContainer) {
-      const cardHeight = 249;
+      const cardHeight = 229;
       const gridColumns =
         window.innerWidth < 768
           ? 1
@@ -84,32 +97,32 @@ const HOMEpage = () => {
         {
           y: `-${totalHeight}px`, // Move cards up dynamically
           ease: "none",
-          duration: totalRows * 4, // Adjust speed dynamically based on rows
+          duration: totalRows * 1.2, // Adjust speed dynamically based on rows
         },
-        "+=1"
+        "+=0.8"
       );
     }
     if (window.matchMedia("(min-width: 768px)").matches) {
-      t.to(
+      t.to(".cards", {
+        zIndex: "0",
+      }).to(
         [".sideimg"],
         {
           opacity: 1,
           left: 0,
-          duration: 7,
+          duration: 4,
         },
-        "-=3"
-      ).to(".cards", {
-        zIndex: "0",
-      });
+        "-=2"
+      );
     }
     t.to(
       [".bottomimg"],
       {
         opacity: 1,
         bottom: 0,
-        duration: 7,
+        duration: 4,
       },
-      "-=3"
+      "-=2"
     ).to(".cards", {
       zIndex: "0",
     });
@@ -117,7 +130,7 @@ const HOMEpage = () => {
     gsap.utils.toArray(".page").forEach((page) => {
       t.to(page, {
         opacity: 1,
-        duration: 4,
+        duration: 3,
       });
       t.to(
         [page.querySelector(".sqimg"), page.querySelector(".section2")],
@@ -135,21 +148,20 @@ const HOMEpage = () => {
         opacity: 0,
         bottom: (index, target) =>
           target.classList.contains("sqimg") ? "-100%" : "100%", // Ensures different animations for .sqimg and .section2
-        right: "-90%",
+        right: "-100%",
         duration: 5, // Smooth exit
-        delay: 1,
       });
-    }, "-=1.5");
+    }, "+=1");
   });
   useLayoutEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis({
-      damping: 0.1, // Lower values = slower scroll, Higher = faster
+      damping: 0.2, // Lower values = slower scroll, Higher = faster
       // Control the scroll speed sensitivity
       smoothWheel: true, // Enable smooth scrolling for wheel events
       wheelMultiplier: 0.7, // Adjust scroll sensitivity for mouse wheels (default is 1)
       smoothTouch: true, // Enable smooth scrolling for touch devices
-      touchMultiplier: 2, // Adjust scroll sensitivity for touch gestures (default is 2)
+      touchMultiplier: 1, // Adjust scroll sensitivity for touch gestures (default is 2)
       infinite: false, // Disable infinite scroll if enabled
     });
     lenisRef.current = lenis;
@@ -177,7 +189,7 @@ const HOMEpage = () => {
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
-          <Canvas
+          {/* <Canvas
             dpr={[1, 2]}
             shadows
             camera={{ fov: 45 }}
@@ -213,7 +225,7 @@ const HOMEpage = () => {
                 <Model scale={0.02} style={{ scale: "0.8" }} />
               </Stage>
             </PresentationControls>
-          </Canvas>
+          </Canvas> */}
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -768,7 +780,6 @@ const HOMEpage = () => {
                 src="TECHF.mp4"
                 muted
                 loop
-                autoPlay
                 playsInline
               ></video>
             </div>

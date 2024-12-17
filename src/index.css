@@ -380,7 +380,7 @@
   width: 7px;
   height: 7px;
   background: #e39de3;
-  transform: translate(235%, 0) rotate(45deg);
+  transform: translate(228%, 0) rotate(45deg);
 }
 
 @media (max-width: 991.98px) {
@@ -449,7 +449,7 @@
 }
 @media (max-width: 991.98px) {
   .features .feature.first:after {
-      top: calc(51px - 6px);
+      top: calc(49px - 6px);
       bottom: var(--line-fade-height);
 
   }
@@ -459,11 +459,11 @@
 @media (max-width: 991.98px) {
 .features .feature {
       position: relative;
-      height: 92vh;
+      /* height: 92vh; */
       opacity: 1;
       flex-direction: column;
       --tag-left: 5vw;
-      --line-left: calc(20px + var(--tag-left));
+      --line-left: calc(19px + var(--tag-left));
       --line-fade-height: 100px;
   }
 }

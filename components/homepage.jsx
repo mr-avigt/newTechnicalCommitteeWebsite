@@ -122,19 +122,20 @@ const HOMEpage = () => {
       zIndex: "0",
       opacity: 0,
       duration: 2,
-    }).to(
-      [".bottomimg", ".mobile-view"],
-      {
-        opacity: 1,
-        bottom: 0,
-        duration: 4,
-      },
-      "-=2"
-    ).to(".features",{
-      top:"0%",
-      duration: 4,
-
-    });
+    })
+      .to(
+        [".bottomimg", ".mobile-view"],
+        {
+          opacity: 1,
+          bottom: 0,
+          duration: 3,
+        },
+        "-=2"
+      )
+      .to(".features", {
+        top: "0%",
+        duration: 1.5,
+      });
     if (window.matchMedia("(min-width: 821px)").matches) {
       gsap.utils.toArray(".page").forEach((page, index) => {
         const pageLabel = `page${index + 1}`; // Create a unique label for each page
@@ -206,7 +207,7 @@ const HOMEpage = () => {
       smoothWheel: true, // Enable smooth scrolling for wheel events
       wheelMultiplier: 0.7, // Adjust scroll sensitivity for mouse wheels (default is 1)
       smoothTouch: true, // Enable smooth scrolling for touch devices
-      touchMultiplier: 3, // Adjust scroll sensitivity for touch gestures (default is 2)
+      touchMultiplier: 3.5, // Adjust scroll sensitivity for touch gestures (default is 2)
       infinite: false, // Disable infinite scroll if enabled
     });
     lenisRef.current = lenis;
@@ -1205,7 +1206,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="mobile-view border-yellow-500 border-2 z-50 flex md:hidden absolute w-full h-full">
+          <div className="mobile-view border-yellow-500 z-50 flex md:hidden absolute w-full h-full">
             <div
               className={`bottomimg z-50 flex md:hidden absolute w-full h-full -bottom-[150%]`}
             >
@@ -1227,9 +1228,9 @@ const HOMEpage = () => {
                     >
                       <div className="label">Dune: Awakening 1</div>
                       <svg
+                        className="w-[95%]"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        width="336"
                         height="51"
                         viewBox="0 0 336 51"
                       >
@@ -1312,9 +1313,9 @@ const HOMEpage = () => {
                     >
                       <div className="label">Dune: Awakening 1</div>
                       <svg
+                        className="w-[95%]"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        width="336"
                         height="51"
                         viewBox="0 0 336 51"
                       >

@@ -207,7 +207,7 @@ const HOMEpage = () => {
       const totalRows = Math.ceil(
         cardsContainer.childElementCount / gridColumns
       );
-      const totalHeight = totalRows * 229 - 75;
+      const totalHeight = totalRows * 300 ;
       t.to(
         document.querySelector(".cards").querySelectorAll(".card"),
         {
@@ -233,10 +233,9 @@ const HOMEpage = () => {
         "-=2"
       );
     }
-    t.to(".cards", {
+    t.to([".cards",".header"], {
       zIndex: "0",
       opacity: 0,
-      duration: 2,
     })
       .to(
         [".bottomimg", ".mobile-view"],
@@ -984,7 +983,7 @@ const HOMEpage = () => {
               ></path>
             </svg>
             <div className="container2 relative  h-full  w-full p-1">
-              <div className="header flex flex-col gap-2 relative z-10 items-center justify-center p-1 w-full ">
+              <div className="header flex flex-col gap-2 relative z-[60] md:z-50 items-center justify-center p-1 w-full ">
                 <div className="fady-box">
                   <div className="b_line bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
                   EVENTS
@@ -1025,7 +1024,7 @@ const HOMEpage = () => {
                   className={`cards 
                   grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                    
-                } DAY2 z-50 absolute overflow-hidden left-0 p-8  gap-4`}
+                } DAY2 z-70 absolute overflow-hidden left-0 p-8  gap-4`}
                 >
                   {/* Card Components */}
                   {day2_cards.map((card, index) => (

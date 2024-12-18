@@ -33,6 +33,27 @@ const HOMEpage = () => {
   const [showdropdown, setShowdropdown] = useState(true);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
+  const innerRef = useRef(null);
+
+  const preventOuterScroll = (e) => {
+    const target = e.currentTarget;
+
+    const scrollTop = target.scrollTop;
+    const scrollHeight = target.scrollHeight;
+    const offsetHeight = target.offsetHeight;
+
+    const isAtTop = scrollTop === 0;
+    const isAtBottom = scrollTop + offsetHeight >= scrollHeight;
+
+    if (
+      (isAtTop && e.deltaY < 0) || // Prevent scrolling up when at the top
+      (isAtBottom && e.deltaY > 0) // Prevent scrolling down when at the bottom
+    ) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   const day1_cards = [
     {
       title: "Code Wars",
@@ -187,38 +208,41 @@ const HOMEpage = () => {
       )
       .to(".base", {
         opacity: 0,
-      })
+      }).pause()
       .to(
         ".Events",
         {
-          opacity: 1        },
-        "<"
+          opacity: 1},
+        
       );
 
     const cardsContainer = document.querySelector(".cards");
     if (cardsContainer) {
-      const gridColumns =
-        window.innerWidth < 768
-          ? 1
-          : window
-              .getComputedStyle(cardsContainer)
-              .gridTemplateColumns.split(" ")
-              .filter(Boolean).length; // Ensure proper column count
-      const totalRows = Math.ceil(
-        cardsContainer.childElementCount / gridColumns
-      );
-      const totalHeight = totalRows * 300 ;
-      t.to(
-        document.querySelector(".cards").querySelectorAll(".card"),
-        {
-          y: `-${totalHeight}px`, // Move cards up dynamically
-          ease: "none",
-          duration: totalRows * 1.5, // Adjust speed dynamically based on rows
-        },
-        "+=2"
-      );
+      const computedStyle = window.getComputedStyle(cardsContainer);
+    
+      // Determine the number of grid columns
+      const gridColumns = window.innerWidth < 768 
+        ? 1 
+        : computedStyle.gridTemplateColumns.split(" ").filter(Boolean).length;
+    
+      // Calculate total rows based on number of children and columns
+      const totalRows = Math.ceil(cardsContainer.childElementCount / gridColumns);
+    
+      // Calculate the total height of the cards container
+      const totalHeight = totalRows * 300; // Assuming each row has a height of 300px
+    
+      // Animate the container instead of individual cards
+      t.to(".inner",{
+        display:"hidden"
+      }).to(cardsContainer, {
+        y: `-${totalHeight}px`, // Move the container up by its total height
+        ease: "none",
+        duration: totalRows * 2.5, // Adjust the speed dynamically
+        delay: 1, // Add an initial delay
+        overwrite: true, // Ensure no conflicting animations
+      },"+=1");
     }
-
+    
     if (window.matchMedia("(min-width: 768px)").matches) {
       t.to([".cards",".header"], {
         zIndex: "0",
@@ -982,8 +1006,8 @@ const HOMEpage = () => {
                 stroke="#f4cf8b"
               ></path>
             </svg>
-            <div className="container2 relative  h-full  w-full p-1">
-              <div className="header flex flex-col gap-2 relative z-[60] md:z-50 items-center justify-center p-1 w-full ">
+            <div className="container2 relative  h-full  w-full">
+              <div className="backdrop-blur-lg  inset-0 bg-black/50 backdrop- flex flex-col gap-2 relative z-[60] md:z-[51] items-center justify-center p-2 w-full ">
                 <div className="fady-box">
                   <div className="b_line bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
                   EVENTS
@@ -1035,7 +1059,7 @@ const HOMEpage = () => {
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                         <div className="thumbnail">
-                          <img src="thumb1.png" alt="" />
+                          <img src="thumb1.webp" alt="" />
                         </div>
                         <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
                           <div className="absolute left-[45%] -top-[25%]">
@@ -1072,7 +1096,7 @@ const HOMEpage = () => {
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                         <div className="thumbnail">
-                          <img src="thumb1.png" alt="" />
+                          <img src="thumb1.webp" alt="" />
                         </div>
                         <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
                           <div className="absolute left-[45%] -top-[25%]">
@@ -1401,7 +1425,8 @@ const HOMEpage = () => {
             <div
               className={`bottomimg z-50 flex md:hidden absolute w-full h-full -bottom-[150%]`}
             >
-              <div className="features w-full">
+              <div className="features w-full"   ref={innerRef} 
+           onWheel={preventOuterScroll}>
                 <div className="feature first last">
                   <div
                     className="feature-tag"
@@ -1478,7 +1503,7 @@ const HOMEpage = () => {
                     <div className="rotator">
                       <div className="background">
                         <div className="wrapper">
-                          <img src="thumb1.png" alt="" />
+                          <img src="thumb1.webp" alt="" />
                         </div>
                       </div>
                       {/* <div className="foreground">

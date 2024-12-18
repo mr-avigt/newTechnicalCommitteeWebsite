@@ -29,9 +29,118 @@ const HOMEpage = () => {
   const lenisRef = useRef(null);
   const box = useRef();
   const [SideImgVisible, setSideImgVisible] = useState(false);
+  const [Day2, setDay2] = useState(false);
   const [showdropdown, setShowdropdown] = useState(true);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
+  const day1_cards = [
+    {
+      title: "Code Wars",
+      description:
+        "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
+      bgColor: "#1E293B", // Background color for the card
+    },
+    {
+      title: "Robosoccer",
+      description:
+        "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
+      bgColor: "#4B5563",
+    },
+    {
+      title: "Mock Parliament ",
+      description:
+        "Experience the thrill of governance! Debate, legislate, and shape policies in a realistic mock parliament setting. Showcase leadership and persuasion!",
+      bgColor: "#6B7280",
+    },
+    {
+      title: "Truss Strength",
+      description:
+        "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
+      bgColor: "#9CA3AF",
+    },
+    {
+      title: "Tech quiz ",
+      description:
+        "A Trivia or competition quiz event covering all programing, technology trends, gadgets and many more interesting technical topics.",
+      bgColor: "#D1D5DB",
+    },
+    {
+      title: "Drone Race",
+      description:
+        "Race against time in a thrilling aerial challenge! Design, build, and fly your own aircraft for speed and precision.",
+      bgColor: "#F3F4F6",
+    },
+    {
+      title: "Spectra",
+      description:
+        "Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
+      bgColor: "#E5E7EB",
+    },
+    {
+      title: "Treasure/Technical hunt",
+      description: "NULL",
+      bgColor: "#CBD5E1",
+    },
+    {
+      title: "Challenge 9",
+      description: "This is the description for Challenge 9.",
+      bgColor: "#A3BFFA",
+    },
+  ];
+  const day2_cards = [
+    {
+      title: "Circuit Debugging",
+      description:
+        "Test your problem-solving skills! Debug faulty circuits, identify errors, and restore functionality in this electrifying and brain-teasing competition.",
+      bgColor: "#1E293B", // Background color for the card
+    },
+    {
+      title: "Mock Parliament",
+      description:
+        "Experience the thrill of governance! Debate, legislate, and shape policies in a realistic mock parliament setting. Showcase leadership and persuasion!",
+      bgColor: "#4B5563",
+    },
+    {
+      title: "Robosoccer",
+      description:
+        "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
+      bgColor: "#6B7280",
+    },
+    {
+      title: "Truss Strength",
+      description:
+        "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
+      bgColor: "#9CA3AF",
+    },
+    {
+      title: "Auction league",
+      description:
+        "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
+      bgColor: "#D1D5DB",
+    },
+    {
+      title: "Spectra 2",
+      description:
+        "In this event host will tell the image description and will have an image with them that they will not show and then the participants will be required to generate the image and the one matching the image and description most will win ....using stable diffusion , dall-e or any other websites",
+      bgColor: "#F3F4F6",
+    },
+    {
+      title: "Shark Tank",
+      description:
+        "Pitch your business ideas to a panel of investors! Secure funding, gain feedback, and turn your vision into reality.",
+      bgColor: "#E5E7EB",
+    },
+    {
+      title: "Tech charades",
+      description: `Participants will have to act out tech-related terms, gadgets, or famous tech personalities without speaking, and their teammates must guess what it is Example words/phrases: "Artificial Intelligence," "Smartphone," "Elon Musk," "JavaScript," "Wi-Fi," "Bitcoin," "Virtual Reality," etc`,
+      bgColor: "#CBD5E1",
+    },
+    {
+      title: "Challenge 9",
+      description: "This is the description for Challenge 9.",
+      bgColor: "#A3BFFA",
+    },
+  ];
 
   useGSAP(() => {
     let t = gsap.timeline({
@@ -76,13 +185,14 @@ const HOMEpage = () => {
         },
         "<" // Ensures the animations happen at the same time
       )
+      .to(".base", {
+        opacity: 0,
+      })
       .to(
         ".Events",
         {
-          opacity: 1,
-          duration:1
-        },
-        "+=1"
+          opacity: 1        },
+        "<"
       );
 
     const cardsContainer = document.querySelector(".cards");
@@ -97,16 +207,20 @@ const HOMEpage = () => {
       const totalRows = Math.ceil(
         cardsContainer.childElementCount / gridColumns
       );
-      const totalHeight = totalRows * 229 - 175;
-      t.to(document.querySelector(".cards").querySelectorAll(".card"), {
-        y: `-${totalHeight}px`, // Move cards up dynamically
-        ease: "none",
-        duration: totalRows * 1.5, // Adjust speed dynamically based on rows
-      },"+=3");
+      const totalHeight = totalRows * 229 - 75;
+      t.to(
+        document.querySelector(".cards").querySelectorAll(".card"),
+        {
+          y: `-${totalHeight}px`, // Move cards up dynamically
+          ease: "none",
+          duration: totalRows * 1.5, // Adjust speed dynamically based on rows
+        },
+        "+=2"
+      );
     }
 
     if (window.matchMedia("(min-width: 768px)").matches) {
-      t.to(".cards", {
+      t.to([".cards",".header"], {
         zIndex: "0",
         opacity: 0,
       }).to(
@@ -147,16 +261,8 @@ const HOMEpage = () => {
           .to(page, {
             opacity: 1,
             duration: 3,
-          }).call(() => {
-            // Remove the "active" class from all nav buttons
-            document
-              .querySelectorAll(".nav-button-section")
-              .forEach((btn) => btn.classList.remove("active"));
-            // Add the "active" class to the current nav button
-            document
-              .querySelectorAll(".nav-button-section")
-              [index].classList.add("active");
           })
+
           .to(
             [page.querySelector(".sqimg"), page.querySelector(".section2")],
             {
@@ -168,20 +274,36 @@ const HOMEpage = () => {
             },
             "-=0.5"
           )
-          
-          .to([page.querySelector(".sqimg"), page.querySelector(".section2")], {
-            opacity: 0,
-            bottom: (index, target) =>
-              target.classList.contains("sqimg") ? "-100%" : "100%",
-            right: "-100%",
-            duration: 5,
+          .pause()
+          .call(() => {
+            // Remove the "active" class from all nav buttons
+            document
+              .querySelectorAll(".nav-button-section")
+              .forEach((btn) => btn.classList.remove("active"));
+            // Add the "active" class to the current nav button
+            document
+              .querySelectorAll(".nav-button-section")
+              [index].classList.add("active");
           })
+          .pause()
+
+          .to(
+            [page.querySelector(".sqimg"), page.querySelector(".section2")],
+            {
+              opacity: 0,
+              bottom: (index, target) =>
+                target.classList.contains("sqimg") ? "-100%" : "100%",
+              right: "-100%",
+              duration: 4,
+            },
+            "+=2"
+          )
           .call(() => {
             // Remove the "active" class from all nav buttons when leaving the page
             document
               .querySelectorAll(".nav-button-section")
               .forEach((btn) => btn.classList.remove("active"));
-          })
+          });
       });
     }
     // // Allow timeline navigation via buttons
@@ -204,7 +326,7 @@ const HOMEpage = () => {
       damping: 0.2, // Lower values = slower scroll, Higher = faster
       // Control the scroll speed sensitivity
       smoothWheel: true, // Enable smooth scrolling for wheel events
-      wheelMultiplier: 0.4, // Adjust scroll sensitivity for mouse wheels (default is 1)
+      wheelMultiplier: 0.5, // Adjust scroll sensitivity for mouse wheels (default is 1)
       smoothTouch: true, // Enable smooth scrolling for touch devices
       touchMultiplier: 3.5, // Adjust scroll sensitivity for touch gestures (default is 2)
       infinite: false, // Disable infinite scroll if enabled
@@ -448,24 +570,24 @@ const HOMEpage = () => {
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
-            <li className=" h-full flex flex-col w-1/2 items-center justify-center">
+            <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold  tracking-widest ">
-                CHARACTERS
+                GALLERY
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-widest">
-                CITIES
+                SPONSORS
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
-            <li className=" h-full flex flex-col w-1/2 items-center justify-center">
+            <li className=" h-full flex flex-col w-[55%] items-center justify-center">
               <div className="w-full h-full "></div>
-              <span className="w-full text-center h-1/2 font-semibold tracking-widest">
-                CREATURES
+              <span className="w-full text-center h-1/2 font-semibold tracking-wider">
+                CONTACTUS | MERCH
               </span>
               <span className="w-full h-full"></span>
             </li>
@@ -531,7 +653,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  HOME
+                  EVENTS
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -595,7 +717,7 @@ const HOMEpage = () => {
                 data-menu-link=""
               >
                 {/* Title */}
-                <span className="menu-link-wrapper  ml-8 ">CHARACTERS</span>
+                <span className="menu-link-wrapper  ml-8 ">GALLERY</span>
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
                   className="absolute left-0 top-1/2 transform -translate-y-1/2  scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100  transition-opacity duration-1000"
@@ -658,7 +780,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  CITIES
+                  SPONSORS
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -723,7 +845,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper transition ml-8 ">
-                  FEATURES
+                  CONTACTUS | MERCH
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -861,10 +983,10 @@ const HOMEpage = () => {
                 stroke="#f4cf8b"
               ></path>
             </svg>
-            <div className="container2 relative  h-full  w-full  p-8">
-              <div className="header  flex items-center justify-center pb-4 w-full ">
+            <div className="container2 relative  h-full  w-full p-1">
+              <div className="header flex flex-col gap-2 relative z-10 items-center justify-center p-1 w-full ">
                 <div className="fady-box">
-                  <div className="b_line bg-gradient-to-l from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
+                  <div className="b_line bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
                   EVENTS
                   <div className="borders absolute">
                     <div className="before"></div>
@@ -872,37 +994,108 @@ const HOMEpage = () => {
                   </div>
                   <div className="r_line bg-gradient-to-r from-[#F4CF8B] absolute to-transparent h-[2px] w-20"></div>
                 </div>
-              </div>
 
-              <div
-                className={`cards z-50 absolute overflow-hidden left-0 p-8  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}
-              >
-                {/* Card Components */}
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((card, index) => (
-                  <div
-                    key={index}
-                    className="card cursor-pointer border-[1.5px] border-custom-border relative"
+                <div className="dayselect flex items-center justify center">
+                  <button
+                    className="fady-box"
+                    onClick={() => {
+                      setDay2(false);
+                    }}
                   >
-                    <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                      <div className="thumbnail">
-                        <img src="thumb1.png" alt="" />
-                      </div>
-                      <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
-                        <div className="absolute left-[45%] -top-[25%]">
-                          <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
-                            <div className="absolute inset-0 bg-[#23201d]"></div>
-                            <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
-                            <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
-                          </div>
+                    DAY 1
+                    <div className="borders1 absolute">
+                      <div className="before"></div>
+                    </div>
+                  </button>
+                  <button
+                    className="fady-box border-l-2 border-custom-border"
+                    onClick={() => {
+                      setDay2(true);
+                    }}
+                  >
+                    DAY 2
+                    <div className="borders2 absolute">
+                      <div className="after"></div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              {Day2 ? (
+                <div
+                  className={`cards 
+                  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+                   
+                } DAY2 z-50 absolute overflow-hidden left-0 p-8  gap-4`}
+                >
+                  {/* Card Components */}
+                  {day2_cards.map((card, index) => (
+                    <div
+                      key={index}
+                      className="card cursor-pointer border-[1.5px] border-custom-border relative"
+                      // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
+                    >
+                      <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                        <div className="thumbnail">
+                          <img src="thumb1.png" alt="" />
                         </div>
-                        <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
-                          Communinet Signal #{card}
-                        </h3>
+                        <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
+                          <div className="absolute left-[45%] -top-[25%]">
+                            <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                              <div className="absolute inset-0 bg-[#23201d]"></div>
+                              <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                              <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
+                            </div>
+                          </div>
+                          <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                            {card.title}
+                          </h3>
+                          <p className="text-sm text-[#f4cf9b]">
+                            {card.description}
+                          </p>{" "}
+                          {/* Add the description */}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className={`cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+                   
+                } z-50 absolute overflow-hidden left-0 p-8  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4`}
+                >
+                  {/* Card Components */}
+                  {day1_cards.map((card, index) => (
+                    <div
+                      key={index}
+                      className="card cursor-pointer border-[1.5px] border-custom-border relative"
+                      // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
+                    >
+                      <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                        <div className="thumbnail">
+                          <img src="thumb1.png" alt="" />
+                        </div>
+                        <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
+                          <div className="absolute left-[45%] -top-[25%]">
+                            <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                              <div className="absolute inset-0 bg-[#23201d]"></div>
+                              <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
+                              <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
+                            </div>
+                          </div>
+                          <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                            {card.title}
+                          </h3>
+                          <p className="text-sm text-[#f4cf9b]">
+                            {card.description}
+                          </p>{" "}
+                          {/* Add the description */}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -1386,70 +1579,119 @@ const HOMEpage = () => {
         </div>
         <div className="container w-full">
           <div className="contactus md:w-[60%]">
-          <section className="bg-white dark:bg-gray-900">
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-          Contact Us
-        </h2>
-        <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-          Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.
-        </p>
-        <form action="#" className="space-y-8">
-          <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Your email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-              placeholder="name@flowbite.com"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="subject"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-              placeholder="Let us know how we can help you"
-              required
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <label
-              htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-            >
-              Your message
-            </label>
-            <textarea
-              id="message"
-              rows="6"
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Leave a comment..."
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          >
-            Send message
-          </button>
-        </form>
-      </div>
-    </section>
+            <section className="bg-white dark:bg-gray-900">
+              <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+                  Contact Us
+                </h2>
+                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+                  Got a technical issue? Want to send feedback about a beta
+                  feature? Need details about our Business plan? Let us know.
+                </p>
+                <form action="#" className="space-y-8">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Your email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                      placeholder="name@flowbite.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                      placeholder="Let us know how we can help you"
+                      required
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                    >
+                      Your message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows="6"
+                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="Leave a comment..."
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  >
+                    Send message
+                  </button>
+                </form>
+              </div>
+            </section>
           </div>
         </div>
+        <footer className="footer bg-[#130f0a] text-white text-base-content p-10 flex justify-around  items-start">
+          <nav className="flex flex-col gap-2">
+            <h4 className="footer-title text-2xl font-bold">Services</h4>
+            <a className="link link-hover">Branding</a>
+            <a className="link link-hover">Design</a>
+            <a className="link link-hover">Marketing</a>
+            <a className="link link-hover">Advertisement</a>
+          </nav>
+          <nav className="flex flex-col ">
+            <h6 className="footer-title text-2xl font-bold">Company</h6>
+            <a className="link link-hover">About us</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Jobs</a>
+            <a className="link link-hover">Press kit</a>
+          </nav>
+          <nav className="flex flex-col ">
+            <h6 className="footer-title text-2xl font-bold">Legal</h6>
+            <a className="link link-hover">Terms of use</a>
+            <a className="link link-hover">Privacy policy</a>
+            <a className="link link-hover">Cookie policy</a>
+          </nav>
+          <form>
+            <h6 className="footer-title text-2xl font-bold">
+              Connect with us:
+            </h6>
+            <div className="m-4 flex gap-4 ">
+              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#1877f2] cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+                </svg>
+              </span>
+              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-white cursor-pointer 	;">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 512 512"
+                >
+                  <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                </svg>
+              </span>
+              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c13584] cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+              </span>
+            </div>
+          </form>
+        </footer>
       </section>
     </>
   );

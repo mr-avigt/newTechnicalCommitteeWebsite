@@ -227,20 +227,20 @@ const HOMEpage = () => {
     
       // Calculate total rows based on number of children and columns
       const totalRows = Math.ceil(cardsContainer.childElementCount / gridColumns);
-    
+      const animationDuration = gridColumns === 1 ? (totalRows * 1.5) : (totalRows * 3.5);
+      let x = gridColumns === 1 ? null : "+=1";
       // Calculate the total height of the cards container
-      const totalHeight = totalRows * 300; // Assuming each row has a height of 300px
-    
+      
+      const totalHeight = gridColumns === 1 ? (totalRows * 290) : (totalRows * 250);; // Assuming each row has a height of 300px
       // Animate the container instead of individual cards
       t.to(".outer",{
         display:"hidden"
       }).to(cardsContainer, {
         y: `-${totalHeight}px`, // Move the container up by its total height
         ease: "none",
-        duration: totalRows * 2.5, // Adjust the speed dynamically
-        delay: 1, // Add an initial delay
+        duration: animationDuration, // Adjust the speed dynamically
         overwrite: true, // Ensure no conflicting animations
-      },"+=1");
+      },x);
     }
     
     if (window.matchMedia("(min-width: 768px)").matches) {
@@ -254,7 +254,7 @@ const HOMEpage = () => {
           left: 0,
           duration: 4,
         },
-        "-=2"
+        "-=3"
       );
     }
     t.to([".cards",".header"], {
@@ -273,6 +273,8 @@ const HOMEpage = () => {
       .to(".features", {
         top: "0%",
         duration: 1.5,
+      }).to(".features",{
+        overflow: "auto",
       });
     if (window.matchMedia("(min-width: 821px)").matches) {
       gsap.utils.toArray(".page").forEach((page, index) => {
@@ -350,8 +352,8 @@ const HOMEpage = () => {
       // Control the scroll speed sensitivity
       smoothWheel: true, // Enable smooth scrolling for wheel events
       wheelMultiplier: 0.5, // Adjust scroll sensitivity for mouse wheels (default is 1)
-      smoothTouch: true, // Enable smooth scrolling for touch devices
-      touchMultiplier: 3.5, // Adjust scroll sensitivity for touch gestures (default is 2)
+      // smoothTouch: true, // Enable smooth scrolling for touch devices
+      touchMultiplier: 3.0, // Adjust scroll sensitivity for touch gestures (default is 2)
       infinite: false, // Disable infinite scroll if enabled
     });
     lenisRef.current = lenis;
@@ -1031,7 +1033,7 @@ const HOMEpage = () => {
                     </div>
                   </button>
                   <button
-                    className="fady-box border-l-2 border-custom-border"
+                    className={`fady-box border-l-2 border-custom-border`}
                     onClick={() => {
                       setDay2(true);
                     }}

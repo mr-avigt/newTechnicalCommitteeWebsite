@@ -5,6 +5,7 @@
 /* Styles for the `.sides` arrows */
 #root {
   background: #000;
+  --background-color: "";
 }
 .outer {
   background-color: #23201d;
@@ -220,7 +221,7 @@
   right: 0;
   border-bottom: 2px solid #f4cf8b;
   border-right: 2px solid #f4cf8b;
-  transform: translate(100px, -12.5px) rotate(-45deg);
+  transform: translate(102px, -12.5px) rotate(-45deg);
 }
 .fady-box .borders1:before,.fady-box .borders1:after{
   content: "";
@@ -234,7 +235,15 @@
   left: 0;
   border-top: 2px solid #f4cf8b;
   border-left: 2px solid #f4cf8b;
-  transform: translate(-33px, -13px) rotate(-45deg);
+  background-color: var(--background-color, transparent);  
+  transform: translate(-34px, -13px) rotate(-45deg);
+}
+.fady-box.active .borders1:before {
+  background-color: #482d4e; /* Color when active */
+}
+.fady-box.active .borders2:after {
+  background-color: #482d4e; /* Color when active */
+
 }
 .fady-box .borders2:after {
   right: 0;
@@ -245,7 +254,7 @@
     height:26px;
   border-bottom: 2px solid #f4cf8b;
   border-right: 2px solid #f4cf8b;
-  transform: translate(85px, -12.8px) rotate(-45deg);
+  transform: translate(86px, -12.8px) rotate(-45deg);
 }
 .b_line{
   
@@ -428,6 +437,12 @@
     border-right: 2px solid #f4cf8b;
     transform: translate(104px, -12.5px) rotate(-45deg);
   }
+  .fady-box .borders:before {
+    left: 0;
+    border-top: 2px solid #f4cf8b;
+    border-left: 2px solid #f4cf8b;
+    transform: translate(-34px, -12.5px) rotate(-45deg);
+  }
 }
 @media (max-width: 991.98px) {
   .features .feature .frame {
@@ -516,7 +531,13 @@
       transform: translate(-50%, 0);
   }
 }
+.container3{
+  background-image: url("contactus_bgd.webp");
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  background-size: fill;
 
+}
 
 @media (max-width: 991.98px) {
 .features .feature.last:before {

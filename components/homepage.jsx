@@ -4,8 +4,8 @@ import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useGSAP } from "@gsap/react";
-import Form from "../components/Form"
-
+import Form from "../components/Form";
+import Footer from "./Footer";
 import {
   useGLTF,
   Stage,
@@ -31,6 +31,7 @@ function Model(props) {
 const HOMEpage = () => {
   const lenisRef = useRef(null);
   const box = useRef();
+  const [isActive, setIsActive] = useState(false);
   const [SideImgVisible, setSideImgVisible] = useState(false);
   const [Day2, setDay2] = useState(false);
   const [showdropdown, setShowdropdown] = useState(true);
@@ -179,7 +180,7 @@ const HOMEpage = () => {
     });
     let video = document.querySelector(".inner video"); // Select the video inside ".inner"
     t.to(".inner", {
-      scale: 3.0,
+      scale: 3.3,
       ease: "none",
       duration: "4",
       scrollTrigger: {
@@ -209,45 +210,48 @@ const HOMEpage = () => {
         },
         "<" // Ensures the animations happen at the same time
       )
-      .to(".base", {
-        opacity: 0,
-      }).pause()
-      .to(
-        ".Events",
-        {
-          opacity: 1},
-        
-      );
+      .pause()
+      .to(".Events", {
+        opacity: 1,
+      });
 
     const cardsContainer = document.querySelector(".cards");
     if (cardsContainer) {
       const computedStyle = window.getComputedStyle(cardsContainer);
-    
+
       // Determine the number of grid columns
-      const gridColumns = window.innerWidth < 768 
-        ? 1 
-        : computedStyle.gridTemplateColumns.split(" ").filter(Boolean).length;
-    
+      const gridColumns =
+        window.innerWidth < 768
+          ? 1
+          : computedStyle.gridTemplateColumns.split(" ").filter(Boolean).length;
+
       // Calculate total rows based on number of children and columns
-      const totalRows = Math.ceil(cardsContainer.childElementCount / gridColumns);
-      const animationDuration = gridColumns === 1 ? (totalRows * 1.5) : (totalRows * 3.5);
+      const totalRows = Math.ceil(
+        cardsContainer.childElementCount / gridColumns
+      );
+      const animationDuration =
+        gridColumns === 1 ? totalRows * 1.5 : totalRows * 3.5;
       let x = gridColumns === 1 ? null : "+=1";
       // Calculate the total height of the cards container
-      
-      const totalHeight = gridColumns === 1 ? (totalRows * 290) : (totalRows * 250);; // Assuming each row has a height of 300px
+
+      const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
       // Animate the container instead of individual cards
-      t.to(".outer",{
-        display:"hidden"
-      }).to(cardsContainer, {
-        y: `-${totalHeight}px`, // Move the container up by its total height
-        ease: "none",
-        duration: animationDuration, // Adjust the speed dynamically
-        overwrite: true, // Ensure no conflicting animations
-      },x);
+      t.to(".outer", {
+        display: "hidden",
+      }).to(
+        cardsContainer,
+        {
+          y: `-${totalHeight}px`, // Move the container up by its total height
+          ease: "none",
+          duration: animationDuration, // Adjust the speed dynamically
+          overwrite: true, // Ensure no conflicting animations
+        },
+        x
+      );
     }
-    
+
     if (window.matchMedia("(min-width: 768px)").matches) {
-      t.to([".cards",".header"], {
+      t.to([".cards", ".header"], {
         zIndex: "0",
         opacity: 0,
       }).to(
@@ -260,7 +264,7 @@ const HOMEpage = () => {
         "-=3"
       );
     }
-    t.to([".cards",".header"], {
+    t.to([".cards", ".header"], {
       zIndex: "0",
       opacity: 0,
     })
@@ -276,7 +280,8 @@ const HOMEpage = () => {
       .to(".features", {
         top: "0%",
         duration: 1.5,
-      }).to(".features",{
+      })
+      .to(".features", {
         overflow: "auto",
       });
     if (window.matchMedia("(min-width: 821px)").matches) {
@@ -384,7 +389,10 @@ const HOMEpage = () => {
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
-        <Canvas
+          <div className="logo left-0 top-0 w-20">
+            <img src="TC_Logo.webp" alt="" />
+          </div>
+          <Canvas
             dpr={[1, 2]}
             shadows
             camera={{ fov: 45 }}
@@ -406,11 +414,11 @@ const HOMEpage = () => {
             />
             <pointLight position={[10, 10, 10]} intensity={0.8} />
 
-              <Stage environment={null}>
-                <Model scale={0.02} />
-              </Stage>
-              <OrbitControls enableZoom={false} />
-          </Canvas> 
+            <Stage environment={null}>
+              <Model scale={0.02} />
+            </Stage>
+            <OrbitControls enableZoom={false} enablePan={false} enableRotate={false}/>
+          </Canvas>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -584,28 +592,28 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center tracking-widest font-semibold">
-                EVENTS
+               <a href="#events"> EVENTS</a>
+              </span>
+              <span className="w-full border-r-2 h-full border-custom-border"></span>
+            </li>
+            <li className=" h-full flex flex-col w-[40%] items-center justify-center">
+              <div className="w-full h-full border-r-2 border-custom-border"></div>
+              <span className="w-full text-center h-1/2 font-semibold  tracking-wider ">
+                <a href="#aftermovie">AFTERMOVIE</a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
-              <span className="w-full text-center h-1/2 font-semibold  tracking-widest ">
-                GALLERY
-              </span>
-              <span className="w-full border-r-2 h-full border-custom-border"></span>
-            </li>
-            <li className=" h-full flex flex-col w-1/3 items-center justify-center">
-              <div className="w-full h-full border-r-2 border-custom-border"></div>
-              <span className="w-full text-center h-1/2 font-semibold tracking-widest">
-                SPONSORS
+              <span className="w-full text-center h-1/2 font-semibold tracking-wide">
+               <a href="#sponsors"> SPONSORS</a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
             <li className=" h-full flex flex-col w-[55%] items-center justify-center">
               <div className="w-full h-full "></div>
-              <span className="w-full text-center h-1/2 font-semibold tracking-wider">
-                CONTACTUS | MERCH
+              <span className="w-full text-center h-1/2 font-semibold tracking-wide">
+                <a href="#contactus">CONTACTUS & MERCH</a>
               </span>
               <span className="w-full h-full"></span>
             </li>
@@ -671,7 +679,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  EVENTS
+                  <a href="events">EVENTS</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -735,7 +743,7 @@ const HOMEpage = () => {
                 data-menu-link=""
               >
                 {/* Title */}
-                <span className="menu-link-wrapper  ml-8 ">GALLERY</span>
+                <span className="menu-link-wrapper  ml-8 "><a href="#aftermovie">AFTERMOVIE</a></span>
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
                   className="absolute left-0 top-1/2 transform -translate-y-1/2  scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100  transition-opacity duration-1000"
@@ -798,7 +806,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  SPONSORS
+                <a href="#sponsors">SPONSORS</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -863,7 +871,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper transition ml-8 ">
-                  CONTACTUS | MERCH
+                <a href="#contactus">CONTACTUS & MERCH</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -926,9 +934,9 @@ const HOMEpage = () => {
 
       <section
         ref={box}
-        className="vid_container relative z-30  overflow-hidden border-red-500"
+        className="vid_container relative z-30 overflow-hidden border-red-500"
       >
-        <div className="outer overflow-hidden h-[100vh] flex w-full relative items-center justify-center">
+        <div id="aftermovie" className="outer overflow-hidden h-[100vh] flex w-full relative items-center justify-center">
           <svg
             className="circle-glyph2"
             fill="none"
@@ -969,7 +977,7 @@ const HOMEpage = () => {
               ></video>
             </div>
           </div>
-          <div className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500">
+          <div id="events" className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500">
             <svg
               className="circle-glyph2 absolute"
               fill="none"
@@ -1002,9 +1010,9 @@ const HOMEpage = () => {
               ></path>
             </svg>
             <div className="container2 relative  h-full  w-full">
-              <div className="header backdrop-blur-md  inset-0 bg-[#23201d]/50 flex flex-col gap-2 relative z-[60] md:z-[51] items-center justify-center p-2 w-full ">
-                <div className="fady-box">
-                  <div className="b_line bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
+              <div className="header  backdrop-blur-md  inset-0 bg-[#23201d]/50 flex flex-col gap-2 relative z-[60] md:z-[51] items-center justify-center p-2 w-full ">
+                <div className="fady-box font-medium">
+                  <div className="b_line  bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
                   EVENTS
                   <div className="borders absolute">
                     <div className="before"></div>
@@ -1015,18 +1023,24 @@ const HOMEpage = () => {
 
                 <div className="dayselect flex items-center justify center">
                   <button
-                    className={`fady-box font-medium ${Day2?"":"bg-[#482d4e]"}`}
+                    className={`fady-box font-medium ${
+                      Day2 ? "" : "bg-[#482d4e] active"
+                    }`}
                     onClick={() => {
                       setDay2(false);
                     }}
                   >
                     DAY 1
-                    <div className="borders1 absolute">
-                      <div className="before"></div>
+                    <div className="borders1 bg-black absolute">
+                      <div
+                        className={`before ${Day2 ? "" : "bg-[#482d4e]"}`}
+                      ></div>
                     </div>
                   </button>
                   <button
-                    className={`fady-box  font-medium border-l-2 border-custom-border`}
+                    className={`fady-box  ${
+                      !Day2 ? "" : "bg-[#482d4e] active"
+                    } font-medium border-l-2 border-custom-border`}
                     onClick={() => {
                       setDay2(true);
                     }}
@@ -1137,7 +1151,7 @@ const HOMEpage = () => {
                   data-analytics-event="home_features"
                   data-analytics-label="Dune: Awakening"
                 >
-                  <div className="label">Dune: Awakening 1</div>
+                  <div className="label font-medium text-xl">SPIN THE TECH</div>
                   <svg
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1167,10 +1181,10 @@ const HOMEpage = () => {
                     <path
                       d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
                       stroke="var(--border-color, white)"
-                      stroke-opacity=".7"
-                      stroke-width=".75"
+                      strokeOpacity=".7"
+                      strokeWidth=".75"
                     ></path>
-                    <g clip-path="url(#clip1463675307)">
+                    <g clipPath="url(#clip1463675307)">
                       <path
                         className="moving"
                         d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
@@ -1182,7 +1196,7 @@ const HOMEpage = () => {
                       fill="var(--background-color, black)"
                       stroke="var(--border-color, white)"
                     ></path>
-                    <g clip-path="url(#clip-body1463675307)">
+                    <g clipPath="url(#clip-body1463675307)">
                       <path
                         className="pressed"
                         d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
@@ -1217,7 +1231,7 @@ const HOMEpage = () => {
                   data-analytics-event="home_features"
                   data-analytics-label="Dune: Awakening"
                 >
-                  <div className="label">Dune: Awakening 2</div>
+                  <div className="label font-medium text-xl">SCRIBBLE</div>
                   <svg
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1247,10 +1261,10 @@ const HOMEpage = () => {
                     <path
                       d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
                       stroke="var(--border-color, white)"
-                      stroke-opacity=".7"
-                      stroke-width=".75"
+                      strokeOpacity=".7"
+                      strokeWidth=".75"
                     ></path>
-                    <g clip-path="url(#clip1463675307)">
+                    <g clipPath="url(#clip1463675307)">
                       <path
                         className="moving"
                         d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
@@ -1262,7 +1276,7 @@ const HOMEpage = () => {
                       fill="var(--background-color, black)"
                       stroke="var(--border-color, white)"
                     ></path>
-                    <g clip-path="url(#clip-body1463675307)">
+                    <g clipPath="url(#clip-body1463675307)">
                       <path
                         className="pressed"
                         d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
@@ -1297,7 +1311,7 @@ const HOMEpage = () => {
                   data-analytics-event="home_features"
                   data-analytics-label="Dune: Awakening"
                 >
-                  <div className="label">Dune: Awakening 2</div>
+                  <div className="label font-medium text-xl">JENGA</div>
                   <svg
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1327,10 +1341,10 @@ const HOMEpage = () => {
                     <path
                       d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
                       stroke="var(--border-color, white)"
-                      stroke-opacity=".7"
-                      stroke-width=".75"
+                      strokeOpacity=".7"
+                      strokeWidth=".75"
                     ></path>
-                    <g clip-path="url(#clip1463675307)">
+                    <g clipPath="url(#clip1463675307)">
                       <path
                         className="moving"
                         d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
@@ -1342,7 +1356,7 @@ const HOMEpage = () => {
                       fill="var(--background-color, black)"
                       stroke="var(--border-color, white)"
                     ></path>
-                    <g clip-path="url(#clip-body1463675307)">
+                    <g clipPath="url(#clip-body1463675307)">
                       <path
                         className="pressed"
                         d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
@@ -1368,7 +1382,7 @@ const HOMEpage = () => {
           <div className="page page1  bg-blue-500 md:flex  absolute w-full h-full opacity-0 ">
             <div className="section1 border border-red-500 h-full w-[25%]"></div>
             <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
-              <p>page1</p>
+              <p>FUN EVENT 1</p>
               <p>line2</p>
               <p>line3</p>
             </div>
@@ -1420,8 +1434,11 @@ const HOMEpage = () => {
             <div
               className={`bottomimg z-50 flex md:hidden absolute w-full h-full -bottom-[150%]`}
             >
-              <div className="features w-full"   ref={innerRef} 
-           onWheel={preventOuterScroll}>
+              <div
+                className="features w-full"
+                ref={innerRef}
+                onWheel={preventOuterScroll}
+              >
                 <div className="feature first last">
                   <div
                     className="feature-tag"
@@ -1456,8 +1473,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1541,8 +1558,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1626,8 +1643,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1711,8 +1728,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1796,8 +1813,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1881,8 +1898,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -1966,8 +1983,8 @@ const HOMEpage = () => {
                         <path
                           d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
                           stroke="#FAA9FF"
-                          stroke-opacity=".7"
-                          stroke-width=".75"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
                         ></path>
                         <path
                           d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
@@ -2021,62 +2038,14 @@ const HOMEpage = () => {
             </div>
           </div>
         </div>
-        <div className="container w-full h-full">
+      </section>
+        <div id="contactus" className="container3 w-full p-2 sm:p-4 flex items-center justify-center bg-[#23201d]">
           <div className="contactus md:w-[60%]">
-          <Form/>
+            <Form />
           </div>
           <div className="merch"></div>
         </div>
-        <footer className="footer bg-[#130f0a] text-white text-base-content p-10 flex justify-around  items-start">
-          <nav className="flex flex-col gap-2">
-            <h4 className="footer-title text-2xl font-bold">Services</h4>
-            <a className="link link-hover">Branding</a>
-            <a className="link link-hover">Design</a>
-            <a className="link link-hover">Marketing</a>
-            <a className="link link-hover">Advertisement</a>
-          </nav>
-          <nav className="flex flex-col ">
-            <h6 className="footer-title text-2xl font-bold">Company</h6>
-            <a className="link link-hover">About us</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Jobs</a>
-            <a className="link link-hover">Press kit</a>
-          </nav>
-          <nav className="flex flex-col ">
-            <h6 className="footer-title text-2xl font-bold">Legal</h6>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
-          </nav>
-          <form>
-            <h6 className="footer-title text-2xl font-bold">
-              Connect with us:
-            </h6>
-            <div className="m-4 flex gap-4 ">
-              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#1877f2] cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                  <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
-                </svg>
-              </span>
-              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-white cursor-pointer 	;">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                </svg>
-              </span>
-              <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c13584] cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                </svg>
-              </span>
-            </div>
-          </form>
-        </footer>
-      </section>
-
+        <Footer />
     </>
   );
 };

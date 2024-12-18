@@ -4,9 +4,12 @@ import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useGSAP } from "@gsap/react";
+import Form from "../components/Form"
+
 import {
   useGLTF,
   Stage,
+  OrbitControls,
   PresentationControls,
   Environment,
 } from "@react-three/drei";
@@ -381,16 +384,15 @@ const HOMEpage = () => {
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
-          {/* <Canvas
+        <Canvas
             dpr={[1, 2]}
             shadows
             camera={{ fov: 45 }}
             style={{
               position: "relative",
               zIndex: "1",
-              left: "10vw",
               top: "10vh",
-              width: "80%",
+              width: "100%",
               height: "80%",
               backgroundColor: "transparent",
             }}
@@ -402,22 +404,13 @@ const HOMEpage = () => {
               intensity={1}
               castShadow
             />
-            <pointLight position={[5, 5, 5]} intensity={0.8} />
+            <pointLight position={[10, 10, 10]} intensity={0.8} />
 
-            <PresentationControls
-              speed={1.5}
-              global
-              zoom={2}
-              polar={[-Math.PI / 2, Math.PI / 2]}
-              azimuth={[-Infinity, Infinity]}
-              minZoom={0}
-              maxZoom={0}
-            >
               <Stage environment={null}>
-                <Model scale={0.02} style={{ scale: "0.8" }} />
+                <Model scale={0.02} />
               </Stage>
-            </PresentationControls>
-          </Canvas> */}
+              <OrbitControls enableZoom={false} />
+          </Canvas> 
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -1022,7 +1015,7 @@ const HOMEpage = () => {
 
                 <div className="dayselect flex items-center justify center">
                   <button
-                    className="fady-box"
+                    className={`fady-box font-medium ${Day2?"":"bg-[#482d4e]"}`}
                     onClick={() => {
                       setDay2(false);
                     }}
@@ -1033,7 +1026,7 @@ const HOMEpage = () => {
                     </div>
                   </button>
                   <button
-                    className={`fady-box border-l-2 border-custom-border`}
+                    className={`fady-box  font-medium border-l-2 border-custom-border`}
                     onClick={() => {
                       setDay2(true);
                     }}
@@ -1444,7 +1437,7 @@ const HOMEpage = () => {
                       data-analytics-event="home_features"
                       data-analytics-label="Dune: Awakening"
                     >
-                      <div className="label">Dune: Awakening 1</div>
+                      <div className="label">Spin the tech</div>
                       <svg
                         className="w-[95%]"
                         fill="none"
@@ -1529,7 +1522,432 @@ const HOMEpage = () => {
                       data-analytics-event="home_features"
                       data-analytics-label="Dune: Awakening"
                     >
-                      <div className="label">Dune: Awakening 1</div>
+                      <div className="label">Scribble</div>
+                      <svg
+                        className="w-[95%]"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="51"
+                        viewBox="0 0 336 51"
+                      >
+                        <path
+                          d="M.708 25.422 20.29 5.863l19.584 19.56L20.29 44.984.709 25.422Z"
+                          stroke="#FAA9FF"
+                        ></path>
+                        <path
+                          d="m20.291 10.222 15.218 15.2-15.218 15.201-15.218-15.2 15.218-15.201Z"
+                          fill="#2B1D2F"
+                        ></path>
+                        <path
+                          d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
+                          stroke="#FAA9FF"
+                          stroke-opacity=".7"
+                          stroke-width=".75"
+                        ></path>
+                        <path
+                          d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
+                          fill="#FAA9FF"
+                        ></path>
+                        <path
+                          d="M37.5 9.422V.5h298v50h-298v-9.077L53.406 25.78l.363-.357-.363-.356L37.5 9.422Z"
+                          fill="#2B1D2F"
+                          stroke="#FAA9FF"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div className="feature-dot"></div>
+                    <div className="text m-10">
+                      <p>
+                        Dune: Awakening is an open world survival MMO set on the
+                        most dangerous planet in the universe.
+                      </p>
+                      <p>
+                        This is your Dune. The most dangerous planet in the
+                        universe. A Dune where Paul Atreides was never born, and
+                        a War of Assassins rages between Atreides and Harkonnen.
+                        Where the machinations of guilds and powerful houses
+                        devour the unprepared as easily as the ancient sandworms
+                        that prowl the open deserts. In a world shared by
+                        hundreds of other players, will you rise to lead a Great
+                        House and control the flow of spice itself?
+                      </p>
+                      <p>
+                        <strong>
+                          Your journey begins here, in the desert. Find the
+                          Fremen. Wake the Sleeper.
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="frame border">
+                    <div className="rotator">
+                      <div className="background">
+                        <div className="wrapper">
+                          <img src="./src/assets/dummy1.jpg" alt="" />
+                        </div>
+                      </div>
+                      {/* <div className="foreground">
+                        <div className="wrapper"></div>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="feature first last">
+                  <div
+                    className="feature-tag"
+                    data-nav-button-section=""
+                    data-feature-id="0"
+                    data-section-id="1"
+                  >
+                    <button
+                      type="button"
+                      className="nav-button p-0 mb-10"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label="Dune: Awakening"
+                    >
+                      <div className="label">Jenga</div>
+                      <svg
+                        className="w-[95%]"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="51"
+                        viewBox="0 0 336 51"
+                      >
+                        <path
+                          d="M.708 25.422 20.29 5.863l19.584 19.56L20.29 44.984.709 25.422Z"
+                          stroke="#FAA9FF"
+                        ></path>
+                        <path
+                          d="m20.291 10.222 15.218 15.2-15.218 15.201-15.218-15.2 15.218-15.201Z"
+                          fill="#2B1D2F"
+                        ></path>
+                        <path
+                          d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
+                          stroke="#FAA9FF"
+                          stroke-opacity=".7"
+                          stroke-width=".75"
+                        ></path>
+                        <path
+                          d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
+                          fill="#FAA9FF"
+                        ></path>
+                        <path
+                          d="M37.5 9.422V.5h298v50h-298v-9.077L53.406 25.78l.363-.357-.363-.356L37.5 9.422Z"
+                          fill="#2B1D2F"
+                          stroke="#FAA9FF"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div className="feature-dot"></div>
+                    <div className="text m-10">
+                      <p>
+                        Dune: Awakening is an open world survival MMO set on the
+                        most dangerous planet in the universe.
+                      </p>
+                      <p>
+                        This is your Dune. The most dangerous planet in the
+                        universe. A Dune where Paul Atreides was never born, and
+                        a War of Assassins rages between Atreides and Harkonnen.
+                        Where the machinations of guilds and powerful houses
+                        devour the unprepared as easily as the ancient sandworms
+                        that prowl the open deserts. In a world shared by
+                        hundreds of other players, will you rise to lead a Great
+                        House and control the flow of spice itself?
+                      </p>
+                      <p>
+                        <strong>
+                          Your journey begins here, in the desert. Find the
+                          Fremen. Wake the Sleeper.
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="frame border">
+                    <div className="rotator">
+                      <div className="background">
+                        <div className="wrapper">
+                          <img src="./src/assets/dummy1.jpg" alt="" />
+                        </div>
+                      </div>
+                      {/* <div className="foreground">
+                        <div className="wrapper"></div>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="feature first last">
+                  <div
+                    className="feature-tag"
+                    data-nav-button-section=""
+                    data-feature-id="0"
+                    data-section-id="1"
+                  >
+                    <button
+                      type="button"
+                      className="nav-button p-0 mb-10"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label="Dune: Awakening"
+                    >
+                      <div className="label">FTB x Tic tac toe</div>
+                      <svg
+                        className="w-[95%]"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="51"
+                        viewBox="0 0 336 51"
+                      >
+                        <path
+                          d="M.708 25.422 20.29 5.863l19.584 19.56L20.29 44.984.709 25.422Z"
+                          stroke="#FAA9FF"
+                        ></path>
+                        <path
+                          d="m20.291 10.222 15.218 15.2-15.218 15.201-15.218-15.2 15.218-15.201Z"
+                          fill="#2B1D2F"
+                        ></path>
+                        <path
+                          d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
+                          stroke="#FAA9FF"
+                          stroke-opacity=".7"
+                          stroke-width=".75"
+                        ></path>
+                        <path
+                          d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
+                          fill="#FAA9FF"
+                        ></path>
+                        <path
+                          d="M37.5 9.422V.5h298v50h-298v-9.077L53.406 25.78l.363-.357-.363-.356L37.5 9.422Z"
+                          fill="#2B1D2F"
+                          stroke="#FAA9FF"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div className="feature-dot"></div>
+                    <div className="text m-10">
+                      <p>
+                        Dune: Awakening is an open world survival MMO set on the
+                        most dangerous planet in the universe.
+                      </p>
+                      <p>
+                        This is your Dune. The most dangerous planet in the
+                        universe. A Dune where Paul Atreides was never born, and
+                        a War of Assassins rages between Atreides and Harkonnen.
+                        Where the machinations of guilds and powerful houses
+                        devour the unprepared as easily as the ancient sandworms
+                        that prowl the open deserts. In a world shared by
+                        hundreds of other players, will you rise to lead a Great
+                        House and control the flow of spice itself?
+                      </p>
+                      <p>
+                        <strong>
+                          Your journey begins here, in the desert. Find the
+                          Fremen. Wake the Sleeper.
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="frame border">
+                    <div className="rotator">
+                      <div className="background">
+                        <div className="wrapper">
+                          <img src="./src/assets/dummy1.jpg" alt="" />
+                        </div>
+                      </div>
+                      {/* <div className="foreground">
+                        <div className="wrapper"></div>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="feature first last">
+                  <div
+                    className="feature-tag"
+                    data-nav-button-section=""
+                    data-feature-id="0"
+                    data-section-id="1"
+                  >
+                    <button
+                      type="button"
+                      className="nav-button p-0 mb-10"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label="Dune: Awakening"
+                    >
+                      <div className="label">Rubik's Cube</div>
+                      <svg
+                        className="w-[95%]"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="51"
+                        viewBox="0 0 336 51"
+                      >
+                        <path
+                          d="M.708 25.422 20.29 5.863l19.584 19.56L20.29 44.984.709 25.422Z"
+                          stroke="#FAA9FF"
+                        ></path>
+                        <path
+                          d="m20.291 10.222 15.218 15.2-15.218 15.201-15.218-15.2 15.218-15.201Z"
+                          fill="#2B1D2F"
+                        ></path>
+                        <path
+                          d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
+                          stroke="#FAA9FF"
+                          stroke-opacity=".7"
+                          stroke-width=".75"
+                        ></path>
+                        <path
+                          d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
+                          fill="#FAA9FF"
+                        ></path>
+                        <path
+                          d="M37.5 9.422V.5h298v50h-298v-9.077L53.406 25.78l.363-.357-.363-.356L37.5 9.422Z"
+                          fill="#2B1D2F"
+                          stroke="#FAA9FF"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div className="feature-dot"></div>
+                    <div className="text m-10">
+                      <p>
+                        Dune: Awakening is an open world survival MMO set on the
+                        most dangerous planet in the universe.
+                      </p>
+                      <p>
+                        This is your Dune. The most dangerous planet in the
+                        universe. A Dune where Paul Atreides was never born, and
+                        a War of Assassins rages between Atreides and Harkonnen.
+                        Where the machinations of guilds and powerful houses
+                        devour the unprepared as easily as the ancient sandworms
+                        that prowl the open deserts. In a world shared by
+                        hundreds of other players, will you rise to lead a Great
+                        House and control the flow of spice itself?
+                      </p>
+                      <p>
+                        <strong>
+                          Your journey begins here, in the desert. Find the
+                          Fremen. Wake the Sleeper.
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="frame border">
+                    <div className="rotator">
+                      <div className="background">
+                        <div className="wrapper">
+                          <img src="./src/assets/dummy1.jpg" alt="" />
+                        </div>
+                      </div>
+                      {/* <div className="foreground">
+                        <div className="wrapper"></div>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="feature first last">
+                  <div
+                    className="feature-tag"
+                    data-nav-button-section=""
+                    data-feature-id="0"
+                    data-section-id="1"
+                  >
+                    <button
+                      type="button"
+                      className="nav-button p-0 mb-10"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label="Dune: Awakening"
+                    >
+                      <div className="label">Aqua Quest</div>
+                      <svg
+                        className="w-[95%]"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="51"
+                        viewBox="0 0 336 51"
+                      >
+                        <path
+                          d="M.708 25.422 20.29 5.863l19.584 19.56L20.29 44.984.709 25.422Z"
+                          stroke="#FAA9FF"
+                        ></path>
+                        <path
+                          d="m20.291 10.222 15.218 15.2-15.218 15.201-15.218-15.2 15.218-15.201Z"
+                          fill="#2B1D2F"
+                        ></path>
+                        <path
+                          d="M5.604 25.423 20.29 10.752l14.687 14.67-14.687 14.671-14.687-14.67Z"
+                          stroke="#FAA9FF"
+                          stroke-opacity=".7"
+                          stroke-width=".75"
+                        ></path>
+                        <path
+                          d="m16.486 31.756 6.34-6.334-6.34-6.333 3.805-3.8 10.145 10.133L20.29 35.556l-3.805-3.8Z"
+                          fill="#FAA9FF"
+                        ></path>
+                        <path
+                          d="M37.5 9.422V.5h298v50h-298v-9.077L53.406 25.78l.363-.357-.363-.356L37.5 9.422Z"
+                          fill="#2B1D2F"
+                          stroke="#FAA9FF"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div className="feature-dot"></div>
+                    <div className="text m-10">
+                      <p>
+                        Dune: Awakening is an open world survival MMO set on the
+                        most dangerous planet in the universe.
+                      </p>
+                      <p>
+                        This is your Dune. The most dangerous planet in the
+                        universe. A Dune where Paul Atreides was never born, and
+                        a War of Assassins rages between Atreides and Harkonnen.
+                        Where the machinations of guilds and powerful houses
+                        devour the unprepared as easily as the ancient sandworms
+                        that prowl the open deserts. In a world shared by
+                        hundreds of other players, will you rise to lead a Great
+                        House and control the flow of spice itself?
+                      </p>
+                      <p>
+                        <strong>
+                          Your journey begins here, in the desert. Find the
+                          Fremen. Wake the Sleeper.
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="frame border">
+                    <div className="rotator">
+                      <div className="background">
+                        <div className="wrapper">
+                          <img src="./src/assets/dummy1.jpg" alt="" />
+                        </div>
+                      </div>
+                      {/* <div className="foreground">
+                        <div className="wrapper"></div>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="feature first last">
+                  <div
+                    className="feature-tag"
+                    data-nav-button-section=""
+                    data-feature-id="0"
+                    data-section-id="1"
+                  >
+                    <button
+                      type="button"
+                      className="nav-button p-0 mb-10"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label="Dune: Awakening"
+                    >
+                      <div className="label">Pass The Hook</div>
                       <svg
                         className="w-[95%]"
                         fill="none"
@@ -1603,72 +2021,11 @@ const HOMEpage = () => {
             </div>
           </div>
         </div>
-        <div className="container w-full">
+        <div className="container w-full h-full">
           <div className="contactus md:w-[60%]">
-            <section className="bg-white dark:bg-gray-900">
-              <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-                  Contact Us
-                </h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-                  Got a technical issue? Want to send feedback about a beta
-                  feature? Need details about our Business plan? Let us know.
-                </p>
-                <form action="#" className="space-y-8">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Your email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                      placeholder="name@flowbite.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                      placeholder="Let us know how we can help you"
-                      required
-                    />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="message"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                    >
-                      Your message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows="6"
-                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="Leave a comment..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  >
-                    Send message
-                  </button>
-                </form>
-              </div>
-            </section>
+          <Form/>
           </div>
+          <div className="merch"></div>
         </div>
         <footer className="footer bg-[#130f0a] text-white text-base-content p-10 flex justify-around  items-start">
           <nav className="flex flex-col gap-2">
@@ -1719,6 +2076,7 @@ const HOMEpage = () => {
           </form>
         </footer>
       </section>
+
     </>
   );
 };

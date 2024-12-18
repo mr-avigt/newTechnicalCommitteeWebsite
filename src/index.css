@@ -532,7 +532,7 @@
   }
 }
 .container3{
-  background-image: url("contactus_bgd.webp");
+  background-image: url("../public/contactus_bgd.webp");
   /* background-repeat: no-repeat; */
   background-position: center;
   background-size: fill;

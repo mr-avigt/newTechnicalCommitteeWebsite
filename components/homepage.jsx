@@ -1390,7 +1390,7 @@ const HOMEpage = () => {
               <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
                 <img
                   className="sqimg opacity-0 w-full absolute -bottom-[100%] -right-[100%] h-full"
-                  src="../src/assets/dummy1.jpg"
+                  src="dummy1.jpg"
                   alt=""
                 />
               </div>

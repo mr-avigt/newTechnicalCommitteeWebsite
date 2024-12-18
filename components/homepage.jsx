@@ -232,7 +232,7 @@ const HOMEpage = () => {
       const totalHeight = totalRows * 300; // Assuming each row has a height of 300px
     
       // Animate the container instead of individual cards
-      t.to(".inner",{
+      t.to(".outer",{
         display:"hidden"
       }).to(cardsContainer, {
         y: `-${totalHeight}px`, // Move the container up by its total height
@@ -1007,7 +1007,7 @@ const HOMEpage = () => {
               ></path>
             </svg>
             <div className="container2 relative  h-full  w-full">
-              <div className="backdrop-blur-lg  inset-0 bg-black/50 backdrop- flex flex-col gap-2 relative z-[60] md:z-[51] items-center justify-center p-2 w-full ">
+              <div className="header backdrop-blur-md  inset-0 bg-[#23201d]/50 flex flex-col gap-2 relative z-[60] md:z-[51] items-center justify-center p-2 w-full ">
                 <div className="fady-box">
                   <div className="b_line bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
                   EVENTS

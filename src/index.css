@@ -375,7 +375,7 @@
   flex-flow: column;
   gap: 5%;
   height: auto;
-  overflow: auto;
+  /* overflow: auto; */
   transform: none !important;
   padding-bottom: 1px;
 }
@@ -420,6 +420,14 @@
         padding-left: 10vw;
         color:#f4cf8b;
     }
+}
+@media (max-width: 359px) {
+  .fady-box .borders:after {
+    right: 0;
+    border-bottom: 2px solid #f4cf8b;
+    border-right: 2px solid #f4cf8b;
+    transform: translate(104px, -12.5px) rotate(-45deg);
+  }
 }
 @media (max-width: 991.98px) {
   .features .feature .frame {

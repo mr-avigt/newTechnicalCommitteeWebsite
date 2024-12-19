@@ -41,10 +41,25 @@ const HOMEpage = () => {
   gsap.registerPlugin(ScrollTrigger);
   const innerRef = useRef(null);
   const [modelScale, setModelScale] = useState(0.1); // Default for larger devices
+  const scrollByVh = (vh) => {
+    if(window.innerWidth < 1024){
+      const viewportHeight = window.innerHeight;
+      console.log(window.scrollY)
+      console.log(viewportHeight);
+      const scrollAmount = (1122 * (vh-0.1))-(window.scrollY); // Calculate scroll amount based on vh
 
+      setTimeout(() => window.scrollTo(0,scrollAmount), 100);
+
+    }
+    else{
+      const viewportHeight = window.innerHeight;
+      console.log(window.scrollY)
+    console.log(viewportHeight);
+    const scrollAmount = (viewportHeight * (vh-0.1))-(window.scrollY); // Calculate scroll amount based on vh
+    window.scrollBy(0, scrollAmount);} // Scroll by the calculated amount
+  };
   const preventOuterScroll = (e) => {
     const target = e.currentTarget;
-
     const scrollTop = target.scrollTop;
     const scrollHeight = target.scrollHeight;
     const offsetHeight = target.offsetHeight;
@@ -257,7 +272,8 @@ const HOMEpage = () => {
       t.to([".cards", ".header"], {
         zIndex: "0",
         opacity: 0,
-      }).to(
+      }).addLabel("section_event")
+      .to(
         [".sideimg"],
         {
           opacity: 1,
@@ -355,8 +371,10 @@ const HOMEpage = () => {
     //     goToPage(pageLabel); // Navigate to the corresponding page
     //   });
     // });
+
   });
   useLayoutEffect(() => {
+    
     // Initialize Lenis
     const lenis = new Lenis({
       damping: 0.2, // Lower values = slower scroll, Higher = faster
@@ -405,38 +423,43 @@ const HOMEpage = () => {
 
   return (
     <>
-      <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
-        <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
+      <div className="HOME h-screen relative overflow-hidden w-full flex z-30 items-center justify-center">
+        <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[98%] z-[20] absolute rounded-br-3xl rounded-3xl">
           <div className="logo w-20">
             <img src="TC_Logo.webp" alt="" />
           </div>
           <div
             style={{
               width: "100%",
-              position: "relative",
               overflow: "hidden",
             }}
           >
             <style>
               {`
-          .responsive-canvas-container {
+            .responsive-canvas-container {
             height: 70vh; /* Default for smaller devices */
-          }
+            }
 
-          @media (min-width: 768px) { /* Tablets and above */
+            @media (min-width: 768px) { /* Tablets and above */
             .responsive-canvas-container {
               height: 30vh;
             }
-          }
+            }
 
-          @media (min-width: 1024px) { /* Laptops and above */
+            @media (min-width: 1024px) { /* Laptops and above */
             .responsive-canvas-container {
               height: 60vh;
             }
-          }
-        `}
+            }
+            `}
             </style>
-            <div className="responsive-canvas-container  relative  flex items-center justify-center">
+            <div className="misc w-full border-green-500 z-[25] absolute  h-full"></div>
+            <div
+              className="responsive-canvas-container flex items-center justify-center"
+              style={{
+                pointerEvents: "none", // Pass all touch events through
+              }}
+            >
               <Canvas
                 shadows
                 dpr={[1, 2]}
@@ -447,10 +470,10 @@ const HOMEpage = () => {
                 style={{ width: "100%", height: "100%", position: "relative" }}
               >
                 <color attach="backgroundColor" args={["transparent"]} />
-                <ambientLight intensity={0.3} />
+                <ambientLight intensity={1.5} />
                 <directionalLight
                   position={[10, 10, 10]}
-                  intensity={1}
+                  intensity={5}
                   castShadow
                 />
                 <pointLight position={[10, 10, 10]} intensity={0.8} />
@@ -459,38 +482,25 @@ const HOMEpage = () => {
                   <Model scale={modelScale} />
                 </Stage>
                 <OrbitControls
-                // enableZoom={true} // Enable zoom for smaller devices
-                // enablePan={true}
-                // enableRotate={false}
-                // maxDistance={10}
+                  enableZoom={false} // Disable zoom
+                  enablePan={false} // Disable panning
+                  enableRotate={false} // Enable rotation
+                  minPolarAngle={Math.PI / 4} // Restrict vertical rotation (prevent flipping)
+                  maxPolarAngle={Math.PI - Math.PI / 4}
+                  rotateSpeed={0.5} // Slow down rotation speed for better control
+                  enableDamping={true} // Smooth rotation
+                  dampingFactor={0.15} // Adjust for smoother experience
+                  maxAzimuthAngle={Infinity} // Remove horizontal rotation limit if desired
+                  minAzimuthAngle={-Infinity} // Remove horizontal rotation limit if desired
+                  touchZoom={false} // Ensure touch gestures don't cause zoom
+                  touchRotate={false} // Allow rotation on touch
+                  // maxDistance={0}
                 />
               </Canvas>
             </div>
           </div>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
-              {/* <span className="line  text-white w-[80%]"></span> */}
-              {/* <li className="relative border flex items-center justify-center">
-                <span className="relative cursor-pointer flex items-center justify-center">
-                  <span className="sides"></span>
-                  <span className="sides absolute inset-0"></span>
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li>
-              <span className="line"></span> */}
               <li className="relative flex items-center justify-center group">
                 {/* Background SVG (Social Icon) */}
                 <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1] ">
@@ -599,7 +609,7 @@ const HOMEpage = () => {
         </div>
         <div className="drone w-full h-full flex items-center justify-center">
           <svg
-            className="circle-glyph absolute opacity-30"
+            className="circle-glyph absolute opacity-30 z-[-1]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1373 1373"
@@ -635,12 +645,15 @@ const HOMEpage = () => {
             ></path>
           </svg>
         </div>
-        <div className="navigation z-10 items-center absolute bottom-[2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
+        <div className="navigation z-30 items-center absolute bottom-[1.2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
           <ul className="main-menu laptop_home_bottom_menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
-              <span className="w-full text-center tracking-widest font-semibold">
-                <a href="#events"> EVENTS</a>
+              <span id="" className="w-full text-center tracking-widest font-semibold">
+                <a className="cursor-pointer" onClick={() => {
+                  scrollByVh(1.8)
+                }
+                }> EVENTS</a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
@@ -667,7 +680,7 @@ const HOMEpage = () => {
             </li>
           </ul>
         </div>
-        <div className="menu-button lg:hidden absolute top-[4%] right-[0%] z-20 h-10 flex gap-1 items-center w-[130px]">
+        <div className="menu-button lg:hidden absolute top-[4%] right-[0%] z-[50] h-10 flex gap-1 items-center w-[130px]">
           {/* Line with Gradient */}
           <div className="bg-gradient-to-l from-[#F4CF8B] to-transparent h-[2px] w-[45%]"></div>
 
@@ -714,11 +727,14 @@ const HOMEpage = () => {
         </div>
         <div
           id="drawer-navigation"
-          className={`text-white absolute z-10 left-0 text-center w-full  top-0 right-0 h-full ${
+          className={`text-white absolute z-40 left-0 text-center w-full  top-0 right-0 h-full ${
             showdropdown ? "-translate-x-full" : "-translate-x"
           } overflow-y-auto transition-transform duration-1000`}
         >
-          <ul className="menu-items text-xl tracking-wider h-[50%] w-full mt-20 flex flex-col items-center justify-center">
+          <ul className="menu-items text-xl tracking-wider h-[60%] w-full mt-20 flex flex-col items-center justify-center">
+          <div className="logo w-20 absolute top-2 left-3">
+            <img src="TC_Logo.webp" alt="" />
+          </div>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
                 href="#"
@@ -727,8 +743,10 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  <a href="events">EVENTS</a>
-                </span>
+                <a className="cursor-pointer" onClick={() => {
+                  scrollByVh(1.8)
+                }
+                }> EVENTS</a>                </span>
 
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
@@ -978,7 +996,117 @@ const HOMEpage = () => {
                 </svg>
               </a>
             </li>
+          <li className="absolute bottom-20 w-full">
+            <ul className="menu2 flex items-center justify-center w-full h-full">
+            <span className="line w-full"></span>
+
+              <li className="relative flex items-center justify-center group">
+                {/* Background SVG (Social Icon) */}
+                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 576 512"
+                  >
+                    <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                  </svg>
+                </span>
+                {/* Diamond-Shaped Structure */}
+                <span className="relative flex cursor-pointer items-center justify-center">
+                  {/* Sides span */}
+                  <span className="sides z-20"></span>
+                  {/* Diamond Polygon */}
+                  <svg
+                    width="45px"
+                    height="45px"
+                    viewBox="8 2 45 38"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                  >
+                    <polygon
+                      stroke="#f4cf8b"
+                      fill="none"
+                      strokeWidth={1.5}
+                      points="9 21 31 0 52 21 31 43"
+                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                    ></polygon>
+                  </svg>
+                </span>
+              </li>
+              <span className="line w-[20%]"></span>
+              <li className="relative flex items-center justify-center group">
+                {/* Background SVG (Social Icon) */}
+                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 448 512"
+                  >
+                    <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                  </svg>
+                </span>
+                {/* Diamond-Shaped Structure */}
+                <span className="relative flex cursor-pointer items-center justify-center">
+                  {/* Sides span */}
+                  <span className="sides z-20"></span>
+                  {/* Diamond Polygon */}
+                  <svg
+                    width="45px"
+                    height="45px"
+                    viewBox="8 2 45 38"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                  >
+                    <polygon
+                      stroke="#f4cf8b"
+                      fill="none"
+                      strokeWidth={1.5}
+                      points="9 21 31 0 52 21 31 43"
+                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                    ></polygon>
+                  </svg>
+                </span>
+              </li>
+
+              <span className="line w-[20%]"></span>
+              <li className="relative flex items-center justify-center group">
+                {/* Background SVG (Social Icon) */}
+                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 448 505"
+                  >
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                  </svg>
+                </span>
+                {/* Diamond-Shaped Structure */}
+                <span className="relative flex cursor-pointer items-center justify-center">
+                  {/* Sides span */}
+                  <span className="sides z-20"></span>
+                  {/* Diamond Polygon */}
+                  <svg
+                    width="45px"
+                    height="45px"
+                    viewBox="8 2 45 38"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                  >
+                    <polygon
+                      stroke="#f4cf8b"
+                      fill="none"
+                      strokeWidth={1.5}
+                      points="9 21 31 0 52 21 31 43"
+                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                    ></polygon>
+                  </svg>
+                </span>
+              </li>
+              <span className="line w-full"></span>
+              </ul>
+            </li>
           </ul>
+          
         </div>
       </div>
 

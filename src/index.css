@@ -5,8 +5,9 @@
 /* Styles for the `.sides` arrows */
 #root {
   background: #000;
-  --background-color: "";
+
 }
+
 .outer {
   background-color: #23201d;
 }
@@ -20,7 +21,7 @@
   /* Prevent the image from repeating */
   background-repeat: no-repeat;
   /* Position the background image at the top center */
-  background-position: center top;
+  background-position: center -18px;
 
   /* Ensure the background remains fixed during scrolling */
   /* background-attachment: fixed;  */
@@ -411,6 +412,19 @@
   transform: translate(228%, 0) rotate(45deg);
 }
 
+@media (max-width: 1024px) {
+    .HOME {
+    background-image: url("./assets/HOMEBGD2.webp");
+    background-size: auto 105%;
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+    /* Position the background image at the top center */
+    background-position: center -18px;
+  
+    /* Ensure the background remains fixed during scrolling */
+    /* background-attachment: fixed;  */
+  }
+}
 @media (max-width: 991.98px) {
   .feature .text {
     flex: 0 0 auto;

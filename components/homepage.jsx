@@ -26,7 +26,9 @@ function Model(props) {
     }
   });
 
-  return <primitive ref={modelRef} object={scene} {...props} />;
+  return (
+    <primitive ref={modelRef} object={scene} position={[0, 0, 0]} {...props} />
+  );
 }
 const HOMEpage = () => {
   const lenisRef = useRef(null);
@@ -38,6 +40,7 @@ const HOMEpage = () => {
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
   const innerRef = useRef(null);
+  const [modelScale, setModelScale] = useState(0.1); // Default for larger devices
 
   const preventOuterScroll = (e) => {
     const target = e.currentTarget;
@@ -384,41 +387,86 @@ const HOMEpage = () => {
       lenis.destroy();
     };
   }, []); // Run once when the component mounts
+  useEffect(() => {
+    // Dynamically adjust the scale based on screen width
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setModelScale(0.03); // Scale for phones
+      } else {
+        setModelScale(0.1); // Scale for laptops and tablets
+      }
+    };
+
+    handleResize(); // Set the initial scale
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
       <div className="HOME h-screen relative w-full flex z-10 items-center justify-center">
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[96%] absolute  rounded-br-3xl rounded-3xl">
-          <div className="logo left-0 top-0 w-20">
+          <div className="logo w-20">
             <img src="TC_Logo.webp" alt="" />
           </div>
-          <Canvas
-            dpr={[1, 2]}
-            shadows
-            camera={{ fov: 45 }}
+          <div
             style={{
-              position: "relative",
-              zIndex: "1",
-              top: "10vh",
               width: "100%",
-              height: "80%",
-              backgroundColor: "transparent",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
-            <color attach="backgroundColor" args={["transparent"]} />
-            <ambientLight intensity={0.3} />
-            <directionalLight
-              position={[10, 10, 10]}
-              intensity={1}
-              castShadow
-            />
-            <pointLight position={[10, 10, 10]} intensity={0.8} />
+            <style>
+              {`
+          .responsive-canvas-container {
+            height: 70vh; /* Default for smaller devices */
+          }
 
-            <Stage environment={null}>
-              <Model scale={0.02} />
-            </Stage>
-            <OrbitControls enableZoom={false} enablePan={false} enableRotate={false}/>
-          </Canvas>
+          @media (min-width: 768px) { /* Tablets and above */
+            .responsive-canvas-container {
+              height: 30vh;
+            }
+          }
+
+          @media (min-width: 1024px) { /* Laptops and above */
+            .responsive-canvas-container {
+              height: 60vh;
+            }
+          }
+        `}
+            </style>
+            <div className="responsive-canvas-container  relative  flex items-center justify-center">
+              <Canvas
+                shadows
+                dpr={[1, 2]}
+                // dpr={Math.min(window.devicePixelRatio, 2)} // Ensure optimal dpr
+                camera={{
+                  fov: 45,
+                }}
+                style={{ width: "100%", height: "100%", position: "relative" }}
+              >
+                <color attach="backgroundColor" args={["transparent"]} />
+                <ambientLight intensity={0.3} />
+                <directionalLight
+                  position={[10, 10, 10]}
+                  intensity={1}
+                  castShadow
+                />
+                <pointLight position={[10, 10, 10]} intensity={0.8} />
+
+                <Stage environment={null} preset="soft">
+                  <Model scale={modelScale} />
+                </Stage>
+                <OrbitControls
+                // enableZoom={true} // Enable zoom for smaller devices
+                // enablePan={true}
+                // enableRotate={false}
+                // maxDistance={10}
+                />
+              </Canvas>
+            </div>
+          </div>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               {/* <span className="line  text-white w-[80%]"></span> */}
@@ -592,7 +640,7 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center tracking-widest font-semibold">
-               <a href="#events"> EVENTS</a>
+                <a href="#events"> EVENTS</a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
@@ -606,7 +654,7 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
-               <a href="#sponsors"> SPONSORS</a>
+                <a href="#sponsors"> SPONSORS</a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
@@ -743,7 +791,9 @@ const HOMEpage = () => {
                 data-menu-link=""
               >
                 {/* Title */}
-                <span className="menu-link-wrapper  ml-8 "><a href="#aftermovie">AFTERMOVIE</a></span>
+                <span className="menu-link-wrapper  ml-8 ">
+                  <a href="#aftermovie">AFTERMOVIE</a>
+                </span>
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
                   className="absolute left-0 top-1/2 transform -translate-y-1/2  scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100  transition-opacity duration-1000"
@@ -806,7 +856,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                <a href="#sponsors">SPONSORS</a>
+                  <a href="#sponsors">SPONSORS</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -871,7 +921,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper transition ml-8 ">
-                <a href="#contactus">CONTACTUS & MERCH</a>
+                  <a href="#contactus">CONTACTUS & MERCH</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -936,7 +986,10 @@ const HOMEpage = () => {
         ref={box}
         className="vid_container relative z-30 overflow-hidden border-red-500"
       >
-        <div id="aftermovie" className="outer overflow-hidden h-[100vh] flex w-full relative items-center justify-center">
+        <div
+          id="aftermovie"
+          className="outer overflow-hidden h-[100vh] flex w-full relative items-center justify-center"
+        >
           <svg
             className="circle-glyph2"
             fill="none"
@@ -977,7 +1030,10 @@ const HOMEpage = () => {
               ></video>
             </div>
           </div>
-          <div id="events" className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500">
+          <div
+            id="events"
+            className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500"
+          >
             <svg
               className="circle-glyph2 absolute"
               fill="none"
@@ -2039,13 +2095,16 @@ const HOMEpage = () => {
           </div>
         </div>
       </section>
-        <div id="contactus" className="container3 w-full p-2 sm:p-4 flex items-center justify-center bg-[#23201d]">
-          <div className="contactus md:w-[60%]">
-            <Form />
-          </div>
-          <div className="merch"></div>
+      <div
+        id="contactus"
+        className="container3 w-full p-2 sm:p-4 flex items-center justify-center bg-[#23201d]"
+      >
+        <div className="contactus md:w-[60%]">
+          <Form />
         </div>
-        <Footer />
+        <div className="merch"></div>
+      </div>
+      <Footer />
     </>
   );
 };

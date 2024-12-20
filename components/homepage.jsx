@@ -47,9 +47,7 @@ const HOMEpage = () => {
       console.log(window.scrollY)
       console.log(viewportHeight);
       const scrollAmount = (1122 * (vh-0.1))-(window.scrollY); // Calculate scroll amount based on vh
-
       setTimeout(() => window.scrollTo(0,scrollAmount), 100);
-
     }
     else{
       const viewportHeight = window.innerHeight;
@@ -292,7 +290,7 @@ const HOMEpage = () => {
         {
           opacity: 1,
           bottom: 0,
-          duration: 3,
+          duration: 1.8,
         },
         "-=2"
       )
@@ -302,15 +300,15 @@ const HOMEpage = () => {
       })
       .to(".features", {
         overflow: "auto",
-      });
+      },"<");
     if (window.matchMedia("(min-width: 821px)").matches) {
       gsap.utils.toArray(".page").forEach((page, index) => {
-        const pageLabel = `page${index + 1}`; // Create a unique label for each page
-        const pageEndLabel = `pageEnd${index + 1}`; // Label for the end of the animation for the page
+        // const pageLabel = `page${index + 1}`; // Create a unique label for each page
+        // const pageEndLabel = `pageEnd${index + 1}`; // Label for the end of the animation for the page
 
         // Add page animation to the timeline
-        t.addLabel(pageLabel) // Add a label at the start of the page animation
-          .to(page, {
+        // t.addLabel(pageLabel) // Add a label at the start of the page animation
+          t.to(page, {
             opacity: 1,
             duration: 3,
           })

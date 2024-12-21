@@ -343,14 +343,14 @@ const HOMEpage = () => {
         opacity: 0,
         duration: 0.8,
         ease: "power1.out",
-      }).set([".cards", ".header"], { zIndex: -1 }); // Use `set` instead of animating `zIndex`
+      }).set([".cards", ".header"], { zIndex: -1 }) // Use `set` instead of animating `zIndex`
   
-      t.to([".bottomimg"], {
+      .to([".bottomimg"], {
         opacity: 1,
         bottom: "0", // Bottom image moves to 0
-        duration: 2,
-        ease: "power2.out",
-      })
+        duration: 5,
+        ease: "power2.out"
+      },"<")
         .to(
           [".mobile-view"],
           {
@@ -375,12 +375,12 @@ const HOMEpage = () => {
             //   document.body.style.overflow = "hidden";
             // },
           },
-          "-=0.1"
+          "-=1"
         )
-        .pause()
         .to(".features", {
           duration: 2,
-        });
+        })        .pause()
+        ;
     }
 
   })
@@ -1275,19 +1275,23 @@ const HOMEpage = () => {
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
+                     
                         <div className="thumbnail">
                           <img src="thumb1.webp" alt="" />
-                        </div>
-                        <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
-                          <div className="absolute left-[45%] -top-[25%]">
-                            <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                          <div className="absolute w-full">
+                            <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>
                               <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
                               <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
                             </div>
                           </div>
-                          <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                        </div>
+                        <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
+                          
+                        <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                             {card.title}
+                            <span className="chevrons"></span>
+
                           </h3>
                           <p className="text-sm text-[#f4cf9b]">
                             {card.description}
@@ -1312,19 +1316,22 @@ const HOMEpage = () => {
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                        <div className="thumbnail">
+                      <div className="thumbnail">
                           <img src="thumb1.webp" alt="" />
-                        </div>
-                        <div className="content relative border-t-[1.5px] p-2 border-t-[#5C4033]">
-                          <div className="absolute left-[45%] -top-[25%]">
-                            <div className="w-7 h-7 rotate-45 border-[#5C4033] border-t border-l">
+                          <div className="absolute w-full">
+                            <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>
                               <div className="absolute inset-1 border-[1.5px] border-[#faa9ff] bg-[#482d4e]"></div>
                               <div className="absolute inset-2 m-[0.5px] bg-[#faa9ff] "></div>
                             </div>
                           </div>
-                          <h3 className="text-lg mt-3 font-medium text-[#f4cf8b] m-1">
+                        </div>
+                        <div className="content  hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
+                          
+                          <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                             {card.title}
+                            <span className="chevrons"></span>
+
                           </h3>
                           <p className="text-sm text-[#f4cf9b]">
                             {card.description}
@@ -1344,7 +1351,7 @@ const HOMEpage = () => {
               SideImgVisible ? "z-[50]" : "z-[30]"
             }`}
           >
-            <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] border flex flex-col justify-center items-center">
+            <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] xl:w-[20%] border flex flex-col justify-center items-center">
               <div
                 className="nav-button-section sec1"
                 data-nav-button-section=""
@@ -1588,14 +1595,14 @@ const HOMEpage = () => {
             </div>
           </div>
           <div className="page page1  bg-blue-500 md:flex  absolute w-full h-full opacity-0 ">
-            <div className="section1 border border-red-500 h-full w-[25%]"></div>
-            <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
+            <div className="section1 border border-red-500 h-full w-[30%] xl:w-[25%]"></div>
+            <div className="section2 opacity-0 border flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>FUN EVENT 1</p>
               <p>line2</p>
               <p>line3</p>
             </div>
             <div className="section3 absolute right-0  border border-blue-500 flex items-center justify-center h-full w-[40%]">
-              <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
+              <div className="square  overflow-hidden rotate-45  h-[20vw] w-[20vw] xl:h-[27vw] xl:w-[27vw] border-custom-border border">
                 <img
                   className="sqimg opacity-0 w-full absolute -bottom-[100%] -right-[100%] h-full"
                   src="dummy1.jpg"
@@ -1638,7 +1645,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="mobile-view border h-full fixed border-yellow-500 z-[30] flex lg:hidden absolute w-full">
+          <div className="mobile-view h-full fixed border-yellow-500 z-[30] flex lg:hidden absolute w-full">
             <div
               className={`bottomimg z-50 flex lg:hidden absolute w-full h-full -bottom-[100%]`}
             >

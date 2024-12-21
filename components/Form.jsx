@@ -54,7 +54,7 @@ export default function ContactForm() {
         id="email"
         value={formData.email}
         onChange={handleChange}
-        className="shadow-sm bg-[#000000]/50 border border-[#d8a657] text-[#f4cf8b] text-sm rounded-lg focus:ring-[#f4cf8b] focus:border-[#f4cf8b] block w-full p-2.5 placeholder-[#d8a657]"
+        className="shadow-sm placeholder-opacity-50 bg-[#000000]/50 border border-[#d8a657] text-[#f4cf8b] text-sm rounded-lg focus:ring-[#f4cf8b] focus:border-[#f4cf8b] block w-full p-2.5 placeholder-[#d8a657]"
         placeholder="Yugsetu@techfest.com"
         required
       />
@@ -71,7 +71,7 @@ export default function ContactForm() {
         id="subject"
         value={formData.subject}
         onChange={handleChange}
-        className="block p-3 w-full text-sm text-[#f4cf8b] bg-[#000000]/50 rounded-lg border border-[#d8a657] shadow-sm focus:ring-[#f4cf8b] focus:border-[#f4cf8b] placeholder-[#d8a657]"
+        className="block p-3 w-full placeholder-opacity-50 text-sm text-[#f4cf8b] bg-[#000000]/50 rounded-lg border border-[#d8a657] shadow-sm focus:ring-[#f4cf8b] focus:border-[#f4cf8b] placeholder-[#d8a657]"
         placeholder="Let us know how we can help you"
         required
       />
@@ -88,7 +88,7 @@ export default function ContactForm() {
         rows="4"
         value={formData.message}
         onChange={handleChange}
-        className="block p-2.5 w-full text-sm text-[#f4cf8b] bg-[#000000]/50 rounded-lg shadow-sm border border-[#d8a657] focus:ring-[#f4cf8b] focus:border-[#f4cf8b] placeholder-[#d8a657]"
+        className="block p-2.5 placeholder-opacity-60 w-full text-sm text-[#f4cf8b] bg-[#000000]/50 rounded-lg shadow-sm border border-[#d8a657] focus:ring-[#f4cf8b] focus:border-[#f4cf8b] placeholder-[#d8a657]"
         placeholder="Leave a comment..."
       ></textarea>
     </div>

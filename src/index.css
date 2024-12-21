@@ -97,18 +97,37 @@
   opacity: 1;
   transform: translate(8px, 0) scale(1) rotate(45deg);
 }
-.sideimg {
-  background-image: url("../src/assets/sideopener.png");
-  background-size: auto 100%;
-
-  /* Prevent the image from repeating */
-  background-repeat: no-repeat;
-
-  /* Position the background image at the top center */
-  background-position: left center;
+.cards, .header, .bottomimg, .mobile-view, .features {
+  will-change: transform, opacity;
 }
+@media (min-width: 1024px) {
+  .sideimg {
+    background-image: url("../src/assets/sideopener.png");
+    background-size: 70% 100%;
+  
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+  
+    /* Position the background image at the top center */
+    background-position: left center;
+  }
+}
+@media (min-width: 1280px) {
+  .sideimg {
+    background-image: url("../src/assets/sideopener.png");
+    background-size: auto 100%;
+  
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+  
+    /* Position the background image at the top center */
+    background-position: left center;
+  }
+}
+
+
 .bottomimg {
-  background-image: url("../src/assets/bg_mobile.png");
+  background-image: url("../src/assets/bg_mobile.webp");
   background-size: cover;
 
   /* Prevent the image from repeating */

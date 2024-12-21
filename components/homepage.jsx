@@ -1,18 +1,12 @@
 import React from "react";
 import gsap from "gsap";
-import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { useLayoutEffect, useRef, useState, useEffect, lazy } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useGSAP } from "@gsap/react";
 import Form from "../components/Form";
 import Footer from "./Footer";
-import {
-  useGLTF,
-  Stage,
-  OrbitControls,
-  PresentationControls,
-  Environment,
-} from "@react-three/drei";
+import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 function Model(props) {
@@ -42,19 +36,19 @@ const HOMEpage = () => {
   const innerRef = useRef(null);
   const [modelScale, setModelScale] = useState(0.1); // Default for larger devices
   const scrollByVh = (vh) => {
-    if(window.innerWidth < 1024){
+    if (window.innerWidth < 1024) {
       const viewportHeight = window.innerHeight;
-      console.log(window.scrollY)
+      console.log(window.scrollY);
       console.log(viewportHeight);
-      const scrollAmount = (1122 * (vh-0.1))-(window.scrollY); // Calculate scroll amount based on vh
-      setTimeout(() => window.scrollTo(0,scrollAmount), 100);
-    }
-    else{
+      const scrollAmount = 1122 * (vh - 0.1) - window.scrollY; // Calculate scroll amount based on vh
+      setTimeout(() => window.scrollTo(0, scrollAmount), 100);
+    } else {
       const viewportHeight = window.innerHeight;
-      console.log(window.scrollY)
-    console.log(viewportHeight);
-    const scrollAmount = (viewportHeight * (vh-0.1))-(window.scrollY); // Calculate scroll amount based on vh
-    window.scrollBy(0, scrollAmount);} // Scroll by the calculated amount
+      console.log(window.scrollY);
+      console.log(viewportHeight);
+      const scrollAmount = viewportHeight * (vh - 0.1) - window.scrollY; // Calculate scroll amount based on vh
+      window.scrollBy(0, scrollAmount);
+    } // Scroll by the calculated amount
   };
   const preventOuterScroll = (e) => {
     const target = e.currentTarget;
@@ -196,7 +190,7 @@ const HOMEpage = () => {
     });
     let video = document.querySelector(".inner video"); // Select the video inside ".inner"
     t.to(".inner", {
-      scale: 3.3,
+      scale: 3.0,
       ease: "none",
       duration: "4",
       scrollTrigger: {
@@ -245,13 +239,23 @@ const HOMEpage = () => {
       const totalRows = Math.ceil(
         cardsContainer.childElementCount / gridColumns
       );
-      const animationDuration =
-        gridColumns === 1 ? totalRows * 1.5 : totalRows * 3.5;
-      let x = gridColumns === 1 ? null : "+=1";
-      // Calculate the total height of the cards container
 
+      // Adjust animation duration for mobile
+      const animationDuration =
+        window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
+
+      // Use transform and scale for smoother animations
       const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
-      // Animate the container instead of individual cards
+
+      // Apply will-change to optimize performance
+      cardsContainer.style.willChange = "transform, opacity";
+
+      // Set initial transform for smooth performance
+      gsap.set(cardsContainer, { transformOrigin: "top", y: 0 });
+
+      // Check if the viewport is mobile and adjust animations
+      const x = gridColumns === 1 ? null : "+=1";
+
       t.to(".outer", {
         display: "hidden",
       }).to(
@@ -261,118 +265,127 @@ const HOMEpage = () => {
           ease: "none",
           duration: animationDuration, // Adjust the speed dynamically
           overwrite: true, // Ensure no conflicting animations
+          onComplete: () => {
+            // Reset will-change after animation completes
+            cardsContainer.style.willChange = "auto";
+          },
         },
         x
       );
     }
 
-    if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
       t.to([".cards", ".header"], {
         zIndex: "0",
         opacity: 0,
-      }).addLabel("section_event")
-      .to(
-        [".sideimg"],
-        {
-          opacity: 1,
-          left: 0,
-          duration: 4,
-        },
-        "-=3"
-      );
-    }
-    t.to([".cards", ".header"], {
-      zIndex: "0",
-      opacity: 0,
-    })
-      .to(
-        [".bottomimg", ".mobile-view"],
-        {
-          opacity: 1,
-          bottom: 0,
-          duration: 1.8,
-        },
-        "-=2"
-      )
-      .to(".features", {
-        top: "0%",
-        duration: 1.5,
       })
-      .to(".features", {
-        overflow: "auto",
-      },"<");
-    if (window.matchMedia("(min-width: 821px)").matches) {
-      gsap.utils.toArray(".page").forEach((page, index) => {
-        // const pageLabel = `page${index + 1}`; // Create a unique label for each page
-        // const pageEndLabel = `pageEnd${index + 1}`; // Label for the end of the animation for the page
-
-        // Add page animation to the timeline
-        // t.addLabel(pageLabel) // Add a label at the start of the page animation
+        .addLabel("section_event")
+        .to(
+          [".sideimg"],
+          {
+            opacity: 1,
+            left: 0,
+            duration: 4,
+          },
+          "-=3"
+        );
+        gsap.utils.toArray(".page").forEach((page, index) => {
           t.to(page, {
             opacity: 1,
             duration: 3,
           })
-
-          .to(
-            [page.querySelector(".sqimg"), page.querySelector(".section2")],
-            {
-              opacity: 1,
-              bottom: 0,
-              right: (index, target) =>
-                target.classList.contains("sqimg") ? 0 : undefined,
-              duration: 5,
-            },
-            "-=0.5"
-          )
-          .pause()
-          .call(() => {
-            // Remove the "active" class from all nav buttons
-            document
-              .querySelectorAll(".nav-button-section")
-              .forEach((btn) => btn.classList.remove("active"));
-            // Add the "active" class to the current nav button
-            document
-              .querySelectorAll(".nav-button-section")
-              [index].classList.add("active");
-          })
-          .pause()
-
-          .to(
-            [page.querySelector(".sqimg"), page.querySelector(".section2")],
-            {
-              opacity: 0,
-              bottom: (index, target) =>
-                target.classList.contains("sqimg") ? "-100%" : "100%",
-              right: "-100%",
-              duration: 4,
-            },
-            "+=2"
-          )
-          .call(() => {
-            // Remove the "active" class from all nav buttons when leaving the page
-            document
-              .querySelectorAll(".nav-button-section")
-              .forEach((btn) => btn.classList.remove("active"));
-          });
-      });
+  
+            .to(
+              [page.querySelector(".sqimg"), page.querySelector(".section2")],
+              {
+                opacity: 1,
+                bottom: 0,
+                right: (index, target) =>
+                  target.classList.contains("sqimg") ? 0 : undefined,
+                duration: 5,
+              },
+              "-=0.5"
+            )
+            .pause()
+            .call(() => {
+              // Remove the "active" class from all nav buttons
+              document
+                .querySelectorAll(".nav-button-section")
+                .forEach((btn) => btn.classList.remove("active"));
+              // Add the "active" class to the current nav button
+              document
+                .querySelectorAll(".nav-button-section")
+                [index].classList.add("active");
+            })
+            .pause()
+  
+            .to(
+              [page.querySelector(".sqimg"), page.querySelector(".section2")],
+              {
+                opacity: 0,
+                bottom: (index, target) =>
+                  target.classList.contains("sqimg") ? "-100%" : "100%",
+                right: "-100%",
+                duration: 4,
+              },
+              "+=2"
+            )
+            .call(() => {
+              // Remove the "active" class from all nav buttons when leaving the page
+              document
+                .querySelectorAll(".nav-button-section")
+                .forEach((btn) => btn.classList.remove("active"));
+            });
+        });
     }
-    // // Allow timeline navigation via buttons
-    // const goToPage = (label) => {
-    //   t.tweenTo(label); // Smoothly jump to the specific label
-    // };
+    else{
+      t.to([".cards", ".header"], {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power1.out",
+      }).set([".cards", ".header"], { zIndex: -1 }); // Use `set` instead of animating `zIndex`
+  
+      t.to([".bottomimg"], {
+        opacity: 1,
+        bottom: "0", // Bottom image moves to 0
+        duration: 2,
+        ease: "power2.out",
+      })
+        .to(
+          [".mobile-view"],
+          {
+            opacity: 1,
+            top: "0", // Mobile view moves to -75px
+            duration: 2,
+            ease: "power2.out",
+          },
+          "<" // Ensure both animations start at the same time
+        )
+        .to(".features", {
+          top: "0", // Replace `top` with `y`
+          duration: 3,
+          ease: "power2.inOut",
+        })
+        .set(
+          ".features",
+          {
+            overflow: "auto", // Use `set` for non-animated changes
+            // onComplete: () => {
+            //   // Enable overflow hidden after the animation completes
+            //   document.body.style.overflow = "hidden";
+            // },
+          },
+          "-=0.1"
+        )
+        .pause()
+        .to(".features", {
+          duration: 2,
+        });
+    }
 
-    // // Example usage (buttons in your HTML/JSX):
-    // const navButtons = document.querySelectorAll(".nav-button");
-    // navButtons.forEach((button, index) => {
-    //   button.addEventListener("click", () => {
-    //     const pageLabel = `pageEnd${index + 1}`; // Generate label dynamically
-    //     goToPage(pageLabel); // Navigate to the corresponding page
-    //   });
-    // });
+  })
 
-  });
   useLayoutEffect(() => {
-    
     // Initialize Lenis
     const lenis = new Lenis({
       damping: 0.2, // Lower values = slower scroll, Higher = faster
@@ -647,11 +660,19 @@ const HOMEpage = () => {
           <ul className="main-menu laptop_home_bottom_menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
-              <span id="" className="w-full text-center tracking-widest font-semibold">
-                <a className="cursor-pointer" onClick={() => {
-                  scrollByVh(1.8)
-                }
-                }> EVENTS</a>
+              <span
+                id=""
+                className="w-full text-center tracking-widest font-semibold"
+              >
+                <a
+                  className="cursor-pointer"
+                  onClick={() => {
+                    scrollByVh(1.8);
+                  }}
+                >
+                  {" "}
+                  EVENTS
+                </a>
               </span>
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
@@ -730,9 +751,9 @@ const HOMEpage = () => {
           } overflow-y-auto transition-transform duration-1000`}
         >
           <ul className="menu-items text-xl tracking-wider h-[60%] w-full mt-20 flex flex-col items-center justify-center">
-          <div className="logo w-20 absolute top-2 left-3">
-            <img src="TC_Logo.webp" alt="" />
-          </div>
+            <div className="logo w-20 absolute top-2 left-3">
+              <img src="TC_Logo.webp" alt="" />
+            </div>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
                 href="#"
@@ -741,10 +762,16 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                <a className="cursor-pointer" onClick={() => {
-                  scrollByVh(1.8)
-                }
-                }> EVENTS</a>                </span>
+                  <a
+                    className="cursor-pointer"
+                    onClick={() => {
+                      scrollByVh(1.8);
+                    }}
+                  >
+                    {" "}
+                    EVENTS
+                  </a>{" "}
+                </span>
 
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
@@ -994,117 +1021,116 @@ const HOMEpage = () => {
                 </svg>
               </a>
             </li>
-          <li className="absolute bottom-20 w-full">
-            <ul className="menu2 flex items-center justify-center w-full h-full">
-            <span className="line w-full"></span>
+            <li className="absolute bottom-20 w-full">
+              <ul className="menu2 flex items-center justify-center w-full h-full">
+                <span className="line w-full"></span>
 
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 576 512"
-                  >
-                    <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li>
-              <span className="line w-[20%]"></span>
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 448 512"
-                  >
-                    <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li>
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 576 512"
+                    >
+                      <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                      ></polygon>
+                    </svg>
+                  </span>
+                </li>
+                <span className="line w-[20%]"></span>
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 448 512"
+                    >
+                      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                      ></polygon>
+                    </svg>
+                  </span>
+                </li>
 
-              <span className="line w-[20%]"></span>
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 448 505"
-                  >
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li>
-              <span className="line w-full"></span>
+                <span className="line w-[20%]"></span>
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 448 505"
+                    >
+                      <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                      ></polygon>
+                    </svg>
+                  </span>
+                </li>
+                <span className="line w-full"></span>
               </ul>
             </li>
           </ul>
-          
         </div>
       </div>
 
@@ -1158,7 +1184,7 @@ const HOMEpage = () => {
           </div>
           <div
             id="events"
-            className="Events opacity-0 flex justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500"
+            className="Events opacity-0 flex overflow-hidden justify-center items-center h-full w-full bg-[#23201d] absolute border-green-500"
           >
             <svg
               className="circle-glyph2 absolute"
@@ -1314,11 +1340,11 @@ const HOMEpage = () => {
           </div>
 
           <div
-            className={`sideimg hidden items-center p-4 md:flex  absolute w-full h-full -left-[150%]  ${
+            className={`sideimg hidden border items-center p-4 md:flex  absolute w-full h-full -left-[150%]  ${
               SideImgVisible ? "z-[50]" : "z-[30]"
             }`}
           >
-            <div className="sections absolute z-[51] h-[50%] w-[20%] flex flex-col justify-center items-center">
+            <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] border flex flex-col justify-center items-center">
               <div
                 className="nav-button-section sec1"
                 data-nav-button-section=""
@@ -1612,9 +1638,9 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="mobile-view border-yellow-500 z-50 flex md:hidden absolute w-full h-full">
+          <div className="mobile-view border h-full fixed border-yellow-500 z-[30] flex lg:hidden absolute w-full">
             <div
-              className={`bottomimg z-50 flex md:hidden absolute w-full h-full -bottom-[150%]`}
+              className={`bottomimg z-50 flex lg:hidden absolute w-full h-full -bottom-[100%]`}
             >
               <div
                 className="features w-full"

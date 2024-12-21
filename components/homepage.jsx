@@ -1347,11 +1347,11 @@ const HOMEpage = () => {
           </div>
 
           <div
-            className={`sideimg hidden border items-center p-4 md:flex  absolute w-full h-full -left-[150%]  ${
+            className={`sideimg hidden items-center p-4 md:flex  absolute w-full h-full -left-[150%]  ${
               SideImgVisible ? "z-[50]" : "z-[30]"
             }`}
           >
-            <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] xl:w-[20%] border flex flex-col justify-center items-center">
+            <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] xl:w-[20%] flex flex-col justify-center items-center">
               <div
                 className="nav-button-section sec1"
                 data-nav-button-section=""
@@ -1595,13 +1595,13 @@ const HOMEpage = () => {
             </div>
           </div>
           <div className="page page1  bg-blue-500 md:flex  absolute w-full h-full opacity-0 ">
-            <div className="section1 border border-red-500 h-full w-[30%] xl:w-[25%]"></div>
-            <div className="section2 opacity-0 border flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
+            <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
+            <div className="section2 opacity-0 flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>FUN EVENT 1</p>
               <p>line2</p>
               <p>line3</p>
             </div>
-            <div className="section3 absolute right-0  border border-blue-500 flex items-center justify-center h-full w-[40%]">
+            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
               <div className="square  overflow-hidden rotate-45  h-[20vw] w-[20vw] xl:h-[27vw] xl:w-[27vw] border-custom-border border">
                 <img
                   className="sqimg opacity-0 w-full absolute -bottom-[100%] -right-[100%] h-full"
@@ -1612,13 +1612,13 @@ const HOMEpage = () => {
             </div>
           </div>
           <div className="page page2 absolute w-full h-full md:flex opacity-0 bg-blue-900">
-            <div className="section1 border border-red-500 h-full w-[25%]"></div>
-            <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
+            <div className="section1 border-red-500 h-full w-[25%]"></div>
+            <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page2</p>
               <p>line2</p>
               <p>line3</p>
             </div>
-            <div className="section3 absolute right-0  border border-blue-500 flex items-center justify-center h-full w-[40%]">
+            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
               <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
                 <img
                   className="sqimg opacity-0 w-full absolute -bottom-[105%] -right-[105%] h-full"
@@ -1629,13 +1629,13 @@ const HOMEpage = () => {
             </div>
           </div>
           <div className="page page3 absolute w-full h-full md:flex opacity-0 bg-blue-900">
-            <div className="section1 border border-red-500 h-full w-[25%]"></div>
-            <div className="section2 opacity-0 border flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
+            <div className="section1 border-red-500 h-full w-[25%]"></div>
+            <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page2</p>
               <p>line2</p>
               <p>line3</p>
             </div>
-            <div className="section3 absolute right-0  border border-blue-500 flex items-center justify-center h-full w-[40%]">
+            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
               <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
                 <img
                   className="sqimg opacity-0 w-full absolute -bottom-[105%] -right-[105%] h-full"

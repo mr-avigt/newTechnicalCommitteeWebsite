@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
+import Sponsors from "./Sponsors";
 function Model(props) {
   const { scene } = useGLTF("/Orinthopter.glb");
   const modelRef = useRef();
@@ -2254,6 +2255,8 @@ const HOMEpage = () => {
           </div>
         </div>
       </section>
+      <div id="sponsors"><Sponsors />
+      </div>
       <div
         id="contactus"
         className="container3 w-full p-2 sm:p-4 flex items-center justify-center bg-[#23201d]"

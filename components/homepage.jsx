@@ -159,7 +159,7 @@ const HOMEpage = () => {
       description:
         "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
       bgColor: "#9CA3AF",
-      image:"/trusstrength.jpg"
+      image:"/trussstrength.jpg"
     },
     {
       title: "Auction league",

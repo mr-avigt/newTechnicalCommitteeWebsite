@@ -75,52 +75,61 @@ const HOMEpage = () => {
       description:
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#1E293B", // Background color for the card
+      image:"/codewars.jpg"
     },
     {
       title: "Robosoccer",
       description:
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
+      image:"/robosoccer.jpg"
     },
     {
       title: "Mock Parliament ",
       description:
         "Experience the thrill of governance! Debate, legislate, and shape policies in a realistic mock parliament setting. Showcase leadership and persuasion!",
       bgColor: "#6B7280",
+      image:"/mockparliament.jpg"
     },
     {
       title: "Truss Strength",
       description:
         "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
       bgColor: "#9CA3AF",
+      image:"/trussstrength.jpg"
     },
     {
       title: "Tech quiz ",
       description:
         "A Trivia or competition quiz event covering all programing, technology trends, gadgets and many more interesting technical topics.",
       bgColor: "#D1D5DB",
+      image:"/techquiz.jpg"
     },
     {
       title: "Drone Race",
       description:
         "Race against time in a thrilling aerial challenge! Design, build, and fly your own aircraft for speed and precision.",
       bgColor: "#F3F4F6",
+      image:"/dronerace.jpg"
     },
     {
       title: "Spectra",
       description:
         "Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
       bgColor: "#E5E7EB",
+      image:"/spectra.jpg"
     },
     {
       title: "Treasure/Technical hunt",
       description: "NULL",
       bgColor: "#CBD5E1",
+      image:"/treasurehunt.jpg"
     },
     {
       title: "Challenge 9",
       description: "This is the description for Challenge 9.",
       bgColor: "#A3BFFA",
+      image:"/challenge9.jpg"
     },
   ];
   const day2_cards = [
@@ -129,52 +138,61 @@ const HOMEpage = () => {
       description:
         "Test your problem-solving skills! Debug faulty circuits, identify errors, and restore functionality in this electrifying and brain-teasing competition.",
       bgColor: "#1E293B", // Background color for the card
+      image:"/circuitdebugging.jpg"
     },
     {
       title: "Mock Parliament",
       description:
         "Experience the thrill of governance! Debate, legislate, and shape policies in a realistic mock parliament setting. Showcase leadership and persuasion!",
       bgColor: "#4B5563",
+      image:"/mockparliament.jpg"
     },
     {
       title: "Robosoccer",
       description:
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#6B7280",
+      image:"/robosoccer.jpg"
     },
     {
       title: "Truss Strength",
       description:
         "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
       bgColor: "#9CA3AF",
+      image:"/trusstrength.jpg"
     },
     {
       title: "Auction league",
       description:
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#D1D5DB",
+      image:"/auctionleague.jpg"
     },
     {
       title: "Spectra 2",
       description:
         "In this event host will tell the image description and will have an image with them that they will not show and then the participants will be required to generate the image and the one matching the image and description most will win ....using stable diffusion , dall-e or any other websites",
       bgColor: "#F3F4F6",
+      image:"/spectra2.jpg"
     },
     {
       title: "Shark Tank",
       description:
         "Pitch your business ideas to a panel of investors! Secure funding, gain feedback, and turn your vision into reality.",
       bgColor: "#E5E7EB",
+      image:"/sharktank.jpg"
     },
     {
       title: "Tech charades",
       description: `Participants will have to act out tech-related terms, gadgets, or famous tech personalities without speaking, and their teammates must guess what it is Example words/phrases: "Artificial Intelligence," "Smartphone," "Elon Musk," "JavaScript," "Wi-Fi," "Bitcoin," "Virtual Reality," etc`,
       bgColor: "#CBD5E1",
+      image:"/techcharades.jpg"
     },
     {
       title: "Challenge 9",
       description: "This is the description for Challenge 9.",
       bgColor: "#A3BFFA",
+      image:"/challenge9.jpg"
     },
   ];
 
@@ -1278,7 +1296,7 @@ const HOMEpage = () => {
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                      
                         <div className="thumbnail">
-                          <img src="thumb1.webp" alt="" />
+                          <img src={card.image} alt="" />
                           <div className="absolute w-full">
                             <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>
@@ -1318,7 +1336,7 @@ const HOMEpage = () => {
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                       <div className="thumbnail">
-                          <img src="thumb1.webp" alt="" />
+                          <img src={card.image} alt="" />
                           <div className="absolute w-full">
                             <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>

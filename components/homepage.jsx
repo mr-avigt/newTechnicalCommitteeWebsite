@@ -77,7 +77,7 @@ const HOMEpage = () => {
         "An Opening Ceremony where you can showcase your creativity and innovation! Present unique projects, inspire ideas, and engage with an audience at our exciting exhibition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://forms.gle/ZGyjFHCNfkP2B4nk8",
-      image: "Techx.jpg"
+      image: "techx.jpg"
     },
     {
       title: "Code Wars",

@@ -27,18 +27,7 @@ const Footer = () => {
         </div>
 
         {/* Popular Courses & Topics */}
-        <div className="flex flex-col gap-2 text-sm">
-          <p className="text-base text-xl font-bold tracking-wide text-[#f4cf8b]">
-            Title
-          </p>
-          <a href="#" className="hover:underline">
-line1          </a>
-          <a href="#" className="hover:underline">
-line2          </a>
-          <a href="#" className="hover:underline">
-line3          </a>
-          
-        </div>
+  
 
         {/* App Availability & Contact */}
         <div>

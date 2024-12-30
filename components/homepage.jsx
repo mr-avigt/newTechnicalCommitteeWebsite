@@ -275,7 +275,7 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
-      const totalHeight = gridColumns === 1 ? totalRows * 270 : totalRows * 250; // Assuming each row has a height of 300px
+      const totalHeight = gridColumns === 1 ? totalRows * 278 : totalRows * 250; // Assuming each row has a height of 300px
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -722,7 +722,8 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-[55%] items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
-                <a href="#contactus">CONTACT US & MERCH</a>
+                <a href="#contactus">CONTACT-US & MERCH</a>
+
               </span>
               <span className="w-full h-full border-custom-border border-r-2"></span>
             </li>
@@ -1065,7 +1066,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper transition ml-8 ">
-                  <a href="#contactus">CONTACTUS & MERCH</a>
+                  <a href="#contactus">CONTACT-US & MERCH</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1704,10 +1705,10 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="page page1  bg-blue-500 md:flex  absolute w-full h-full opacity-0 ">
+          <div className="page page1 bg-[url('funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
             <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
-            <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
-              <p>Basically a spin the wheel kind of game,where some dares,tasks and questions related to tech would be written and participant has to complete that task or answer the question.</p>
+            <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col z-[30] absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
+              <p>Basically a spin the wheel kind of game, where some dares, tasks and questions related to tech would be written and participant has to complete that task or answer the question.</p>
             </div>
             <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
               <div className="square  overflow-hidden rotate-45  h-[20vw] w-[20vw] xl:h-[27vw] xl:w-[27vw] border-custom-border border">
@@ -1719,7 +1720,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="page page2 absolute w-full h-full md:flex opacity-0 bg-blue-900">
+          <div className="page page2 bg-[url('funeventbg2.jpg')] bg-cover bg-no-repeat  absolute w-full h-full md:flex opacity-0 bg-blue-900">
             <div className="section1 border-red-500 h-full w-[25%]"></div>
             <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page2</p>
@@ -1736,7 +1737,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="page page3 absolute w-full h-full md:flex opacity-0 bg-blue-900">
+          <div className="page page3 bg-[url('funeventbg3.jpg')] bg-cover bg-no-repeat  absolute w-full h-full md:flex opacity-0 bg-blue-900">
             <div className="section1 border-red-500 h-full w-[25%]"></div>
             <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
               <p>page2</p>

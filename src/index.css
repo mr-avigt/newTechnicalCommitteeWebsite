@@ -239,6 +239,12 @@
   border-right: 2px solid #f4cf8b;
   transform: translate(102px, -12.5px) rotate(-45deg);
 }
+.mobile-view .fady-box .borders:after {
+  right: -42px;
+  border-bottom: 2px solid #f4cf8b;
+  border-right: 2px solid #f4cf8b;
+  transform: translate(104px, -12.5px) rotate(-45deg);
+}
 .fady-box .borders1:before,
 .fady-box .borders1:after {
   content: "";
@@ -555,9 +561,9 @@
 }
 .container3 {
   background-image: url("../public/contactus_bgd.webp");
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-position: center;
-  background-size: fill;
+  background-size: cover;
 }
 
 @media (max-width: 991.98px) {

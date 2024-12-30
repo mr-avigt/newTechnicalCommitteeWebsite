@@ -10,6 +10,7 @@ import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import Sponsors from "./Sponsors";
+import Merch from "./Merch";
 function Model(props) {
   const { scene } = useGLTF("/Orinthopter.glb");
   const modelRef = useRef();
@@ -120,7 +121,7 @@ const HOMEpage = () => {
       image:"/spectra.jpg"
     },
     {
-      title: "Treasure/Technical hunt",
+      title: "Treasure hunt",
       description: "NULL",
       bgColor: "#CBD5E1",
       image:"/treasurehunt.jpg"
@@ -264,7 +265,7 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
-      const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
+      const totalHeight = gridColumns === 1 ? totalRows * 270 : totalRows * 250; // Assuming each row has a height of 300px
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -358,50 +359,50 @@ const HOMEpage = () => {
         });
     }
     else{
-      t.to([".cards", ".header"], {
-        opacity: 0,
-        duration: 0.8,
-        ease: "power1.out",
-      }).set([".cards", ".header"], { zIndex: -1 }) // Use `set` instead of animating `zIndex`
+      // t.to([".cards", ".header"], {
+      //   opacity: 0,
+      //   duration: 0.8,
+      //   ease: "power1.out",
+      // }).set([".cards", ".header"], { zIndex: -1 }) // Use `set` instead of animating `zIndex`
   
-      .to([".bottomimg"], {
-        opacity: 1,
-        bottom: "0", // Bottom image moves to 0
-        duration: 5,
-        ease: "power2.out"
-      },"<")
-        .to(
-          [".mobile-view"],
-          {
-            opacity: 1,
-            top: "0", // Mobile view moves to -75px
-            duration: 2,
-            ease: "power2.out",
-          },
-          "<" // Ensure both animations start at the same time
-        )
-        .to(".features", {
-          top: "0", // Replace `top` with `y`
-          duration: 3,
-          ease: "power2.inOut",
-        })
-        .set(
-          ".features",
-          {
-            overflow: "auto", // Use `set` for non-animated changes
-            // onComplete: () => {
-            //   // Enable overflow hidden after the animation completes
-            //   document.body.style.overflow = "hidden";
-            // },
-          },
-          "-=1"
-        )
-        .to(".features", {
-          duration: 2,
-        })        .pause()
-        ;
+      // .to([".bottomimg"], {
+      //   opacity: 1,
+      //   bottom: "0", // Bottom image moves to 0
+      //   duration: 5,
+      //   ease: "power2.out"
+      // },"<")
+      //   .to(
+      //     [".mobile-view"],
+      //     {
+      //       opacity: 1,
+      //       top: "0", // Mobile view moves to -75px
+      //       duration: 2,
+      //       ease: "power2.out",
+      //     },
+      //     "<" // Ensure both animations start at the same time
+      //   )
+      //   .to(".features", {
+      //     top: "0", // Replace `top` with `y`
+      //     duration: 3,
+      //     ease: "power2.inOut",
+      //   })
+      //   .set(
+      //     ".features",
+      //     {
+      //       overflow: "auto", // Use `set` for non-animated changes
+      //       // onComplete: () => {
+      //       //   // Enable overflow hidden after the animation completes
+      //       //   document.body.style.overflow = "hidden";
+      //       // },
+      //     },
+      //     "-=1"
+      //   )
+      //   .to(".features", {
+      //     duration: 2,
+      //   })        .pause()
+      //   ;
     }
-
+  
   })
 
   useLayoutEffect(() => {
@@ -440,6 +441,10 @@ const HOMEpage = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setModelScale(0.03); // Scale for phones
+      }
+      else if(window.innerWidth > 767 && window.innerWidth < 1048){
+        setModelScale(0.01); // Scale for phones
+
       } else {
         setModelScale(0.1); // Scale for laptops and tablets
       }
@@ -472,7 +477,7 @@ const HOMEpage = () => {
 
             @media (min-width: 768px) { /* Tablets and above */
             .responsive-canvas-container {
-              height: 30vh;
+              height: 70vh;
             }
             }
 
@@ -675,7 +680,7 @@ const HOMEpage = () => {
             ></path>
           </svg>
         </div>
-        <div className="navigation z-30 items-center absolute bottom-[1.2%] w-[40vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
+        <div className="navigation z-30 items-center absolute bottom-[1.2%] w-[50vw] border-t-[1.5px] border-[#F4CF8B] rounded-t-xl h-[7%] hidden lg:flex">
           <ul className="main-menu laptop_home_bottom_menu flex text-[#F4CF8B] xl:text-md lg:text-sm w-full  h-full items-center justify">
             <li className=" h-full flex flex-col w-1/3 items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
@@ -710,9 +715,16 @@ const HOMEpage = () => {
               <span className="w-full border-r-2 h-full border-custom-border"></span>
             </li>
             <li className=" h-full flex flex-col w-[55%] items-center justify-center">
-              <div className="w-full h-full "></div>
+              <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
                 <a href="#contactus">CONTACTUS & MERCH</a>
+              </span>
+              <span className="w-full h-full border-custom-border border-r-2"></span>
+            </li>
+            <li className=" h-full flex flex-col w-[40%] items-center justify-center">
+              <div className="w-full h-full "></div>
+              <span className="w-full text-center h-1/2 font-semibold tracking-wide">
+                <a href="#contactus">SPONSOR US</a>
               </span>
               <span className="w-full h-full"></span>
             </li>
@@ -784,7 +796,7 @@ const HOMEpage = () => {
                   <a
                     className="cursor-pointer"
                     onClick={() => {
-                      scrollByVh(1.8);
+                      scrollByVh(2);
                     }}
                   >
                     {" "}
@@ -919,6 +931,71 @@ const HOMEpage = () => {
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
                   <a href="#sponsors">SPONSORS</a>
+                </span>
+
+                {/* Hover SVG (Vertical Pink) */}
+                <svg
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2  scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100  transition-opacity duration-1000"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="5"
+                  height="55"
+                  viewBox="0 0 6 60"
+                >
+                  <path
+                    opacity=".3"
+                    d="M0 5v54l3 5V0L0 5Z"
+                    fill="url(#a)"
+                  ></path>
+                  <path fill="url(#b)" d="M2 15H1V49h1V15z"></path>
+                  <defs>
+                    <linearGradient
+                      id="a"
+                      x1="0"
+                      y1="64"
+                      x2="0"
+                      y2="0"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#E39DE3" stopOpacity="0"></stop>
+                      <stop offset=".234" stopColor="#E39DE3"></stop>
+                      <stop offset=".766" stopColor="#E39DE3"></stop>
+                      <stop
+                        offset="1"
+                        stopColor="#E39DE3"
+                        stopOpacity="0"
+                      ></stop>
+                    </linearGradient>
+                    <linearGradient
+                      id="b"
+                      x1="2"
+                      y1="49"
+                      x2="1"
+                      y2="15"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#E39DE3" stopOpacity="0"></stop>
+                      <stop offset=".234" stopColor="#E39DE3"></stop>
+                      <stop offset=".766" stopColor="#E39DE3"></stop>
+                      <stop
+                        offset="1"
+                        stopColor="#E39DE3"
+                        stopOpacity="0"
+                      ></stop>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </a>
+            </li>
+            <li className="relative menu-item h-1/6 flex items-center  w-full">
+              <a
+                href="#"
+                className="menu-link active flex items-center group relative w-full h-full"
+                data-menu-link=""
+              >
+                {/* Title */}
+                <span className="menu-link-wrapper  transition ml-8 ">
+                  <a href="#sponsors">SPONSOR US</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1307,10 +1384,12 @@ const HOMEpage = () => {
                         </div>
                         <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
                           
-                        <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
+                        <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
                             {card.title}
-                            <span className="chevrons"></span>
+                              <span className="chevrons">
+                              <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">Register</p>
 
+                              </span>
                           </h3>
                           <p className="text-sm text-[#f4cf9b]">
                             {card.description}
@@ -1349,8 +1428,10 @@ const HOMEpage = () => {
                           
                           <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                             {card.title}
-                            <span className="chevrons"></span>
+                            <span className="chevrons">
+                              <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">Register</p>
 
+                              </span>
                           </h3>
                           <p className="text-sm text-[#f4cf9b]">
                             {card.description}
@@ -1664,10 +1745,18 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="mobile-view h-full fixed border-yellow-500 z-[30] flex lg:hidden absolute w-full">
-            <div
-              className={`bottomimg z-50 flex lg:hidden absolute w-full h-full -bottom-[100%]`}
-            >
+        </div>
+      </section>
+          <div className="mobile-view relative flex flex-col items-center bg-[#23201d] border-yellow-500 border-2 z-[30] flex lg:hidden overflow-x-hidden">
+          <div className="fady-box font-medium m-10">
+                  <div className="b_line  bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
+                  FUN EVENTS
+                  <div className="borders absolute">
+                    <div className="before"></div>
+                    <div className="after"></div>
+                  </div>
+                  <div className="r_line bg-gradient-to-r from-[#F4CF8B] absolute to-transparent h-[2px] w-20"></div>
+                </div>
               <div
                 className="features w-full"
                 ref={innerRef}
@@ -2270,19 +2359,18 @@ const HOMEpage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
       <div id="sponsors"><Sponsors />
       </div>
       <div
         id="contactus"
-        className="container3 w-full p-2 sm:p-4 flex items-center justify-center bg-[#23201d]"
+        className="container3 border w-full p-2 sm:p-4 gap-10 md:gap-5 lg:gap-10 flex  items-start flex-col md:flex-row justify-center bg-[#23201d]"
       >
-        <div className="contactus md:w-[60%]">
+        <div className="contactus flex items-center justify-center">
           <Form />
         </div>
-        <div className="merch"></div>
+        <div className="merch">
+          <Merch />
+        </div>
       </div>
       <Footer />
     </>

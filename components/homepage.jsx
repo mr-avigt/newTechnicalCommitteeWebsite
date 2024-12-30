@@ -2373,7 +2373,7 @@ const HOMEpage = () => {
       </div>
       <div
         id="contactus"
-        className="container3 w-full p-2 sm:p-4 gap-10 md:gap-5 lg:gap-10 flex  items-start flex-col md:flex-row justify-center bg-[#23201d]"
+        className="container3 w-full p-2 sm:p-4 gap-10 md:gap-5 lg:gap-10 flex  items-center flex-col-reverse md:flex-row justify-center bg-[#23201d]"
       >
         <div className="contactus flex items-center justify-center">
           <Form />

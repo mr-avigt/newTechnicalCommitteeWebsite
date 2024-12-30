@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const SponsorCard = ({image}) => (
-   <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] ">
+   <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 ">
      <div className="absolute inset-0  bg-cover bg-no-repeat bg-center rotate-[-45deg] "style={{ filter: 'grayscale(100%)' , backgroundImage:`url(${image})`,backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',

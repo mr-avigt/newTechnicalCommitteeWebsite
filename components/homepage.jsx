@@ -1696,7 +1696,7 @@ const HOMEpage = () => {
           </div>
           <div className="page page1  bg-blue-500 md:flex  absolute w-full h-full opacity-0 ">
             <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
-            <div className="section2 text-lg font-[#f4cf8b] opacity-0 flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
+            <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
               <p>Basically a spin the wheel kind of game,where some dares,tasks and questions related to tech would be written and participant has to complete that task or answer the question.</p>
             </div>
             <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
@@ -2362,7 +2362,7 @@ const HOMEpage = () => {
       </div>
       <div
         id="contactus"
-        className="container3 border w-full p-2 sm:p-4 gap-10 md:gap-5 lg:gap-10 flex  items-start flex-col md:flex-row justify-center bg-[#23201d]"
+        className="container3 w-full p-2 sm:p-4 gap-10 md:gap-5 lg:gap-10 flex  items-start flex-col md:flex-row justify-center bg-[#23201d]"
       >
         <div className="contactus flex items-center justify-center">
           <Form />

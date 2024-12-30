@@ -85,6 +85,7 @@ const HOMEpage = () => {
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeRbIrPL9wII86YNUSTnc3sKzeTo-Aw5Ms9-6URNqoU8kRncw/viewform?usp=pp_url)",
+
       image:"/codewars.jpg"
     },
     {
@@ -93,7 +94,7 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
-      image:"/robosoccer.jpg"
+
     },
     {
       title: "Shark Tank",
@@ -102,6 +103,7 @@ const HOMEpage = () => {
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeDK4zlgrh_H_lXX5qniPHg7-EiBRWzyCYuE-G1E3NaHrKSQg/viewform?usp=pp_url",
       image:"/sharktank.jpg"
+
     },
     {
       title: "Truss Strength",
@@ -118,6 +120,7 @@ const HOMEpage = () => {
       bgColor: "#CBD5E1",
       link: "https://forms.gle/V8wH3na28eySMAe69",
       image:"/treasurehunt.jpg"
+
     },
     {
       title: "Spectra",
@@ -128,6 +131,7 @@ const HOMEpage = () => {
       image:"/spectra.jpg"
     },
    
+
   ];
   const day2_cards = [
     {
@@ -136,6 +140,7 @@ const HOMEpage = () => {
         "Test your problem-solving skills! Debug faulty circuits, identify errors, and restore functionality in this electrifying and brain-teasing competition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLScAP3WHpVX6WPulaazEkqDDLbDvGjYv8uS65x4Bzd_CtJXahw/viewform?usp=header",
+
       image:"/circuitdebugging.jpg"
     },
     {
@@ -155,6 +160,7 @@ const HOMEpage = () => {
       bgColor: "#4B5563",
       link: "https://forms.gle/gT11LBJnoujJC5jg9",
       image:"/mockparliament.jpg",
+
     },
     {
       title: "Code Debugging",
@@ -178,7 +184,7 @@ const HOMEpage = () => {
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#D1D5DB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSdmnNBga5KvsyF39sbJ51S80ju9SG3q800thHAdDY5aWtYUkQ/viewform?usp=header",
-      image:"/auctionleague.jpg"
+
     },
     {
       title: "Strategic Sprint",
@@ -195,6 +201,7 @@ const HOMEpage = () => {
       bgColor: "#F3F4F6",
       link: "https://forms.gle/gCuAmfWAseFWyiVWA",
       image:"/dronerace.jpg"
+
     },
   ];
 
@@ -1368,7 +1375,7 @@ const HOMEpage = () => {
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
                         <div className="thumbnail">
-                          <img src="thumb1.webp" alt="" />
+                          <img src={card.image} alt="" />
                           <div className="absolute w-full">
                             <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>
@@ -1412,8 +1419,9 @@ const HOMEpage = () => {
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-                        <div className="thumbnail">
-                          <img src="thumb1.webp" alt="" />
+
+                      <div className="thumbnail">
+                          <img src={card.image} alt="" />
                           <div className="absolute w-full">
                             <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
                               <div className="absolute inset-0 bg-[#23201d]"></div>

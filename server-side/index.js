@@ -4,10 +4,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 
-const app = express();
+const index = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+index.use(cors());
+index.use(bodyParser.json());
 
 
 mongoose
@@ -26,7 +26,7 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact", contactSchema);
 
 
-app.post("/api/contact", async (req, res) => {
+index.post("/api/contact", async (req, res) => {
   try {
     const { email, subject, message } = req.body;
     console.log(req.body);
@@ -41,4 +41,4 @@ app.post("/api/contact", async (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+index.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -27,8 +27,16 @@ const Footer = () => {
         </div>
 
         {/* Popular Courses & Topics */}
-  
-
+<div>
+        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">DEVELOPED BY</span>
+         
+        <ol className="mt-8">
+ <li>KARTIKAY VERMA</li>
+   <li>ABHIJEET ANAND</li>
+<li>SOMESH GOYAL</li>
+<li>KRISHNA SRIVASTAVA</li>
+ </ol>
+  </div>
         {/* App Availability & Contact */}
         <div>
           <p className="text-base font-bold tracking-wide text-[#f4cf8b]">

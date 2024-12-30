@@ -13,36 +13,30 @@ const Footer = () => {
               className="h-13 w-14"
             />
             <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">
-              Y U G S E T U
+             Y U G S E T U <br/>Bridging Innovations through time
             </span>
           </a>
           <div className="mt-3 lg:max-w-xl">
             <p className="text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-              felis mi, faucibus dignissim lorem id, imperdiet interdum mauris.
-              Vestibulum ultrices sed libero non porta. Vivamus malesuada urna
-              eu nibh malesuada, non finibus massa laoreet. Nunc nisi velit,
-              feugiat a semper quis, pulvinar id libero. Vivamus mi diam,
-              consectetur non orci ut, tincidunt pretium justo. In vehicula
-              porta molestie. Suspendisse potenti.
+          
+
+"Yug Setu" honors the timeless legacy of India’s ancient wisdom and its profound impact on today’s technological advancements. From the groundbreaking theories of Kanad and Aryabhatta to the inspiration behind modern aerospace and space exploration, this theme bridges the past and future. It celebrates how the brilliance of ancient minds continues to drive today’s innovations, shaping a brighter tomorrow
+
             </p>
           </div>
         </div>
 
         {/* Popular Courses & Topics */}
-        <div className="flex flex-col gap-2 text-sm">
-          <p className="text-base text-xl font-bold tracking-wide text-[#f4cf8b]">
-            Title
-          </p>
-          <a href="#" className="hover:underline">
-line1          </a>
-          <a href="#" className="hover:underline">
-line2          </a>
-          <a href="#" className="hover:underline">
-line3          </a>
-          
-        </div>
-
+<div>
+        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">DEVELOPED BY</span>
+         
+        <ol className="mt-8">
+ <li>KARTIKAY VERMA</li>
+   <li>ABHIJEET ANAND</li>
+<li>SOMESH GOYAL</li>
+<li>KRISHNA SRIVASTAVA</li>
+ </ol>
+  </div>
         {/* App Availability & Contact */}
         <div>
           <p className="text-base font-bold tracking-wide text-[#f4cf8b]">

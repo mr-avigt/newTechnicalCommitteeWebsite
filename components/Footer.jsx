@@ -39,28 +39,9 @@ const Footer = () => {
   </div>
         {/* App Availability & Contact */}
         <div>
-          <p className="text-base font-bold tracking-wide text-[#f4cf8b]">
-            TECHVIBES IS ALSO AVAILABLE ON
+          <p className="text-base font-bold tracking-wide text-[#f4cf8b] text-center">
+            TECHVIBES 2025
           </p>
-          <div className="flex items-center gap-3 mt-4">
-            <a href="#" className="w-full">
-              <img
-                src="https://mcqmate.com/public/images/icons/playstore.svg"
-                alt="Playstore Button"
-                className="h-10"
-              />
-            </a>
-            <a
-              className="w-full"
-              href="https://www.youtube.com/channel/UCo8tEi6SrGFP8XG9O0ljFgA"
-            >
-              <img
-                src="https://mcqmate.com/public/images/icons/youtube.svg"
-                alt="Youtube Button"
-                className="h-10"
-              />
-            </a>
-          </div>
           <p className="mt-6 text-base font-bold tracking-wide text-[#f4cf8b]">
             Contacts
           </p>

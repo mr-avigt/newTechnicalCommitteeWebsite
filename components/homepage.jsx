@@ -77,7 +77,7 @@ const HOMEpage = () => {
         "An Opening Ceremony where you can showcase your creativity and innovation! Present unique projects, inspire ideas, and engage with an audience at our exciting exhibition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://forms.gle/ZGyjFHCNfkP2B4nk8",
-      image: "TechX.jpg"
+      image: "techx.jpg"
     },
     {
       title: "Code Wars",
@@ -94,6 +94,7 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
+      image:"/robosoccer.jpg"
 
     },
     {
@@ -184,6 +185,7 @@ const HOMEpage = () => {
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#D1D5DB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSdmnNBga5KvsyF39sbJ51S80ju9SG3q800thHAdDY5aWtYUkQ/viewform?usp=header",
+      image:"/auctionleague.jpg"
 
     },
     {
@@ -721,6 +723,7 @@ const HOMEpage = () => {
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
                 <a href="#contactus">CONTACT-US & MERCH</a>
+
               </span>
               <span className="w-full h-full border-custom-border border-r-2"></span>
             </li>

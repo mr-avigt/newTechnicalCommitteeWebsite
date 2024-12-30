@@ -77,6 +77,7 @@ const HOMEpage = () => {
         "An Opening Ceremony where you can showcase your creativity and innovation! Present unique projects, inspire ideas, and engage with an audience at our exciting exhibition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://forms.gle/ZGyjFHCNfkP2B4nk8",
+      image: "TechX.jpg"
     },
     {
       title: "Code Wars",
@@ -84,6 +85,7 @@ const HOMEpage = () => {
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeRbIrPL9wII86YNUSTnc3sKzeTo-Aw5Ms9-6URNqoU8kRncw/viewform?usp=pp_url)",
+      image:"/codewars.jpg"
     },
     {
       title: "Robosoccer",
@@ -91,6 +93,7 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
+      image:"/robosoccer.jpg"
     },
     {
       title: "Shark Tank",
@@ -98,6 +101,7 @@ const HOMEpage = () => {
         "Pitch your business ideas to a panel of investors! Secure funding, gain feedback, and turn your vision into reality.",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeDK4zlgrh_H_lXX5qniPHg7-EiBRWzyCYuE-G1E3NaHrKSQg/viewform?usp=pp_url",
+      image:"/sharktank.jpg"
     },
     {
       title: "Truss Strength",
@@ -105,6 +109,7 @@ const HOMEpage = () => {
         "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
       bgColor: "#9CA3AF",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSfI377v5UWPhgxgqDV8qCEgqqCUZko_EZAQcxllzq-W2utEKA/viewform?usp=pp_url",
+       image:"/trussstrength.jpg"
     },
     {
       title: "Technical hunt",
@@ -112,6 +117,7 @@ const HOMEpage = () => {
         "Participants have to work in teams  to crack codes, solve puzzles, and reach the treasure",
       bgColor: "#CBD5E1",
       link: "https://forms.gle/V8wH3na28eySMAe69",
+      image:"/treasurehunt.jpg"
     },
     {
       title: "Spectra",
@@ -119,6 +125,7 @@ const HOMEpage = () => {
         "Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
+      image:"/spectra.jpg"
     },
    
   ];
@@ -129,6 +136,7 @@ const HOMEpage = () => {
         "Test your problem-solving skills! Debug faulty circuits, identify errors, and restore functionality in this electrifying and brain-teasing competition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLScAP3WHpVX6WPulaazEkqDDLbDvGjYv8uS65x4Bzd_CtJXahw/viewform?usp=header",
+      image:"/circuitdebugging.jpg"
     },
     {
       title: "Robosoccer Finale",
@@ -136,6 +144,8 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#6B7280",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
+      image:"/robosoccer.jpg"
+
     }
     ,
     {
@@ -144,6 +154,7 @@ const HOMEpage = () => {
         "Participants will act as MPs in a mock debate, discussing and voting on a chosen topic. Teams will present arguments for or against the topic, with a moderator overseeing the discussion.",
       bgColor: "#4B5563",
       link: "https://forms.gle/gT11LBJnoujJC5jg9",
+      image:"/mockparliament.jpg",
     },
     {
       title: "Code Debugging",
@@ -151,25 +162,31 @@ const HOMEpage = () => {
         "Test your coding skills in a dynamic debugging challenge! Identify and fix errors to optimize code and win the competition.",
       bgColor: "#4B5563",
       link: "https://forms.gle/Ua2DAogKYZu6S4aC9",
+      image:"/codedebugging.jpg"
     },
     {
       title: "Tech Roast",
       description: `Each participant will take turns presenting a humorous critique of a chosen tech topic, with the goal of entertaining the audience.`,
       bgColor: "#CBD5E1",
-      link: "https://forms.gle/2ZHT3FG3jcGU5u5XA"
+      link: "https://forms.gle/2ZHT3FG3jcGU5u5XA",
+      image:"/techroast.jpg"
+
     },
     {
       title: "Auction league",
       description:
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#D1D5DB",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLSdmnNBga5KvsyF39sbJ51S80ju9SG3q800thHAdDY5aWtYUkQ/viewform?usp=header"
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSdmnNBga5KvsyF39sbJ51S80ju9SG3q800thHAdDY5aWtYUkQ/viewform?usp=header",
+      image:"/auctionleague.jpg"
     },
     {
       title: "Strategic Sprint",
       description:
         "Management event, in which participants will form team of 3-4 members .A backdrop of the allotted company will be provided along with some market based problem statement.",
       bgColor: "#F3F4F6",
+      image:"/strategicsprint.jpg"
+
     },
     {
       title: "Drone Race",
@@ -177,6 +194,7 @@ const HOMEpage = () => {
         "Race against time in a thrilling aerial challenge! Design, build, and fly your own aircraft for speed and precision.",
       bgColor: "#F3F4F6",
       link: "https://forms.gle/gCuAmfWAseFWyiVWA",
+      image:"/dronerace.jpg"
     },
   ];
 

@@ -722,7 +722,7 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-[55%] items-center justify-center">
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
-                <a href="#contactus">CONTACTUS & MERCH</a>
+                <a href="#contactus">CONTACT US & MERCH</a>
               </span>
               <span className="w-full h-full border-custom-border border-r-2"></span>
             </li>

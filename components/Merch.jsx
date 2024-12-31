@@ -9,7 +9,7 @@ const Merch = () => {
       <p className="mb-3 font-light text-center text-[#f4cf8b] text-sm sm:text-lg 2xl:text-xl">
 at just ₹ XXX /-
       </p>
-      <img src="merch2.webp" style={{scale:"0.6"}} alt="" />
+      <img src="merch2.webp" className="scale-0.8" alt="" />
       <form className="space-y-6">
         <button
           type="submit"

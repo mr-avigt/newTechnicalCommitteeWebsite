@@ -34,8 +34,8 @@ const Footer = () => {
         <ol className="mt-8">
           <li><a href ="https://www.linkedin.com/in/somesh-goyal/">SOMESH GOYAL</a></li>
 <li><a href = "https://www.linkedin.com/in/krishna-srivastava-a84b65299">KRISHNA SRIVASTAVA</a></li>
- <li><a href="#">KARTIKAY VERMA</a></li>
-   <li><a href ="#">ABHIJEET ANAND</a></li>
+ <li><a href="https://www.linkedin.com/in/kartikayverma56">KARTIKAY VERMA</a></li>
+   <li><a href ="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">ABHIJEET ANAND</a></li>
 
  </ol>
   </div>

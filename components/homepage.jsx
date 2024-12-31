@@ -44,7 +44,7 @@ const HOMEpage = () => {
     // Function to update video source based on screen size
     const updateVideoSource = () => {
       setVideoSrc(
-        smallScreenMediaQuery.matches ? "Techfsmall.mp4" : "TECHF.mp4"
+        smallScreenMediaQuery.matches ? "Techfsmall2.mp4" : "TECHF.mp4"
       );
     };
 
@@ -332,7 +332,7 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
-      const totalHeight = gridColumns === 1 ? totalRows * 278 : totalRows * 250; // Assuming each row has a height of 300px
+      const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -601,6 +601,8 @@ const HOMEpage = () => {
           </div>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
+            <a href="https://www.youtube.com/@bitmesrajaipurcampus9741" target="#">
+
               <li className="relative flex items-center justify-center group">
                 {/* Background SVG (Social Icon) */}
                 <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1] ">
@@ -624,17 +626,20 @@ const HOMEpage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
                   >
+
                     <polygon
                       stroke="#f4cf8b"
                       fill="none"
                       strokeWidth={1.5}
                       points="9 21 31 0 52 21 31 43"
                       className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
+                      ></polygon>
+                      </svg>
                 </span>
-              </li>
+              </li></a>
               <span className="line"></span>
+              <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
+
               <li className="relative flex items-center justify-center group">
                 {/* Background SVG (Social Icon) */}
                 <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert">
@@ -668,8 +673,10 @@ const HOMEpage = () => {
                   </svg>
                 </span>
               </li>
-
+</a>
               <span className="line"></span>
+              <a href="https://www.instagram.com/techvibesbit/" target="#">
+
               <li className="relative flex items-center justify-center group">
                 {/* Background SVG (Social Icon) */}
                 <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1]">
@@ -702,7 +709,7 @@ const HOMEpage = () => {
                     ></polygon>
                   </svg>
                 </span>
-              </li>
+              </li></a>
               {/* <span className="line  text-white w-[20px]"></span> */}
             </ul>
           </div>
@@ -789,7 +796,7 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-[40%] items-center justify-center">
               <div className="w-full h-full "></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
-                <a href="#contactus">SPONSOR US</a>
+                <a href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank">SPONSOR US</a>
               </span>
               <span className="w-full h-full"></span>
             </li>
@@ -1060,7 +1067,7 @@ const HOMEpage = () => {
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  <a href="#sponsors">SPONSOR US</a>
+                  <a href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank">SPONSOR US</a>
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1185,6 +1192,7 @@ const HOMEpage = () => {
             <li className="absolute bottom-20 w-full">
               <ul className="menu2 flex items-center justify-center w-full h-full">
                 <span className="line w-full"></span>
+                <a href="https://www.youtube.com/@bitmesrajaipurcampus9741" target="#">
 
                 <li className="relative flex items-center justify-center group">
                   {/* Background SVG (Social Icon) */}
@@ -1218,8 +1226,10 @@ const HOMEpage = () => {
                       ></polygon>
                     </svg>
                   </span>
-                </li>
+                </li></a>
                 <span className="line w-[20%]"></span>
+                <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
+
                 <li className="relative flex items-center justify-center group">
                   {/* Background SVG (Social Icon) */}
                   <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
@@ -1252,9 +1262,11 @@ const HOMEpage = () => {
                       ></polygon>
                     </svg>
                   </span>
-                </li>
+                </li></a>
 
                 <span className="line w-[20%]"></span>
+                <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
+
                 <li className="relative flex items-center justify-center group">
                   {/* Background SVG (Social Icon) */}
                   <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
@@ -1287,7 +1299,7 @@ const HOMEpage = () => {
                       ></polygon>
                     </svg>
                   </span>
-                </li>
+                </li></a>
                 <span className="line w-full"></span>
               </ul>
             </li>

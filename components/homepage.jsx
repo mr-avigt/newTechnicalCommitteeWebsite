@@ -240,16 +240,16 @@ const HOMEpage = () => {
   const sectionsData = [
     {
       desc: "Basically a spin the wheel kind of game,where some dares,tasks and questions related to tech would be written and participant has to complete that task or answer the question.",
-      image: "spinthetech.jpg"
+      image: "spinthetech.jpeg"
     },
     {
       desc: "It is a Pictionary kind of game where participants draw gadgets or devices, past, present or future for their team to guess within a time limit.",
-      image: "scribble.jpg"
+      image: "scribble.jpeg"
 
     },
     {
       desc: "skill of bottle flipping with the strategic gameplay of tic-tac-toe.",
-      image: "ftbxtictactoe.jpg"
+      image: "ftbxtictactoe.jpeg"
 
     },
     {
@@ -257,12 +257,12 @@ const HOMEpage = () => {
       image: "rubikscube.jpg"
     },
     {
-      desc: "N/A",
-      image: "aquaquest.jpg"
+      desc: "Get ready for Aqua Quest, a thrilling water-powered adventure! Watch as rockets soar high using the force of water. Build, launch, and compete to see whose rocket reaches the skies!",
+      image: "aquaquest.jpeg"
     },
     {
-      desc: "N/A",
-      image: "passthehook.jpg"
+      desc: "Pass the Hook is a nail-biting game of precision! Guide the ring along the wire without touching it—one buzz and you're out. Steady hands and nerves of steel are your only way through!",
+      image: "passthehook.jpeg"
     },
   ];
   useGSAP(() => {
@@ -333,11 +333,7 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
-<<<<<<< HEAD
       const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
-=======
-      const totalHeight = gridColumns === 1 ? totalRows * 282 : totalRows * 250; // Assuming each row has a height of 300px
->>>>>>> c8f21476c85151ce4ec4eabc6bdb57813f57deaa
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -1741,7 +1737,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="/spinthetech.jpg" alt="" />
+                    <img src="/spinthetech.jpeg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1826,7 +1822,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="/scribble.jpg" alt="" />
+                    <img src="/scribble.jpeg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1996,7 +1992,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="/ftb.jpg" alt="" />
+                    <img src="/ftbxtictactoe.jpeg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2166,7 +2162,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="/aquaquest.jpg" alt="" />
+                    <img src="/aquaquest.jpeg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2251,7 +2247,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="/passthehook.jpg" alt="" />
+                    <img src="/passthehook.jpeg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">

@@ -32,27 +32,38 @@ const Footer = () => {
         <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">Developers</span>
          
         <ol className="mt-8">
-          <li><a href ="https://www.linkedin.com/in/somesh-goyal/">SOMESH GOYAL</a></li>
-<li><a href = "https://www.linkedin.com/in/krishna-srivastava-a84b65299">KRISHNA SRIVASTAVA</a></li>
- <li><a href="https://www.linkedin.com/in/kartikayverma56">KARTIKAY VERMA</a></li>
-   <li><a href ="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">ABHIJEET ANAND</a></li>
+          <li><a href ="https://www.linkedin.com/in/somesh-goyal/" target="#">SOMESH GOYAL</a></li>
+<li><a href = "https://www.linkedin.com/in/krishna-srivastava-a84b65299" target="#">KRISHNA SRIVASTAVA</a></li>
+<li><a href = "https://www.linkedin.com/in/jyotirmya-sharma-aa3485210/" target="#">JYOTIRMYA SHARMA</a></li>
+ <li><a href="https://www.linkedin.com/in/kartikayverma56" target="#">KARTIKAY VERMA</a></li>
+   <li><a href ="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="#">ABHIJEET ANAND</a></li>
 
  </ol>
   </div>
         {/* App Availability & Contact */}
         <div>
-          <p className="text-2xl font-bold tracking-wide text-[#f4cf8b] ">
+          <p className="text-2xl font-bold tracking-wide mb-5 text-[#f4cf8b] ">
            Contacts
           </p>  
           <div className="flex">
-            <p className="mr-1">Email:</p>
+            <p className="mr-1">Kartikay:</p>
             <a
               href="mailto:admin@company.com"
               title="send email"
               className="hover:underline text-[#f4cf8b]"
             >
-              admin@company.com
+              kartikayverma51@gmail.com
             </a>
+          </div>
+          <div className="flex">
+            <p className="mr-1">Abhijeet:</p>
+            <a
+              href="mailto:admin@company.com"
+              title="send email"
+              className="hover:underline text-[#f4cf8b]"
+            >
+abhijeetanand72@gmail.com
+</a>
           </div>
         </div>
       </div>

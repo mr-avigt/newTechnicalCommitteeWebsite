@@ -19,16 +19,16 @@ const SponsorCard = ({image}) => (
  
 const PastSponsors = () => {
   const images = [
-    "/past1.jpg",
-    "/past2.jpg",
-    "/past3.jpeg",
-    "/past4.jpg",
-    "/past5.jpeg",
+    "/past1.png",
+    "/past2.png",
+    "/past3.png",
+    "/past4.png",
+    "/past5.png",
     "/past6.png",
-    "/past7.jpeg",
+    "/past7.png",
     "/past8.png",
     
-   ]  
+   ]
 
    const sliderStyle = {
       display: 'flex',

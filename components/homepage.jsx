@@ -333,7 +333,13 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
+<<<<<<< HEAD
       const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
+=======
+
+      const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
+
+>>>>>>> 89160199ecc2fdb7b03c9dd1ca4166f36c0f59be
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";

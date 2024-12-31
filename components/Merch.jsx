@@ -9,8 +9,12 @@ const Merch = () => {
       <p className="mb-3 font-light text-center text-[#f4cf8b] text-sm sm:text-lg 2xl:text-xl">
 at just ₹ XXX /-
       </p>
+<<<<<<< HEAD
       <div className="w-[50%] h-[30%]"><img className="object-cover" src="/merch2.webp" alt=""/>
       </div>
+=======
+      <img src="/merch2.webp" alt=""/>
+>>>>>>> 89160199ecc2fdb7b03c9dd1ca4166f36c0f59be
       <form className="space-y-6">
         <button
           type="submit"

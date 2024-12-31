@@ -1415,18 +1415,18 @@ const HOMEpage = () => {
                           </div>
                         </div>
 
-                        <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
+                        <div className="content cursor-not-allowed h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
                         <a href=/*{card.link}*/"#">
 
-                          <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
+                          <h3 className="text-lg flex cursor-not-allowed relative mt-3 font-medium text-[#f4cf8b] m-1">
                             {card.title}
                             <span className="chevrons">
-                              <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                              <p className="text-sm absolute cursor-not-allowed right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
                                 Register
                               </p>
                             </span>
                           </h3>
-                          <p className="text-sm text-[#f4cf9b]">
+                          <p className="text-sm cursor-not-allowed text-[#f4cf9b]">
                             {card.description}
                           </p>{" "}</a>
                           {/* Add the description */}
@@ -1460,17 +1460,17 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="content hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
+                        <div className="content cursor-not-allowed hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
                           <a href=/*{card.link}*/"#">
-                            <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
+                            <h3 className="text-lg relative mt-3 cursor-not-allowed font-medium text-[#f4cf8b] m-1">
                               {card.title}
                               <span className="chevrons">
-                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                <p className="text-sm cursor-not-allowed absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
                                   Register
                                 </p>
                               </span>
                             </h3>
-                          <p className="text-sm text-[#f4cf9b]">
+                          <p className="text-sm text-[#f4cf9b] cursor-not-allowed">
                             {card.description}
                           </p>{" "}                          </a>
 

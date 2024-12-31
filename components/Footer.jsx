@@ -59,7 +59,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="flex flex-col-reverse justify-between pt-2 pb-3 border-t border-gray-700 lg:flex-row">
-        <p className="text-sm">© Copyright 2023 Yugsetu. All rights reserved.</p>
+        <p className="text-sm">© Copyright 2025 Yugsetu. All rights reserved.</p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
             <a

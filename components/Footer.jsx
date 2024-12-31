@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 
 const Footer = () => {
   return (
@@ -29,7 +29,7 @@ const Footer = () => {
 
         {/* Popular Courses & Topics */}
 <div>
-        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">DEVELOPED BY</span>
+        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">Developers</span>
          
         <ol className="mt-8">
           <li><a href ="https://www.linkedin.com/in/somesh-goyal/">SOMESH GOYAL</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
   </div>
         {/* App Availability & Contact */}
         <div>
-          <p className="text-base font-bold tracking-wide text-[#f4cf8b] text-center">
+          <p className="text-2xl font-bold tracking-wide text-[#f4cf8b] ">
            Contacts
           </p>  
           <div className="flex">

@@ -4,10 +4,10 @@ const Merch = () => {
   return (
     <div className="py-6 lg:py-4 px-4 flex flex-col gap-3 items-center mx-auto max-w-screen-sm sm:max-w-md md:max-w-lg border rounded-xl border-[#f4cf8b] backdrop-blur-sm">
       <h2 className="mb-4 text-3xl xl:text-4xl 2xl:text-5xl tracking-wider font-medium text-center text-[#f4cf8b]">
-        Merch Setu{" "}
+        Buy Our Merch
       </h2>
       <p className="mb-3 font-light text-center text-[#f4cf8b] text-sm sm:text-lg 2xl:text-xl">
-        About Merch
+at just ₹ XXX /-
       </p>
       <img src="merch.png" alt="" />
       <form className="space-y-6">

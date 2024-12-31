@@ -37,6 +37,26 @@ const HOMEpage = () => {
   gsap.registerPlugin(ScrollTrigger);
   const innerRef = useRef(null);
   const [modelScale, setModelScale] = useState(0.1); // Default for larger devices
+  const [videoSrc, setVideoSrc] = useState("./TECHF.mp4");
+  useEffect(() => {
+    const smallScreenMediaQuery = window.matchMedia("(max-width: 431px)");
+
+    // Function to update video source based on screen size
+    const updateVideoSource = () => {
+      setVideoSrc(smallScreenMediaQuery.matches ? "Techfsmall.mp4" : "TECHF.mp4");
+    };
+
+    // Initial check
+    updateVideoSource();
+
+    // Listen for media query changes
+    smallScreenMediaQuery.addEventListener("change", updateVideoSource);
+
+    // Cleanup listener on component unmount
+    return () => {
+      smallScreenMediaQuery.removeEventListener("change", updateVideoSource);
+    };
+  }, []);
   const scrollByVh = (vh) => {
     if (window.innerWidth < 1024) {
       const viewportHeight = window.innerHeight;
@@ -467,6 +487,9 @@ const HOMEpage = () => {
         <div className="borderbox border-[1.3px] border-custom-border w-[98%] h-[98%] z-[20] absolute rounded-br-3xl rounded-3xl">
           <div className="logo w-20">
             <img src="TC_Logo.webp" alt="" />
+          </div>
+          <div className="festlogo w-[20%] absolute left-[40%] -top-20 ">
+            <img src="Yugsetu.png" alt="" />
           </div>
           <div
             style={{
@@ -1276,12 +1299,15 @@ const HOMEpage = () => {
                 <div className="right"></div>
               </span>
               <video
-                className="base h-auto object-cover opacity-50"
-                src="TECHF.mp4"
-                muted
-                loop
-                playsInline
-              ></video>
+        className="base h-auto object-cover opacity-50"
+        src={videoSrc}
+        muted
+        loop
+        autoPlay
+        playsInline
+        onError={(e) => console.error("Video failed to load:", e)}
+      ></video>
+              
             </div>
           </div>
           <div
@@ -1705,7 +1731,7 @@ const HOMEpage = () => {
               </div>
             </div>
           </div>
-          <div className="page page1 bg-[url('funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
+          <div className="page page1 bg-[url('./src/assets/funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
             <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
             <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col z-[30] absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
               <p>Basically a spin the wheel kind of game, where some dares, tasks and questions related to tech would be written and participant has to complete that task or answer the question.</p>

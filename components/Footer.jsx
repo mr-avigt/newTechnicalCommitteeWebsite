@@ -32,10 +32,11 @@ const Footer = () => {
         <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">DEVELOPED BY</span>
          
         <ol className="mt-8">
- <li>KARTIKAY VERMA</li>
-   <li>ABHIJEET ANAND</li>
-<li>SOMESH GOYAL</li>
-<li>KRISHNA SRIVASTAVA</li>
+          <li><a href ="https://www.linkedin.com/in/somesh-goyal/">SOMESH GOYAL</a></li>
+<li><a href = "https://www.linkedin.com/in/krishna-srivastava-a84b65299">KRISHNA SRIVASTAVA</a></li>
+ <li><a href="#">KARTIKAY VERMA</a></li>
+   <li><a href ="#">ABHIJEET ANAND</a></li>
+
  </ol>
   </div>
         {/* App Availability & Contact */}

@@ -18,30 +18,66 @@ const Sponsors = () => {
     className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300"
   >
     <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">
-      T I T L E  &nbsp;&nbsp;&nbsp; S P O N S O R
+      T I T L E  &nbsp;&nbsp;&nbsp; S P O N S O R<br/>
+      <span className='text-base'>(OUR TITLE SPONSOR)</span>
     </span>
   </div>
 </div>
   
             
-          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)]"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
        
        </div>
+       <div
+    id="2"
+    className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300" style={{rotate:"-45deg"}}
+  >
+    <span className="text-xl font-bold tracking-wide text-[#f4cf8b] ">
+       S P O N S O R<br/>
+    </span>
+  </div>
                    <img src="/purple.png" alt="" className="relative bottom-0 right-0 left-14 top-20 rotate-45" style={{scale:"0.6"}}/>
        </div>
-          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)]"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
        
        </div>
+       <div
+    id="2"
+    className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300" style={{rotate:"-45deg"}}
+  >
+    <span className="text-xl font-bold tracking-wide text-[#f4cf8b]">
+       S P O N S O R<br/>
+      
+    </span>
+  </div>
                    <img src="/purple.png" alt="" className="relative bottom-0 right-0 left-14 top-20 rotate-45" style={{scale:"0.6"}}/>
        </div>
-          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)]"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group"> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
        
        </div>
+       <div
+    id="2"
+    className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300" style={{rotate:"-45deg"}}
+  >
+    <span className="text-xl font-bold tracking-wide text-[#f4cf8b]">
+       S P O N S O R<br/>
+      
+    </span>
+  </div>
                    <img src="/purple.png" alt="" className="relative bottom-0 right-0 left-14 top-20 rotate-45" style={{scale:"0.6"}}/>
        </div>
-          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] "> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group "> <div className="absolute inset-0 bg-[url('/sponsor-demo.avif')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]">
        
        </div>
+       <div
+    id="2"
+    className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 rotate" style={{rotate:"-45deg"}}
+  >
+    <span className="text-xl font-bold tracking-wide text-[#f4cf8b]">
+       S P O N S O R<br/>
+      
+    </span>
+  </div>
                    <img src="/purple.png" alt="" className="relative bottom-0 right-0 left-14 top-20 rotate-45" style={{scale:"0.6"}}/>
        </div>
           </div>

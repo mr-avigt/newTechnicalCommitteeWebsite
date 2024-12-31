@@ -1415,7 +1415,7 @@ const HOMEpage = () => {
                           </div>
                         </div>
 
-                        <div className="content h-full cursor-pointer border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
+                        <div className="content h-full cursor-not-allowed border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
                         <a href=/*{card.link}*/"#">
 
                           <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
@@ -1460,7 +1460,7 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="content cursor-pointer hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
+                        <div className="content cursor-not-allowed hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
                           <a href=/*{card.link}*/"#">
                             <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                               {card.title}

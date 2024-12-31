@@ -13,6 +13,7 @@ const Footer = () => {
               className="h-13 w-14"
             />
             <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">
+              TECHFEST 2025<br>
              Y U G S E T U <br/>Bridging Innovations through time
             </span>
           </a>
@@ -40,11 +41,8 @@ const Footer = () => {
         {/* App Availability & Contact */}
         <div>
           <p className="text-base font-bold tracking-wide text-[#f4cf8b] text-center">
-            TECHVIBES 2025
-          </p>
-          <p className="mt-6 text-base font-bold tracking-wide text-[#f4cf8b]">
-            Contacts
-          </p>
+           Contacts
+          </p>  
           <div className="flex">
             <p className="mr-1">Email:</p>
             <a

@@ -43,7 +43,9 @@ const HOMEpage = () => {
 
     // Function to update video source based on screen size
     const updateVideoSource = () => {
-      setVideoSrc(smallScreenMediaQuery.matches ? "Techfsmall.mp4" : "TECHF.mp4");
+      setVideoSrc(
+        smallScreenMediaQuery.matches ? "Techfsmall.mp4" : "TECHF.mp4"
+      );
     };
 
     // Initial check
@@ -97,7 +99,7 @@ const HOMEpage = () => {
         "An Opening Ceremony where you can showcase your creativity and innovation! Present unique projects, inspire ideas, and engage with an audience at our exciting exhibition.",
       bgColor: "#1E293B", // Background color for the card
       link: "https://forms.gle/ZGyjFHCNfkP2B4nk8",
-      image: "techx.jpg"
+      image: "techx.jpg",
     },
     {
       title: "Code Wars",
@@ -106,7 +108,7 @@ const HOMEpage = () => {
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeRbIrPL9wII86YNUSTnc3sKzeTo-Aw5Ms9-6URNqoU8kRncw/viewform?usp=pp_url)",
 
-      image:"/codewars.jpg"
+      image: "/codewars.jpg",
     },
     {
       title: "Robosoccer",
@@ -114,8 +116,7 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
-      image:"/robosoccer.jpg"
-
+      image: "/robosoccer.jpg",
     },
     {
       title: "Shark Tank",
@@ -123,8 +124,7 @@ const HOMEpage = () => {
         "Pitch your business ideas to a panel of investors! Secure funding, gain feedback, and turn your vision into reality.",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeDK4zlgrh_H_lXX5qniPHg7-EiBRWzyCYuE-G1E3NaHrKSQg/viewform?usp=pp_url",
-      image:"/sharktank.jpg"
-
+      image: "/sharktank.jpg",
     },
     {
       title: "Truss Strength",
@@ -132,7 +132,7 @@ const HOMEpage = () => {
         "Build the strongest bridge using ice cream sticks and glue! Test your design’s strength in an exciting weight-bearing challenge.",
       bgColor: "#9CA3AF",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSfI377v5UWPhgxgqDV8qCEgqqCUZko_EZAQcxllzq-W2utEKA/viewform?usp=pp_url",
-       image:"/trussstrength.jpg"
+      image: "/trussstrength.jpg",
     },
     {
       title: "Technical hunt",
@@ -140,8 +140,7 @@ const HOMEpage = () => {
         "Participants have to work in teams  to crack codes, solve puzzles, and reach the treasure",
       bgColor: "#CBD5E1",
       link: "https://forms.gle/V8wH3na28eySMAe69",
-      image:"/treasurehunt.jpg"
-
+      image: "/treasurehunt.jpg",
     },
     {
       title: "Spectra",
@@ -149,10 +148,8 @@ const HOMEpage = () => {
         "Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
-      image:"/spectra.jpg"
+      image: "/spectra.jpg",
     },
-   
-
   ];
   const day2_cards = [
     {
@@ -162,7 +159,7 @@ const HOMEpage = () => {
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLScAP3WHpVX6WPulaazEkqDDLbDvGjYv8uS65x4Bzd_CtJXahw/viewform?usp=header",
 
-      image:"/circuitdebugging.jpg"
+      image: "/circuitdebugging.jpg",
     },
     {
       title: "Robosoccer Finale",
@@ -170,18 +167,15 @@ const HOMEpage = () => {
         "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#6B7280",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
-      image:"/robosoccer.jpg"
-
-    }
-    ,
+      image: "/robosoccer.jpg",
+    },
     {
       title: "Mock Parliament",
       description:
         "Participants will act as MPs in a mock debate, discussing and voting on a chosen topic. Teams will present arguments for or against the topic, with a moderator overseeing the discussion.",
       bgColor: "#4B5563",
       link: "https://forms.gle/gT11LBJnoujJC5jg9",
-      image:"/mockparliament.jpg",
-
+      image: "/mockparliament.jpg",
     },
     {
       title: "Code Debugging",
@@ -189,15 +183,14 @@ const HOMEpage = () => {
         "Test your coding skills in a dynamic debugging challenge! Identify and fix errors to optimize code and win the competition.",
       bgColor: "#4B5563",
       link: "https://forms.gle/Ua2DAogKYZu6S4aC9",
-      image:"/codedebugging.jpg"
+      image: "/codedebugging.jpg",
     },
     {
       title: "Tech Roast",
       description: `Each participant will take turns presenting a humorous critique of a chosen tech topic, with the goal of entertaining the audience.`,
       bgColor: "#CBD5E1",
       link: "https://forms.gle/2ZHT3FG3jcGU5u5XA",
-      image:"/techroast.jpg"
-
+      image: "/techroast.jpg",
     },
     {
       title: "Auction league",
@@ -205,16 +198,14 @@ const HOMEpage = () => {
         "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
       bgColor: "#D1D5DB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSdmnNBga5KvsyF39sbJ51S80ju9SG3q800thHAdDY5aWtYUkQ/viewform?usp=header",
-      image:"/auctionleague.jpg"
-
+      image: "/auctionleague.jpg",
     },
     {
       title: "Strategic Sprint",
       description:
         "Management event, in which participants will form team of 3-4 members .A backdrop of the allotted company will be provided along with some market based problem statement.",
       bgColor: "#F3F4F6",
-      image:"/strategicsprint.jpg"
-
+      image: "/strategicsprint.jpg",
     },
     {
       title: "Drone Race",
@@ -222,11 +213,57 @@ const HOMEpage = () => {
         "Race against time in a thrilling aerial challenge! Design, build, and fly your own aircraft for speed and precision.",
       bgColor: "#F3F4F6",
       link: "https://forms.gle/gCuAmfWAseFWyiVWA",
-      image:"/dronerace.jpg"
-
+      image: "/dronerace.jpg",
     },
   ];
+  const sections_cards = [
+    {
+      title: "SPIN THE TECH",
+    },
+    {
+      title: "SCRIBBLE",
+    },
+    {
+      title: "FTB x Tic tac toe",
+    },
+    {
+      title: "RUBIK'S CUBE",
+    },
+    {
+      title: "AQUA QUEST",
+    },
+    {
+      title: "PASS THE HOOK",
+    },
+  ];
+  const sectionsData = [
+    {
+      desc: "Basically a spin the wheel kind of game,where some dares,tasks and questions related to tech would be written and participant has to complete that task or answer the question.",
+      image: "spinthetech.jpg"
+    },
+    {
+      desc: "It is a Pictionary kind of game where participants draw gadgets or devices, past, present or future for their team to guess within a time limit.",
+      image: "scribble.jpg"
 
+    },
+    {
+      desc: "skill of bottle flipping with the strategic gameplay of tic-tac-toe.",
+      image: "ftbxtictactoe.jpg"
+
+    },
+    {
+      desc: "Its goal is to twist and turn the cube's segments until each face is a single, uniform color.",
+      image: "rubikscube.jpg"
+    },
+    {
+      desc: "N/A",
+      image: "aquaquest.jpg"
+    },
+    {
+      desc: "N/A",
+      image: "passthehook.jpg"
+    },
+  ];
   useGSAP(() => {
     let t = gsap.timeline({
       scrollTrigger: {
@@ -746,7 +783,6 @@ const HOMEpage = () => {
               <div className="w-full h-full border-r-2 border-custom-border"></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
                 <a href="#contactus">CONTACT-US & MERCH</a>
-
               </span>
               <span className="w-full h-full border-custom-border border-r-2"></span>
             </li>
@@ -1299,15 +1335,14 @@ const HOMEpage = () => {
                 <div className="right"></div>
               </span>
               <video
-        className="base h-auto object-cover opacity-50"
-        src={videoSrc}
-        muted
-        loop
-        autoPlay
-        playsInline
-        onError={(e) => console.error("Video failed to load:", e)}
-      ></video>
-              
+                className="base h-auto object-cover opacity-50"
+                src={videoSrc}
+                muted
+                loop
+                autoPlay
+                playsInline
+                onError={(e) => console.error("Video failed to load:", e)}
+              ></video>
             </div>
           </div>
           <div
@@ -1415,19 +1450,19 @@ const HOMEpage = () => {
                         </div>
 
                         <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
-                        <a href={card.link}>
-
-                          <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
-                            {card.title}
-                            <span className="chevrons">
-                              <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
-                                Register
-                              </p>
-                            </span>
-                          </h3>
-                          <p className="text-sm text-[#f4cf9b]">
-                            {card.description}
-                          </p>{" "}</a>
+                          <a href={card.link}>
+                            <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
+                              {card.title}
+                              <span className="chevrons">
+                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                  Register
+                                </p>
+                              </span>
+                            </h3>
+                            <p className="text-sm text-[#f4cf9b]">
+                              {card.description}
+                            </p>{" "}
+                          </a>
                           {/* Add the description */}
                         </div>
                       </div>
@@ -1448,8 +1483,7 @@ const HOMEpage = () => {
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
-
-                      <div className="thumbnail">
+                        <div className="thumbnail">
                           <img src={card.image} alt="" />
                           <div className="absolute w-full">
                             <div className="w-7 h-7 left-[43%] -top-[12px] absolute rotate-45 border-[#5C4033] border-t border-l">
@@ -1469,9 +1503,10 @@ const HOMEpage = () => {
                                 </p>
                               </span>
                             </h3>
-                          <p className="text-sm text-[#f4cf9b]">
-                            {card.description}
-                          </p>{" "}                          </a>
+                            <p className="text-sm text-[#f4cf9b]">
+                              {card.description}
+                            </p>{" "}
+                          </a>
 
                           {/* Add the description */}
                         </div>
@@ -1489,297 +1524,114 @@ const HOMEpage = () => {
             }`}
           >
             <div className="sections absolute mx-auto z-[51] h-[50%] w-[30%] xl:w-[20%] flex flex-col justify-center items-center">
-              <div
-                className="nav-button-section sec1"
-                data-nav-button-section=""
-                data-feature-id="0"
-                data-section-id="1"
-              >
-                <button
-                  type="button"
-                  className="nav-button p-0"
-                  data-nav-button=""
-                  data-feature-id="0"
-                  data-analytics-event="home_features"
-                  data-analytics-label="Dune: Awakening"
-                >
-                  <div className="label font-medium text-xl">SPIN THE TECH</div>
-                  <svg
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="264"
-                    height="40"
-                    viewBox="0 0 264 40"
-                  >
-                    <defs>
-                      <clipPath id="clip1463675307">
-                        <path
-                          fill="#fff"
-                          d="M 16 11 L 7 20 L 16 29 L 25 20 L 16 11 Z"
-                        ></path>
-                      </clipPath>
-                      <clipPath id="clip-body1463675307">
-                        <path d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"></path>
-                      </clipPath>
-                    </defs>
-                    <path
-                      d="M.707 20 16 4.707 31.293 20 16 35.293.707 20Z"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <path
-                      d="m16 8 12 12-12 12L4 20 16 8Z"
-                      fill="var(--background-color, black)"
-                    ></path>
-                    <path
-                      d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
-                      stroke="var(--border-color, white)"
-                      strokeOpacity=".7"
-                      strokeWidth=".75"
-                    ></path>
-                    <g clipPath="url(#clip1463675307)">
-                      <path
-                        className="moving"
-                        d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
-                        fill="var(--border-color, white)"
-                      ></path>
-                    </g>
-                    <path
-                      d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"
-                      fill="var(--background-color, black)"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <g clipPath="url(#clip-body1463675307)">
-                      <path
-                        className="pressed"
-                        d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
-                      ></path>
-                    </g>
-                  </svg>{" "}
-                </button>
-                <div className="sub-nav">
-                  <button
-                    type="button"
-                    className="sub-nav-button active"
+              {sections_cards.map((card, index) => {
+                return (
+                  <div
+                    key={index} // Always use a unique `key` for mapped items
+                    className="nav-button-section sec3"
+                    data-nav-button-section=""
                     data-feature-id="0"
-                    data-analytics-event="home_features"
-                    data-analytics-label="Dune: Awakening - Subfeature 0"
+                    data-section-id="1"
                   >
-                    <span className="sr-only"></span>
-                    <div className="inside" aria-hidden="true"></div>
-                  </button>
-                </div>
+                    <button
+                      type="button"
+                      className="nav-button p-0"
+                      data-nav-button=""
+                      data-feature-id="0"
+                      data-analytics-event="home_features"
+                      data-analytics-label={card.title} // Dynamic title
+                    >
+                      <div className="label font-medium text-xl">
+                        {card.title}
+                      </div>
+                      <svg
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="264"
+                        height="40"
+                        viewBox="0 0 264 40"
+                      >
+                        <defs>
+                          <clipPath id={`clip-${index}`}>
+                            {" "}
+                            {/* Unique ID for each clipPath */}
+                            <path
+                              fill="#fff"
+                              d="M 16 11 L 7 20 L 16 29 L 25 20 L 16 11 Z"
+                            ></path>
+                          </clipPath>
+                          <clipPath id={`clip-body-${index}`}>
+                            <path d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"></path>
+                          </clipPath>
+                        </defs>
+                        <path
+                          d="M.707 20 16 4.707 31.293 20 16 35.293.707 20Z"
+                          stroke="var(--border-color, white)"
+                        ></path>
+                        <path
+                          d="m16 8 12 12-12 12L4 20 16 8Z"
+                          fill="var(--background-color, black)"
+                        ></path>
+                        <path
+                          d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
+                          stroke="var(--border-color, white)"
+                          strokeOpacity=".7"
+                          strokeWidth=".75"
+                        ></path>
+                        <g clipPath={`url(#clip-${index})`}>
+                          <path
+                            className="moving"
+                            d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
+                            fill="var(--border-color, white)"
+                          ></path>
+                        </g>
+                        <path
+                          d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"
+                          fill="var(--background-color, black)"
+                          stroke="var(--border-color, white)"
+                        ></path>
+                        <g clipPath={`url(#clip-body-${index})`}>
+                          <path
+                            className="pressed"
+                            d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
+                          ></path>
+                        </g>
+                      </svg>{" "}
+                    </button>
+                    <div className="sub-nav">
+                      <button
+                        type="button"
+                        className="sub-nav-button active"
+                        data-feature-id="0"
+                        data-analytics-event="home_features"
+                        data-analytics-label={`${card.title} - Subfeature ${index}`}
+                      >
+                        <span className="sr-only"></span>
+                        <div className="inside" aria-hidden="true"></div>
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {sectionsData.map((section, index) => (
+            <div className="page page1 bg-[url('./src/assets/funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
+              <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
+              <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col z-[30] absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
+                <p>{section.desc}</p>
               </div>
-              <div
-                className="nav-button-section sec2"
-                data-nav-button-section=""
-                data-feature-id="0"
-                data-section-id="1"
-              >
-                <button
-                  type="button"
-                  className="nav-button p-0"
-                  data-nav-button=""
-                  data-feature-id="0"
-                  data-analytics-event="home_features"
-                  data-analytics-label="Dune: Awakening"
-                >
-                  <div className="label font-medium text-xl">SCRIBBLE</div>
-                  <svg
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="264"
-                    height="40"
-                    viewBox="0 0 264 40"
-                  >
-                    <defs>
-                      <clipPath id="clip1463675307">
-                        <path
-                          fill="#fff"
-                          d="M 16 11 L 7 20 L 16 29 L 25 20 L 16 11 Z"
-                        ></path>
-                      </clipPath>
-                      <clipPath id="clip-body1463675307">
-                        <path d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"></path>
-                      </clipPath>
-                    </defs>
-                    <path
-                      d="M.707 20 16 4.707 31.293 20 16 35.293.707 20Z"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <path
-                      d="m16 8 12 12-12 12L4 20 16 8Z"
-                      fill="var(--background-color, black)"
-                    ></path>
-                    <path
-                      d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
-                      stroke="var(--border-color, white)"
-                      strokeOpacity=".7"
-                      strokeWidth=".75"
-                    ></path>
-                    <g clipPath="url(#clip1463675307)">
-                      <path
-                        className="moving"
-                        d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
-                        fill="var(--border-color, white)"
-                      ></path>
-                    </g>
-                    <path
-                      d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"
-                      fill="var(--background-color, black)"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <g clipPath="url(#clip-body1463675307)">
-                      <path
-                        className="pressed"
-                        d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
-                      ></path>
-                    </g>
-                  </svg>{" "}
-                </button>
-                <div className="sub-nav">
-                  <button
-                    type="button"
-                    className="sub-nav-button active"
-                    data-feature-id="0"
-                    data-analytics-event="home_features"
-                    data-analytics-label="Dune: Awakening - Subfeature 0"
-                  >
-                    <span className="sr-only"></span>
-                    <div className="inside" aria-hidden="true"></div>
-                  </button>
-                </div>
-              </div>
-              <div
-                className="nav-button-section sec3"
-                data-nav-button-section=""
-                data-feature-id="0"
-                data-section-id="1"
-              >
-                <button
-                  type="button"
-                  className="nav-button p-0"
-                  data-nav-button=""
-                  data-feature-id="0"
-                  data-analytics-event="home_features"
-                  data-analytics-label="Dune: Awakening"
-                >
-                  <div className="label font-medium text-xl">JENGA</div>
-                  <svg
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="264"
-                    height="40"
-                    viewBox="0 0 264 40"
-                  >
-                    <defs>
-                      <clipPath id="clip1463675307">
-                        <path
-                          fill="#fff"
-                          d="M 16 11 L 7 20 L 16 29 L 25 20 L 16 11 Z"
-                        ></path>
-                      </clipPath>
-                      <clipPath id="clip-body1463675307">
-                        <path d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"></path>
-                      </clipPath>
-                    </defs>
-                    <path
-                      d="M.707 20 16 4.707 31.293 20 16 35.293.707 20Z"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <path
-                      d="m16 8 12 12-12 12L4 20 16 8Z"
-                      fill="var(--background-color, black)"
-                    ></path>
-                    <path
-                      d="M4.53 20 16 8.53 27.47 20 16 31.47 4.53 20Z"
-                      stroke="var(--border-color, white)"
-                      strokeOpacity=".7"
-                      strokeWidth=".75"
-                    ></path>
-                    <g clipPath="url(#clip1463675307)">
-                      <path
-                        className="moving"
-                        d="m13 25 5-5-5-5 3-3 8 8-8 8-3-3Z"
-                        fill="var(--border-color, white)"
-                      ></path>
-                    </g>
-                    <path
-                      d="M29.337 6.99V.5H263.5v39H29.337v-6.49l12.85-12.654.363-.356-.362-.356L29.337 6.99Z"
-                      fill="var(--background-color, black)"
-                      stroke="var(--border-color, white)"
-                    ></path>
-                    <g clipPath="url(#clip-body1463675307)">
-                      <path
-                        className="pressed"
-                        d="M 29 0.5 H 263.5 v 39 H 29.337 Z"
-                      ></path>
-                    </g>
-                  </svg>{" "}
-                </button>
-                <div className="sub-nav">
-                  <button
-                    type="button"
-                    className="sub-nav-button active"
-                    data-feature-id="0"
-                    data-analytics-event="home_features"
-                    data-analytics-label="Dune: Awakening - Subfeature 0"
-                  >
-                    <span className="sr-only"></span>
-                    <div className="inside" aria-hidden="true"></div>
-                  </button>
+              <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
+                <div className="square  overflow-hidden rotate-45  h-[20vw] w-[20vw] xl:h-[27vw] xl:w-[27vw] border-custom-border border">
+                  <img
+                    className="sqimg opacity-0 w-full absolute -bottom-[100%] -right-[100%] h-full"
+                    src={section.image}
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
-          </div>
-          <div className="page page1 bg-[url('./src/assets/funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
-            <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
-            <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col z-[30] absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
-              <p>Basically a spin the wheel kind of game, where some dares, tasks and questions related to tech would be written and participant has to complete that task or answer the question.</p>
-            </div>
-            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
-              <div className="square  overflow-hidden rotate-45  h-[20vw] w-[20vw] xl:h-[27vw] xl:w-[27vw] border-custom-border border">
-                <img
-                  className="sqimg opacity-0 w-full absolute -bottom-[100%] -right-[100%] h-full"
-                  src="dummy1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-          <div className="page page2 bg-[url('funeventbg2.jpg')] bg-cover bg-no-repeat  absolute w-full h-full md:flex opacity-0 bg-blue-900">
-            <div className="section1 border-red-500 h-full w-[25%]"></div>
-            <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
-              <p>page2</p>
-              <p>line2</p>
-              <p>line3</p>
-            </div>
-            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
-              <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
-                <img
-                  className="sqimg opacity-0 w-full absolute -bottom-[105%] -right-[105%] h-full"
-                  src="../src/assets/dummy1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-          <div className="page page3 bg-[url('funeventbg3.jpg')] bg-cover bg-no-repeat  absolute w-full h-full md:flex opacity-0 bg-blue-900">
-            <div className="section1 border-red-500 h-full w-[25%]"></div>
-            <div className="section2 opacity-0 flex-col absolute left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center text-white p-2 h-full w-[35%]">
-              <p>page2</p>
-              <p>line2</p>
-              <p>line3</p>
-            </div>
-            <div className="section3 absolute right-0 border-blue-500 flex items-center justify-center h-full w-[40%]">
-              <div className="square  overflow-hidden rotate-45  h-[27vw] w-[27vw] border-custom-border border">
-                <img
-                  className="sqimg opacity-0 w-full absolute -bottom-[105%] -right-[105%] h-full"
-                  src="../src/assets/dummy1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
       <div className="mobile-view relative flex flex-col items-center bg-[#23201d] border-yellow-500 border-2 z-[30] flex lg:hidden overflow-x-hidden">

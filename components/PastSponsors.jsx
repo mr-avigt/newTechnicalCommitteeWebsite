@@ -8,12 +8,7 @@ const SponsorCard = ({image}) => (
       backgroundPosition: 'center',
       transform: 'rotate(-45deg)',
        }} ></div>
-     <img
-       src="/purple.png"
-       alt=""
-       className="relative bottom-0 right-0 left-14 top-20 rotate-45"
-       style={{ scale: '0.6',filter: 'grayscale(100%)' }}
-     />
+     
    </div>
  );
  

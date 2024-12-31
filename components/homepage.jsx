@@ -1874,7 +1874,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="thumb1.webp" alt="" />
+                    <img src="/spinthetech.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1959,7 +1959,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/scribble.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2044,7 +2044,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/jenga.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2129,7 +2129,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/ftb.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2214,7 +2214,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/rubikscube.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2299,7 +2299,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/aquaquest.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2384,7 +2384,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/passthehook.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">

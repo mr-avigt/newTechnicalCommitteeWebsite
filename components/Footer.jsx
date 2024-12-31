@@ -13,7 +13,7 @@ const Footer = () => {
               className="h-13 w-14"
             />
             <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">
-              TECHFEST 2025<br>
+              TECHFEST 2025<br/>
              Y U G S E T U <br/>Bridging Innovations through time
             </span>
           </a>

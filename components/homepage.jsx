@@ -110,6 +110,7 @@ const HOMEpage = () => {
 
       image: "/codewars.jpg",
     },
+    
     {
       title: "Robosoccer",
       description:
@@ -332,7 +333,11 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
+<<<<<<< HEAD
       const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
+=======
+      const totalHeight = gridColumns === 1 ? totalRows * 282 : totalRows * 250; // Assuming each row has a height of 300px
+>>>>>>> c8f21476c85151ce4ec4eabc6bdb57813f57deaa
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -1446,7 +1451,7 @@ const HOMEpage = () => {
                   {day2_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card cursor-pointer border-[1.5px] border-custom-border relative"
+                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
@@ -1460,21 +1465,20 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
+                        <div className="content cursor-not-allowed h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
+                        <a href=/*{card.link}*/"#">
 
-                        <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
-                          <a href={card.link}>
-                            <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
-                              {card.title}
-                              <span className="chevrons">
-                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
-                                  Register
-                                </p>
-                              </span>
-                            </h3>
-                            <p className="text-sm text-[#f4cf9b]">
-                              {card.description}
-                            </p>{" "}
-                          </a>
+                          <h3 className="text-lg flex cursor-not-allowed relative mt-3 font-medium text-[#f4cf8b] m-1">
+                            {card.title}
+                            <span className="chevrons">
+                              <p className="text-sm absolute cursor-not-allowed right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                Register
+                              </p>
+                            </span>
+                          </h3>
+                          <p className="text-sm cursor-not-allowed text-[#f4cf9b]">
+                            {card.description}
+                          </p>{" "}</a>
                           {/* Add the description */}
                         </div>
                       </div>
@@ -1491,7 +1495,7 @@ const HOMEpage = () => {
                   {day1_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card border-[1.5px] border-custom-border relative"
+                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
@@ -1505,20 +1509,20 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="content cursor-pointer hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
-                          <a href={card.link}>
-                            <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
+                        <div className="content cursor-not-allowed hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
+                          <a href=/*{card.link}*/"#">
+                            <h3 className="text-lg relative mt-3 cursor-not-allowed font-medium text-[#f4cf8b] m-1">
                               {card.title}
                               <span className="chevrons">
-                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                <p className="text-sm cursor-not-allowed absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
                                   Register
                                 </p>
                               </span>
                             </h3>
-                            <p className="text-sm text-[#f4cf9b]">
-                              {card.description}
-                            </p>{" "}
-                          </a>
+
+                          <p className="text-sm text-[#f4cf9b] cursor-not-allowed">
+                            {card.description}
+                          </p>{" "}                          </a>
 
                           {/* Add the description */}
                         </div>
@@ -1737,7 +1741,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="thumb1.webp" alt="" />
+                    <img src="/spinthetech.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1822,7 +1826,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/scribble.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1907,7 +1911,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/jenga.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -1992,7 +1996,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/ftb.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2077,7 +2081,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/rubikscube.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2162,7 +2166,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/aquaquest.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">
@@ -2247,7 +2251,7 @@ const HOMEpage = () => {
               <div className="rotator">
                 <div className="background">
                   <div className="wrapper">
-                    <img src="./src/assets/dummy1.jpg" alt="" />
+                    <img src="/passthehook.jpg" alt="" />
                   </div>
                 </div>
                 {/* <div className="foreground">

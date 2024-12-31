@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 
 const Footer = () => {
   return (
@@ -13,6 +13,7 @@ const Footer = () => {
               className="h-13 w-14"
             />
             <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">
+              TECHFEST 2025<br/>
              Y U G S E T U <br/>Bridging Innovations through time
             </span>
           </a>
@@ -28,23 +29,21 @@ const Footer = () => {
 
         {/* Popular Courses & Topics */}
 <div>
-        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">DEVELOPED BY</span>
+        <span className="text-2xl font-bold tracking-wide text-[#f4cf8b]">Developers</span>
          
         <ol className="mt-8">
- <li>KARTIKAY VERMA</li>
-   <li>ABHIJEET ANAND</li>
-<li>SOMESH GOYAL</li>
-<li>KRISHNA SRIVASTAVA</li>
+          <li><a href ="https://www.linkedin.com/in/somesh-goyal/">SOMESH GOYAL</a></li>
+<li><a href = "https://www.linkedin.com/in/krishna-srivastava-a84b65299">KRISHNA SRIVASTAVA</a></li>
+ <li><a href="https://www.linkedin.com/in/kartikayverma56">KARTIKAY VERMA</a></li>
+   <li><a href ="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">ABHIJEET ANAND</a></li>
+
  </ol>
   </div>
         {/* App Availability & Contact */}
         <div>
-          <p className="text-base font-bold tracking-wide text-[#f4cf8b] text-center">
-            TECHVIBES 2025
-          </p>
-          <p className="mt-6 text-base font-bold tracking-wide text-[#f4cf8b]">
-            Contacts
-          </p>
+          <p className="text-2xl font-bold tracking-wide text-[#f4cf8b] ">
+           Contacts
+          </p>  
           <div className="flex">
             <p className="mr-1">Email:</p>
             <a
@@ -60,7 +59,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="flex flex-col-reverse justify-between pt-2 pb-3 border-t border-gray-700 lg:flex-row">
-        <p className="text-sm">© Copyright 2023 Yugsetu. All rights reserved.</p>
+        <p className="text-sm">© Copyright 2025 Yugsetu. All rights reserved.</p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
             <a

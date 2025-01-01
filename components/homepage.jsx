@@ -104,17 +104,17 @@ const HOMEpage = () => {
     {
       title: "Code Wars",
       description:
-        "Form your dream team in a thrilling auction-style competition! Strategize, bid, and outsmart opponents to emerge as the ultimate champion.",
+        "Compete, code, and conquer! Shatter boundaries, tackle impossible challenges, and exceed your limits. Feel the intensity - every line of code tests your skills and resolve! Push forward and claim victory!",
       bgColor: "#1E293B", // Background color for the card
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeRbIrPL9wII86YNUSTnc3sKzeTo-Aw5Ms9-6URNqoU8kRncw/viewform?usp=pp_url)",
 
       image: "/codewars.jpg",
     },
-    
+
     {
       title: "Robosoccer",
       description:
-        "Build and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
+        "Experience the fusion of robotics and sports in Robo SoccerBuild and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
       link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
       image: "/robosoccer.jpg",
@@ -122,7 +122,7 @@ const HOMEpage = () => {
     {
       title: "Shark Tank",
       description:
-        "Pitch your business ideas to a panel of investors! Secure funding, gain feedback, and turn your vision into reality.",
+        "Pitch, persuade, and own the spotlight—step into the Shark Tank and claim your moment! Sell your vision, wow the panel, and prove your idea is the next big thing in this electrifying showdown!",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeDK4zlgrh_H_lXX5qniPHg7-EiBRWzyCYuE-G1E3NaHrKSQg/viewform?usp=pp_url",
       image: "/sharktank.jpg",
@@ -138,7 +138,7 @@ const HOMEpage = () => {
     {
       title: "Technical hunt",
       description:
-        "Participants have to work in teams  to crack codes, solve puzzles, and reach the treasure",
+        "Unleash your inner problem-solver in this thrilling hunt! Solve puzzles, crack codes, navigate challenges, and work as a team to uncover the hidden treasure.",
       bgColor: "#CBD5E1",
       link: "https://forms.gle/V8wH3na28eySMAe69",
       image: "/treasurehunt.jpg",
@@ -146,7 +146,7 @@ const HOMEpage = () => {
     {
       title: "Spectra",
       description:
-        "Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
+        "Lights, camera, action! Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
       image: "/spectra.jpg",
@@ -225,6 +225,9 @@ const HOMEpage = () => {
       title: "SCRIBBLE",
     },
     {
+      title: "JENGA",
+    },
+    {
       title: "FTB x Tic tac toe",
     },
     {
@@ -239,30 +242,32 @@ const HOMEpage = () => {
   ];
   const sectionsData = [
     {
-      desc: "Basically a spin the wheel kind of game,where some dares,tasks and questions related to tech would be written and participant has to complete that task or answer the question.",
-      image: "spinthetech.jpeg"
+      desc: "Spin it to win it! Test your tech skills and courage as the wheel decides your fate. From quirky dares to brainy challenges, complete the task or answer to stay in the game!",
+      image: "spinthetech.jpeg",
     },
     {
-      desc: "It is a Pictionary kind of game where participants draw gadgets or devices, past, present or future for their team to guess within a time limit.",
-      image: "scribble.jpeg"
-
+      desc: "Unleash your creativity as you sketch funny ideas, guess hilarious words, challenge your friends, and race for points in a game that sparks imagination, sharpens your wits, and guarantees endless laughter.",
+      image: "scribble.jpeg",
     },
     {
-      desc: "skill of bottle flipping with the strategic gameplay of tic-tac-toe.",
-      image: "ftbxtictactoe.jpeg"
-
+      desc: "Slide a block, take your shot, and keep the tower from the drop! It’s a game of skill, thrill, and daring moves—stack higher, pull smarter, and rise to claim the ultimate top spot!",
+      image: "jenga.jpg",
     },
     {
-      desc: "Its goal is to twist and turn the cube's segments until each face is a single, uniform color.",
-      image: "rubikscube.jpg"
+      desc: "Flip the bottle, nail the landing, and earn your turn in Tic Tac Toe! It's a wild combo of skill, strategy, and luck! Flip, play, and claim victory in this laugh-filled showdown!",
+      image: "ftbxtictactoe.jpeg",
+    },
+    {
+      desc: "Get ready to twist, turn, and go wild! Shuffle, spin, and twist the cube until every face is a perfect color—race against time and prove you’ve got the moves to conquer the ultimate cube challenge!",
+      image: "rubikscube.jpg",
     },
     {
       desc: "Get ready for Aqua Quest, a thrilling water-powered adventure! Watch as rockets soar high using the force of water. Build, launch, and compete to see whose rocket reaches the skies!",
-      image: "aquaquest.jpeg"
+      image: "aquaquest.jpeg",
     },
     {
       desc: "Pass the Hook is a nail-biting game of precision! Guide the ring along the wire without touching it—one buzz and you're out. Steady hands and nerves of steel are your only way through!",
-      image: "passthehook.jpeg"
+      image: "passthehook.jpeg",
     },
   ];
   useGSAP(() => {
@@ -285,18 +290,18 @@ const HOMEpage = () => {
         trigger: ".outer",
         end: "bottom",
         // markers: true,
-        onEnter: () => {
-          video.play(); // Play the video when ".inner" enters the viewport
-        },
-        onLeave: () => {
-          video.pause(); // Optionally pause the video when scrolling out
-        },
-        onEnterBack: () => {
-          video.play(); // Play again when scrolling back
-        },
-        onLeaveBack: () => {
-          video.pause(); // Optionally pause again when scrolling out backward
-        },
+        // onEnter: () => {
+        //   video.play(); // Play the video when ".inner" enters the viewport
+        // },
+        // onLeave: () => {
+        //   video.pause(); // Optionally pause the video when scrolling out
+        // },
+        // onEnterBack: () => {
+        //   video.play(); // Play again when scrolling back
+        // },
+        // onLeaveBack: () => {
+        //   video.pause(); // Optionally pause again when scrolling out backward
+        // },
       },
     })
       .to(
@@ -334,7 +339,6 @@ const HOMEpage = () => {
 
       // Use transform and scale for smoother animations
       const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
-
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";
@@ -603,115 +607,119 @@ const HOMEpage = () => {
           </div>
           <div className="top absolute right-3 top-2 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
-            <a href="https://www.youtube.com/@bitmesrajaipurcampus9741" target="#">
-
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1] ">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 576 512"
-                  >
-                    <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+              <a
+                href="https://www.youtube.com/@bitmesrajaipurcampus9741"
+                target="#"
+              >
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1] ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 576 512"
+                    >
+                      <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
                       ></polygon>
-                      </svg>
-                </span>
-              </li></a>
+                    </svg>
+                  </span>
+                </li>
+              </a>
               <span className="line"></span>
-              <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
-
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 448 512"
-                  >
-                    <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li>
-</a>
+              <a
+                href="https://www.linkedin.com/company/techvibesbit/"
+                target="#"
+              >
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 448 512"
+                    >
+                      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                      ></polygon>
+                    </svg>
+                  </span>
+                </li>
+              </a>
               <span className="line"></span>
               <a href="https://www.instagram.com/techvibesbit/" target="#">
-
-              <li className="relative flex items-center justify-center group">
-                {/* Background SVG (Social Icon) */}
-                <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 448 505"
-                  >
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                  </svg>
-                </span>
-                {/* Diamond-Shaped Structure */}
-                <span className="relative flex cursor-pointer items-center justify-center">
-                  {/* Sides span */}
-                  <span className="sides z-20"></span>
-                  {/* Diamond Polygon */}
-                  <svg
-                    width="45px"
-                    height="45px"
-                    viewBox="8 2 45 38"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <polygon
-                      stroke="#f4cf8b"
-                      fill="none"
-                      strokeWidth={1.5}
-                      points="9 21 31 0 52 21 31 43"
-                      className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                    ></polygon>
-                  </svg>
-                </span>
-              </li></a>
+                <li className="relative flex items-center justify-center group">
+                  {/* Background SVG (Social Icon) */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10 invert-[1]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 448 505"
+                    >
+                      <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                    </svg>
+                  </span>
+                  {/* Diamond-Shaped Structure */}
+                  <span className="relative flex cursor-pointer items-center justify-center">
+                    {/* Sides span */}
+                    <span className="sides z-20"></span>
+                    {/* Diamond Polygon */}
+                    <svg
+                      width="45px"
+                      height="45px"
+                      viewBox="8 2 45 38"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <polygon
+                        stroke="#f4cf8b"
+                        fill="none"
+                        strokeWidth={1.5}
+                        points="9 21 31 0 52 21 31 43"
+                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                      ></polygon>
+                    </svg>
+                  </span>
+                </li>
+              </a>
               {/* <span className="line  text-white w-[20px]"></span> */}
             </ul>
           </div>
@@ -798,7 +806,9 @@ const HOMEpage = () => {
             <li className=" h-full flex flex-col w-[40%] items-center justify-center">
               <div className="w-full h-full "></div>
               <span className="w-full text-center h-1/2 font-semibold tracking-wide">
-                <a href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank">SPONSOR US</a>
+                <a href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank">
+                  SPONSOR US
+                </a>
               </span>
               <span className="w-full h-full"></span>
             </li>
@@ -866,17 +876,17 @@ const HOMEpage = () => {
                 data-menu-link=""
               >
                 {/* Title */}
-                <span className="menu-link-wrapper  transition ml-8 ">
                   <a
-                    className="cursor-pointer"
-                    onClick={() => {
-                      scrollByVh(2);
+                    className="menu-link-wrapper transition text-left pl-8 cursor-pointer w-full"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent the default behavior of the anchor tag
+                      setTimeout(() => {
+                        scrollByVh(2.5); // Perform the desired action after a delay
+                      }, 400); // Delay in milliseconds (200ms here)
                     }}
                   >
-                    {" "}
                     EVENTS
-                  </a>{" "}
-                </span>
+                  </a>
 
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
@@ -934,13 +944,13 @@ const HOMEpage = () => {
             </li>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
-                href="#"
+                href="#aftermovie"
                 className="menu-link active flex items-center group relative w-full h-full"
                 data-menu-link=""
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  ml-8 ">
-                  <a href="#aftermovie">AFTERMOVIE</a>
+                  AFTERMOVIE
                 </span>
                 {/* Hover SVG (Vertical Pink) */}
                 <svg
@@ -998,13 +1008,13 @@ const HOMEpage = () => {
             </li>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
-                href="#"
+                href="#sponsors"
                 className="menu-link active flex items-center group relative w-full h-full"
                 data-menu-link=""
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  <a href="#sponsors">SPONSORS</a>
+                  SPONSORS
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1063,13 +1073,13 @@ const HOMEpage = () => {
             </li>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
-                href="#"
+                href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank"
                 className="menu-link active flex items-center group relative w-full h-full"
                 data-menu-link=""
               >
                 {/* Title */}
                 <span className="menu-link-wrapper  transition ml-8 ">
-                  <a href="https://forms.gle/7ygcDdjcsTbCrad1A" target="blank">SPONSOR US</a>
+                    SPONSOR US
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1128,13 +1138,13 @@ const HOMEpage = () => {
             </li>
             <li className="relative menu-item h-1/6 flex items-center  w-full">
               <a
-                href="#"
+                href="#contactus"
                 className="menu-link active flex items-center group relative w-full h-full"
                 data-menu-link=""
               >
                 {/* Title */}
                 <span className="menu-link-wrapper transition ml-8 ">
-                  <a href="#contactus">CONTACT-US & MERCH</a>
+                  CONTACT-US & MERCH
                 </span>
 
                 {/* Hover SVG (Vertical Pink) */}
@@ -1194,114 +1204,123 @@ const HOMEpage = () => {
             <li className="absolute bottom-20 w-full">
               <ul className="menu2 flex items-center justify-center w-full h-full">
                 <span className="line w-full"></span>
-                <a href="https://www.youtube.com/@bitmesrajaipurcampus9741" target="#">
-
-                <li className="relative flex items-center justify-center group">
-                  {/* Background SVG (Social Icon) */}
-                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 576 512"
-                    >
-                      <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
-                    </svg>
-                  </span>
-                  {/* Diamond-Shaped Structure */}
-                  <span className="relative flex cursor-pointer items-center justify-center">
-                    {/* Sides span */}
-                    <span className="sides z-20"></span>
-                    {/* Diamond Polygon */}
-                    <svg
-                      width="45px"
-                      height="45px"
-                      viewBox="8 2 45 38"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                    >
-                      <polygon
-                        stroke="#f4cf8b"
-                        fill="none"
-                        strokeWidth={1.5}
-                        points="9 21 31 0 52 21 31 43"
-                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                      ></polygon>
-                    </svg>
-                  </span>
-                </li></a>
+                <a
+                  href="https://www.youtube.com/@bitmesrajaipurcampus9741"
+                  target="#"
+                >
+                  <li className="relative flex items-center justify-center group">
+                    {/* Background SVG (Social Icon) */}
+                    <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 576 512"
+                      >
+                        <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                      </svg>
+                    </span>
+                    {/* Diamond-Shaped Structure */}
+                    <span className="relative flex cursor-pointer items-center justify-center">
+                      {/* Sides span */}
+                      <span className="sides z-20"></span>
+                      {/* Diamond Polygon */}
+                      <svg
+                        width="45px"
+                        height="45px"
+                        viewBox="8 2 45 38"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                      >
+                        <polygon
+                          stroke="#f4cf8b"
+                          fill="none"
+                          strokeWidth={1.5}
+                          points="9 21 31 0 52 21 31 43"
+                          className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                        ></polygon>
+                      </svg>
+                    </span>
+                  </li>
+                </a>
                 <span className="line w-[20%]"></span>
-                <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
-
-                <li className="relative flex items-center justify-center group">
-                  {/* Background SVG (Social Icon) */}
-                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 448 512"
-                    >
-                      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                    </svg>
-                  </span>
-                  {/* Diamond-Shaped Structure */}
-                  <span className="relative flex cursor-pointer items-center justify-center">
-                    {/* Sides span */}
-                    <span className="sides z-20"></span>
-                    {/* Diamond Polygon */}
-                    <svg
-                      width="45px"
-                      height="45px"
-                      viewBox="8 2 45 38"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                    >
-                      <polygon
-                        stroke="#f4cf8b"
-                        fill="none"
-                        strokeWidth={1.5}
-                        points="9 21 31 0 52 21 31 43"
-                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                      ></polygon>
-                    </svg>
-                  </span>
-                </li></a>
+                <a
+                  href="https://www.linkedin.com/company/techvibesbit/"
+                  target="#"
+                >
+                  <li className="relative flex items-center justify-center group">
+                    {/* Background SVG (Social Icon) */}
+                    <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 448 512"
+                      >
+                        <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                      </svg>
+                    </span>
+                    {/* Diamond-Shaped Structure */}
+                    <span className="relative flex cursor-pointer items-center justify-center">
+                      {/* Sides span */}
+                      <span className="sides z-20"></span>
+                      {/* Diamond Polygon */}
+                      <svg
+                        width="45px"
+                        height="45px"
+                        viewBox="8 2 45 38"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                      >
+                        <polygon
+                          stroke="#f4cf8b"
+                          fill="none"
+                          strokeWidth={1.5}
+                          points="9 21 31 0 52 21 31 43"
+                          className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                        ></polygon>
+                      </svg>
+                    </span>
+                  </li>
+                </a>
 
                 <span className="line w-[20%]"></span>
-                <a href="https://www.linkedin.com/company/techvibesbit/" target="#">
-
-                <li className="relative flex items-center justify-center group">
-                  {/* Background SVG (Social Icon) */}
-                  <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 448 505"
-                    >
-                      <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                    </svg>
-                  </span>
-                  {/* Diamond-Shaped Structure */}
-                  <span className="relative flex cursor-pointer items-center justify-center">
-                    {/* Sides span */}
-                    <span className="sides z-20"></span>
-                    {/* Diamond Polygon */}
-                    <svg
-                      width="45px"
-                      height="45px"
-                      viewBox="8 2 45 38"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                    >
-                      <polygon
-                        stroke="#f4cf8b"
-                        fill="none"
-                        strokeWidth={1.5}
-                        points="9 21 31 0 52 21 31 43"
-                        className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
-                      ></polygon>
-                    </svg>
-                  </span>
-                </li></a>
+                <a
+                  href="https://www.linkedin.com/company/techvibesbit/"
+                  target="#"
+                >
+                  <li className="relative flex items-center justify-center group">
+                    {/* Background SVG (Social Icon) */}
+                    <span className="[&>svg]:h-4 [&>svg]:w-4 absolute z-10">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 448 505"
+                      >
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6-7.8 34.7-22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                      </svg>
+                    </span>
+                    {/* Diamond-Shaped Structure */}
+                    <span className="relative flex cursor-pointer items-center justify-center">
+                      {/* Sides span */}
+                      <span className="sides z-20"></span>
+                      {/* Diamond Polygon */}
+                      <svg
+                        width="45px"
+                        height="45px"
+                        viewBox="8 2 45 38"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                      >
+                        <polygon
+                          stroke="#f4cf8b"
+                          fill="none"
+                          strokeWidth={1.5}
+                          points="9 21 31 0 52 21 31 43"
+                          className="transition duration-500 ease-in-out z-10 group-hover:fill-[#482d4e] group-hover:stroke-[#d9b5e2]"
+                        ></polygon>
+                      </svg>
+                    </span>
+                  </li>
+                </a>
                 <span className="line w-full"></span>
               </ul>
             </li>
@@ -1448,7 +1467,7 @@ const HOMEpage = () => {
                   {day2_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
+                      className="card cursor-default border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
@@ -1462,20 +1481,20 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="content cursor-not-allowed h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
-                        <a href=/*{card.link}*/"#">
-
-                          <h3 className="text-lg flex cursor-not-allowed relative mt-3 font-medium text-[#f4cf8b] m-1">
-                            {card.title}
-                            <span className="chevrons">
-                              <p className="text-sm absolute cursor-not-allowed right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
-                                Register
-                              </p>
-                            </span>
-                          </h3>
-                          <p className="text-sm cursor-not-allowed text-[#f4cf9b]">
-                            {card.description}
-                          </p>{" "}</a>
+                        <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
+                          {/* <a href={card.link} target="#"> */}
+                            <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
+                              {card.title}
+                              <span className="chevrons">
+                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                  Register
+                                </p>
+                              </span>
+                            </h3>
+                            <p className="text-sm text-[#f4cf9b]">
+                              {card.description}
+                            </p>{" "}
+                          {/* </a> */}
                           {/* Add the description */}
                         </div>
                       </div>
@@ -1492,7 +1511,7 @@ const HOMEpage = () => {
                   {day1_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
+                      className="card cursor-default border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
@@ -1506,20 +1525,20 @@ const HOMEpage = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="content cursor-not-allowed hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
-                          <a href=/*{card.link}*/"#">
-                            <h3 className="text-lg relative mt-3 cursor-not-allowed font-medium text-[#f4cf8b] m-1">
+                        <div className="content hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
+                          {/* <a href={card.link} target="#"> */}
+                            <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                               {card.title}
                               <span className="chevrons">
-                                <p className="text-sm cursor-not-allowed absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
+                                <p className="text-sm absolute right-[3px] top-[250%] -rotate-45 font-normal mx-auto flex items-center justify-center">
                                   Register
                                 </p>
                               </span>
                             </h3>
-
-                          <p className="text-sm text-[#f4cf9b] cursor-not-allowed">
-                            {card.description}
-                          </p>{" "}                          </a>
+                            <p className="text-sm text-[#f4cf9b]">
+                              {card.description}
+                            </p>{" "}
+                          {/* </a> */}
 
                           {/* Add the description */}
                         </div>
@@ -1629,7 +1648,7 @@ const HOMEpage = () => {
             </div>
           </div>
           {sectionsData.map((section, index) => (
-            <div className="page page1 bg-[url('./src/assets/funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
+            <div className="page page1 bg-[url('/funeventbg2.jpg')] bg-cover bg-no-repeat md:flex absolute w-full h-full opacity-0 ">
               <div className="section1 border-red-500 h-full w-[30%] xl:w-[25%]"></div>
               <div className="section2 text-lg text-[#f4cf8b] opacity-0 flex-col z-[30] absolute left-[30%] xl:left-[25%] -bottom-[90%] border-green-500 flex items-center justify-center p-2 h-full w-[30%]">
                 <p>{section.desc}</p>
@@ -1647,13 +1666,13 @@ const HOMEpage = () => {
           ))}
         </div>
       </section>
-      <div className="mobile-view relative flex flex-col items-center bg-[#23201d] border-yellow-500 border-2 z-[30] flex lg:hidden overflow-x-hidden">
+      <div className="mobile-view relative flex flex-col items-center bg-[#23201d] border-yellow-500 z-[30] flex lg:hidden overflow-x-hidden">
         <div className="fady-box font-medium m-10">
           <div className="b_line  bg-gradient-to-l  from-[#F4CF8B] absolute  to-transparent h-[2px] w-20"></div>
           FUN EVENTS
           <div className="borders absolute">
             <div className="before"></div>
-            <div className="after"></div>
+            <div className="after ml-[1px]"></div>
           </div>
           <div className="r_line bg-gradient-to-r from-[#F4CF8B] absolute to-transparent h-[2px] w-20"></div>
         </div>
@@ -1713,18 +1732,9 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Spin it to win it! Test your tech skills and courage as the
+                  wheel decides your fate. From quirky dares to brainy
+                  challenges, complete the task or answer to stay in the game! "
                 </p>
                 <p>
                   <strong>
@@ -1798,18 +1808,10 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Unleash your creativity as you sketch funny ideas, guess
+                  hilarious words, challenge your friends, and race for points
+                  in a game that sparks imagination, sharpens your wits, and
+                  guarantees endless laughter. "
                 </p>
                 <p>
                   <strong>
@@ -1883,18 +1885,9 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Slide a block, take your shot, and keep the tower from the
+                  drop! It’s a game of skill, thrill, and daring moves—stack
+                  higher, pull smarter, and rise to claim the ultimate top spot!
                 </p>
                 <p>
                   <strong>
@@ -1968,18 +1961,9 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Flip the bottle, nail the landing, and earn your turn in Tic
+                  Tac Toe! It's a wild combo of skill, strategy, and luck! Flip,
+                  play, and claim victory in this laugh-filled showdown! "{" "}
                 </p>
                 <p>
                   <strong>
@@ -2053,18 +2037,10 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Get ready to twist, turn, and go wild! Shuffle, spin, and
+                  twist the cube until every face is a perfect color—race
+                  against time and prove you’ve got the moves to conquer the
+                  ultimate cube challenge!{" "}
                 </p>
                 <p>
                   <strong>
@@ -2138,18 +2114,9 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Get ready for Aqua Quest, a thrilling water-powered adventure!
+                  Watch as rockets soar high using the force of water. Build,
+                  launch, and compete to see whose rocket reaches the skies!
                 </p>
                 <p>
                   <strong>
@@ -2223,18 +2190,10 @@ const HOMEpage = () => {
               <div className="feature-dot"></div>
               <div className="text m-10">
                 <p>
-                  Dune: Awakening is an open world survival MMO set on the most
-                  dangerous planet in the universe.
-                </p>
-                <p>
-                  This is your Dune. The most dangerous planet in the universe.
-                  A Dune where Paul Atreides was never born, and a War of
-                  Assassins rages between Atreides and Harkonnen. Where the
-                  machinations of guilds and powerful houses devour the
-                  unprepared as easily as the ancient sandworms that prowl the
-                  open deserts. In a world shared by hundreds of other players,
-                  will you rise to lead a Great House and control the flow of
-                  spice itself?
+                  Pass the Hook is a nail-biting game of precision! Guide the
+                  ring along the wire without touching it—one buzz and you're
+                  out. Steady hands and nerves of steel are your only way
+                  through!
                 </p>
                 <p>
                   <strong>

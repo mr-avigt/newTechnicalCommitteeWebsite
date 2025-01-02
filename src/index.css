@@ -16,6 +16,7 @@
 }
 .HOME {
   background-image: url("./assets/HOMEBGD2.webp");
+  /* background-image: url("./assets/bgd3.jpeg"); */
   background-size: cover;
   /* Prevent the image from repeating */
   background-repeat: no-repeat;

@@ -605,7 +605,7 @@ const HOMEpage = () => {
               </Canvas>
             </div>
           </div>
-          <div className="top absolute right-3 top-2 ">
+          <div className="top absolute right-3 top-3 ">
             <ul className="menu2 items-center justify-end h-full hidden lg:flex">
               <a
                 href="https://www.youtube.com/@bitmesrajaipurcampus9741"

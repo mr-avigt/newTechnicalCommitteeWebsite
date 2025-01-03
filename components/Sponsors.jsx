@@ -19,8 +19,7 @@ const Sponsors = () => {
          <a
     href="https://growli.ai" // Replace with your desired URL
     target="_blank"
-    rel="noopener noreferrer" // Ensures secure opening in a new tab
-    className="w-[70%] h-80 m-16 block" // Ensure the anchor fills the div
+    
   >
         <div
           id="1"

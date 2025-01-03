@@ -44,11 +44,11 @@ const Sponsors = () => {
         
         <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
           {" "}
-          <div className="absolute inset-0  bg-cover bg-no-repeat bg-center  "style={{   backgroundImage:`url("/sponsor1.png")`,backgroundSize: 'cover',scale:"2.2",
+          <a href="https://www.instagram.com/waffle99.official/" target="blank"><div className="absolute inset-0  bg-cover bg-no-repeat bg-center  "style={{   backgroundImage:`url("/sponsor1.png")`,backgroundSize: 'cover',scale:"2.2",
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       transform: 'rotate(-45deg)',
-       }} ></div>
+       }} ></div></a>
           <div
             id="2"
             className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300"

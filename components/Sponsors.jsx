@@ -27,7 +27,7 @@ const Sponsors = () => {
             className="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300"
           >
           <span className="text-2xl font-bold tracking-wide text-[#f4cf8b] flex flex-col flex-wrap sm:whitespace-normal">
-  Grownli <br className="sm:hidden" /> AI
+  Growli <br className="sm:hidden" /> AI
   <span className="text-base">(OUR TITLE SPONSOR)</span>
 </span>
 

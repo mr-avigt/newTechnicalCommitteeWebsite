@@ -439,7 +439,7 @@
 
 @media (max-width: 1024px) {
     .HOME {
-    background-image: url("./assets/bgmob.png");
+    background-image: url("./assets/bgmob4.png");
     background-size: auto 105%;
     /* Prevent the image from repeating */
     background-repeat: no-repeat;

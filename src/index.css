@@ -214,6 +214,7 @@
   display: inline-flex;
   align-items: center;
   border-top: 2px solid #f4cf8b;
+  border-radius: 1px;
   border-bottom: 2px solid #f4cf8b;
   border-bottom-right-radius: 2px;
   height: 38.5px;
@@ -223,9 +224,9 @@
 .fady-box .borders:after {
   content: "";
   position: absolute;
-  top: 0;
-  width: 28px;
-  height: 26.3px;
+  top: -0.5px;
+  width: 27px;
+  height: 26px;
 }
 
 .fady-box .borders:before {
@@ -276,13 +277,14 @@
   height: 26px;
   border-bottom: 2px solid #f4cf8b;
   border-right: 2px solid #f4cf8b;
-  transform: translate(86px, -12.8px) rotate(-45deg);
+  transform: translate(86px, -13px) rotate(-45deg);
 }
 .b_line {
+  margin-top: 1px;
   right: calc(18px + 100%);
 }
 .r_line {
-  left: calc(15px + 100%);
+  left: calc(16px + 100%);
 }
 .nav-button-section.active .nav-button {
   --border-color: #e39de3;

@@ -531,9 +531,9 @@ const HOMEpage = () => {
           <div className="logo w-20">
             <img src="TC_Logo.webp" alt="" />
           </div>
-          <div className="festlogo w-[20%] absolute left-[40%] -top-20 ">
+          {/* <div className="festlogo w-[20%] absolute left-[40%] -top-20 ">
             <img src="Yugsetu.png" alt="" />
-          </div>
+          </div> */}
           <div
             style={{
               width: "100%",

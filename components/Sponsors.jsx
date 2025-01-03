@@ -16,11 +16,7 @@ const Sponsors = () => {
         </div>
       </div>
       <div className="mx-auto w-auto h-auto flex flex-row flex-wrap justify-evenly">
-         <a
-    href="https://growli.ai" // Replace with your desired URL
-    target="_blank"
-    
-  >
+      
         <div
           id="1"
           className="w-[70%] h-80 bg-transparent border-4 border-[#F4CF8B] m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105  hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group"
@@ -38,7 +34,7 @@ const Sponsors = () => {
 
           </div>
         </div>
-</a>
+
         <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
           {" "}
           <div className="absolute inset-0 bg-[url('/TC_Logo.webp')]  bg-cover bg-no-repeat bg-center rotate-[-45deg]"></div>

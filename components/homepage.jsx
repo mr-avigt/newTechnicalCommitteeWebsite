@@ -1467,7 +1467,7 @@ const HOMEpage = () => {
                   {day2_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card cursor-default border-[1.5px] border-custom-border relative"
+                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">
@@ -1511,7 +1511,7 @@ const HOMEpage = () => {
                   {day1_cards.map((card, index) => (
                     <div
                       key={index}
-                      className="card cursor-default border-[1.5px] border-custom-border relative"
+                      className="card cursor-not-allowed border-[1.5px] border-custom-border relative"
                       // style={{ backgroundColor: card.bgColor }} // Apply the background color dynamically
                     >
                       <div className="flex flex-col m-1 border-[1.5px] border-[#5C4033]">

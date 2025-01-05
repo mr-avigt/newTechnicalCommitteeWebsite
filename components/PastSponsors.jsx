@@ -39,8 +39,10 @@ const PastSponsors = () => {
     `;
   
   return (
-    <div className=" bg-cover bg-no-repeat bg-center bg-transparent p-2 sm:p-4 bg- h-auto max-w-[100vw] flex flex-col items-start justify-start p-10 overflow-x-hidden">
-    
+     <div className=" bg-cover bg-no-repeat bg-center bg-transparent p-2 sm:p-4 bg- h-auto max-w-[100vw] flex flex-col items-start justify-start p-10 overflow-x-hidden">
+    <span className="text-2xl md:text-3xl font-bold tracking-wide text-[#f4cf8b] mx-auto font-serif">
+              P A S T &nbsp;&nbsp; S P O N S O R<br />
+            </span>
           <div className=' w-auto h-auto flex flex-row justify-evenly '>
           <style>{keyframes}</style>
 

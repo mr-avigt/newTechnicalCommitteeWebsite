@@ -61,6 +61,8 @@ export default {
    
     screens: {
       'min400': '400px', // Custom breakpoint for min-width 400px
+      'min820':'820px',
+      'min912':'912px'
     },},
   },
   plugins: [],

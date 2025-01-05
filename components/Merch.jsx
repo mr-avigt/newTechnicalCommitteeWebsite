@@ -8,12 +8,12 @@ const Merch = () => {
     }, 800); // 500ms delay
   };
   return (
-    <div className="w-[95vw] h-[70vh] md:w-[47vw] md:h-[59.5vh] min820:h-[52vh] min912:h-[42.5vh] lg:w-[50vw] lg:h-[41vh] xl:h-[91vh] xl:w-[30vw] 2xl:h-[62vh] bg-[url('/merchposter.webp')] filter brightness-50 hover:brightness-100 transition duration-300 relative bg-cover bg-no-repeat bg-[50%_0%] py-6 lg:py-4 px-4  flex flex-col items-center mx-auto max-w-screen-sm sm:max-w-md md:max-w-lg border rounded-xl border-[#f4cf8b] backdrop-blur-sm">
+    <div className="w-[95vw] h-[70vh] md:w-[47vw] md:h-[59.5vh] min820:h-[52vh] min912:h-[42.5vh] lg:w-[50vw] lg:h-[41vh] xl:h-[91vh] xl:w-[30vw] 2xl:h-[62vh] bg-[url('/merchposter.webp')] filter md:brightness-50 md:hover:brightness-100 transition duration-300 relative bg-cover bg-no-repeat bg-[50%_0%] py-6 lg:py-4 px-4  flex flex-col items-center mx-auto max-w-screen-sm sm:max-w-md md:max-w-lg border rounded-xl border-[#f4cf8b] backdrop-blur-sm">
       {/* <h2 className="mb-4 text-3xl xl:text-4xl 2xl:text-5xl tracking-wider font-medium text-center text-[#f4cf8b]">
         Buy Our Merch
       </h2> */}
-      <p className="font-thin text-center text-[#f4cf8b] text-lg sm:text-lg 2xl:text-xl mt-4 xl:mt-7">
-        at just ₹ 950 /-
+      <p className="font-medium text-center text-[#f4cf8b] text-lg sm:text-lg 2xl:text-xl mt-4 xl:mt-7">
+        All for ₹ 950 /-
       </p>
       <form className="space-y-6 rounded-full absolute bottom-10 backdrop-grayscale-10 bg-[#482d4e]">
       <button

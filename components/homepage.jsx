@@ -1461,7 +1461,7 @@ const HOMEpage = () => {
                   className={`cards 
                   grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                    
-                } DAY2 z-70 absolute overflow-hidden left-0 p-8  gap-4`}
+                } DAY2 z-50 absolute overflow-hidden left-0 p-8  gap-4`}
                 >
                   {/* Card Components */}
                   {day2_cards.map((card, index) => (

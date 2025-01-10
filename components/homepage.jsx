@@ -151,6 +151,14 @@ const HOMEpage = () => {
       link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
       image: "/designx.jpg",
     },
+        {
+      title: "Viral Visionaries",
+      description:
+        "",
+      bgColor: "#E5E7EB",
+      link: "",
+      image: "/viralvissionaries.jpg",
+    },
   ];
   const day2_cards = [
     {

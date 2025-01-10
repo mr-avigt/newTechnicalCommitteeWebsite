@@ -157,7 +157,7 @@ const HOMEpage = () => {
         "",
       bgColor: "#E5E7EB",
       link: "",
-      image: "/viralvissionaries.jpg",
+      image: "/viralvissonaries.jpg",
     },
   ];
   const day2_cards = [

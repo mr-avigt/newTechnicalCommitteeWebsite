@@ -144,12 +144,12 @@ const HOMEpage = () => {
       image: "/treasurehunt.jpg",
     },
     {
-      title: "Spectra",
+      title: "DesignX (Club Spectra)",
       description:
-        "Lights, camera, action! Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
+        "Poster design competition without use of AI in 1 hour",
       bgColor: "#E5E7EB",
       link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
-      image: "/spectra.jpg",
+      image: "/designx.jpg",
     },
   ];
   const day2_cards = [
@@ -215,6 +215,14 @@ const HOMEpage = () => {
       bgColor: "#F3F4F6",
       link: "https://forms.gle/gCuAmfWAseFWyiVWA",
       image: "/dronerace.jpg",
+    }, 
+    {
+      title: "Filmaura (Club Spectra)",
+      description:
+        "participants (team/solo) (upto 4 in a team) will be provided a topic and have to make a short film / edit before the day end winners will be announced at the day end",
+      bgColor: "#F3F4F6",
+      link: "",
+      image: "/filmaura.jpg",
     },
   ];
   const sections_cards = [

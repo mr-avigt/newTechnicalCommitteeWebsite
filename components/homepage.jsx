@@ -144,7 +144,7 @@ const HOMEpage = () => {
       image: "/treasurehunt.jpg",
     },
     {
-      title: "DesignX (Club Spectra)",
+      title: "DesignX ",
       description:
         "Poster design competition without use of AI in 1 hour",
       bgColor: "#E5E7EB",
@@ -225,7 +225,7 @@ const HOMEpage = () => {
       image: "/dronerace.jpg",
     }, 
     {
-      title: "Filmaura (Club Spectra)",
+      title: "Filmaura",
       description:
         "participants (team/solo) (upto 4 in a team) will be provided a topic and have to make a short film / edit before the day end winners will be announced at the day end",
       bgColor: "#F3F4F6",

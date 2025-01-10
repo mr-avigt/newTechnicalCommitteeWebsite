@@ -773,7 +773,7 @@ const HOMEpage = () => {
                 <a
                   className="cursor-pointer"
                   onClick={() => {
-                    scrollByVh(1.8);
+                    scrollByVh(1.5);
                   }}
                 >
                   {" "}
@@ -1482,7 +1482,7 @@ const HOMEpage = () => {
                           </div>
                         </div>
                         <div className="content h-full border-t-[1.5px] p-2 border-t-[#5C4033] hover:bg-[#482d4e] transition-all duration-300 ">
-                          {/* <a href={card.link} target="#"> */}
+                          <a href={card.link} target="#">
                             <h3 className="text-lg flex relative mt-3 font-medium text-[#f4cf8b] m-1">
                               {card.title}
                               <span className="chevrons">
@@ -1494,7 +1494,7 @@ const HOMEpage = () => {
                             <p className="text-sm text-[#f4cf9b]">
                               {card.description}
                             </p>{" "}
-                          {/* </a> */}
+                          </a>
                           {/* Add the description */}
                         </div>
                       </div>
@@ -1526,7 +1526,7 @@ const HOMEpage = () => {
                           </div>
                         </div>
                         <div className="content hover:bg-[#482d4e] transition-all duration-300 border-t-[1.5px] p-2 border-t-[#5C4033]">
-                          {/* <a href={card.link} target="#"> */}
+                          <a href={card.link} target="#">
                             <h3 className="text-lg relative mt-3 font-medium text-[#f4cf8b] m-1">
                               {card.title}
                               <span className="chevrons">
@@ -1538,7 +1538,7 @@ const HOMEpage = () => {
                             <p className="text-sm text-[#f4cf9b]">
                               {card.description}
                             </p>{" "}
-                          {/* </a> */}
+                          </a>
 
                           {/* Add the description */}
                         </div>

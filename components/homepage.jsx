@@ -148,7 +148,7 @@ const HOMEpage = () => {
       description:
         "Poster design competition without use of AI in 1 hour",
       bgColor: "#E5E7EB",
-      link: "#",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfbCgAjHHdbOtc2MJHTpjrvWqBBA0S_hO01LtoWHuMKWdgLfQ/viewform?usp=header ",
       image: "/designx.jpg",
     },
         {
@@ -156,7 +156,7 @@ const HOMEpage = () => {
       description:
         "",
       bgColor: "#E5E7EB",
-      link: "#",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfVcMjWIknUvhnk8GMxodbGlYrY1yT8Yg_8KVtJSonmCrOGKA/viewform?usp=header ",
       image: "/viralvissonaries.jpg",
     },
   ];
@@ -229,7 +229,7 @@ const HOMEpage = () => {
       description:
         "participants (team/solo) (upto 4 in a team) will be provided a topic and have to make a short film / edit before the day end winners will be announced at the day end",
       bgColor: "#F3F4F6",
-      link: "#",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSc7QJ6cjG9UM32hxBNGf8IkzwSuojMu5EZ4lCzQP5fYKjgL5Q/viewform",
       image: "/filmaura.jpg",
     },
   ];

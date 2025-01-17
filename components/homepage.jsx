@@ -116,7 +116,7 @@ const HOMEpage = () => {
       description:
         "Experience the fusion of robotics and sports in Robo SoccerBuild and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
+      link: "https://forms.gle/qRVKk85ASkpA6aSx9",
       image: "/robosoccer.jpg",
     },
     {

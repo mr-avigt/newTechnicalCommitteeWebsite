@@ -206,6 +206,7 @@ const HOMEpage = () => {
       description:
         "Management event, in which participants will form team of 3-4 members .A backdrop of the allotted company will be provided along with some market based problem statement.",
       bgColor: "#F3F4F6",
+      link: "https://forms.gle/TSU78Vgd3KU7qGdR9",
       image: "/strategicsprint.jpg",
     },
     {
@@ -338,7 +339,7 @@ const HOMEpage = () => {
         window.innerWidth < 768 ? totalRows * 1.2 : totalRows * 3.5;
 
       // Use transform and scale for smoother animations
-      const totalHeight = gridColumns === 1 ? totalRows * 290 : totalRows * 250; // Assuming each row has a height of 300px
+      const totalHeight = gridColumns === 1 ? totalRows * 300 : totalRows * 250; // Assuming each row has a height of 300px
 
       // Apply will-change to optimize performance
       cardsContainer.style.willChange = "transform, opacity";

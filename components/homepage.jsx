@@ -116,7 +116,7 @@ const HOMEpage = () => {
       description:
         "Experience the fusion of robotics and sports in Robo SoccerBuild and program robots to compete in an exciting soccer match! Showcase innovation, teamwork, and strategy in this thrilling competition.",
       bgColor: "#4B5563",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScvDxyhys9jyAWNE2aI667TXomjocngqUwNT1xMcE6E-4fRsg/viewform?usp=header",
+      link: "https://forms.gle/qRVKk85ASkpA6aSx9",
       image: "/robosoccer.jpg",
     },
     {
@@ -144,12 +144,20 @@ const HOMEpage = () => {
       image: "/treasurehunt.jpg",
     },
     {
-      title: "Spectra",
+      title: "DesignX ",
       description:
-        "Lights, camera, action! Participants in a group are required to create a minute movie under 30 minutes after picking up a topic from given chits.",
+        "Poster design competition without use of AI in 1 hour",
       bgColor: "#E5E7EB",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLSftSCmmAJEHqOPIGls49Hwcb_iPGVbeTRxvni0Btu2dY-kK9Q/viewform?usp=header",
-      image: "/spectra.jpg",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfbCgAjHHdbOtc2MJHTpjrvWqBBA0S_hO01LtoWHuMKWdgLfQ/viewform?usp=header ",
+      image: "/designx.jpg",
+    },
+        {
+      title: "Viral Visionaries",
+      description:
+        "",
+      bgColor: "#E5E7EB",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfVcMjWIknUvhnk8GMxodbGlYrY1yT8Yg_8KVtJSonmCrOGKA/viewform?usp=header ",
+      image: "/viralvissonaries.jpg",
     },
   ];
   const day2_cards = [
@@ -216,6 +224,14 @@ const HOMEpage = () => {
       bgColor: "#F3F4F6",
       link: "https://forms.gle/gCuAmfWAseFWyiVWA",
       image: "/dronerace.jpg",
+    }, 
+    {
+      title: "Filmaura",
+      description:
+        "participants (team/solo) (upto 4 in a team) will be provided a topic and have to make a short film / edit before the day end winners will be announced at the day end",
+      bgColor: "#F3F4F6",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSc7QJ6cjG9UM32hxBNGf8IkzwSuojMu5EZ4lCzQP5fYKjgL5Q/viewform",
+      image: "/filmaura.jpg",
     },
   ];
   const sections_cards = [

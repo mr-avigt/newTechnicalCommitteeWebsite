@@ -101,7 +101,7 @@ const Sponsors = () => {
                     className="absolute inset-0  bg-cover bg-no-repeat bg-center  "
                     style={{
                       backgroundColor: `black`,
-                      backgroundImage: `url("/Ramenoz.jpeg")`,
+                      backgroundImage: `url("/past3.jpeg")`,
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
                       backgroundPosition: "center -12px",

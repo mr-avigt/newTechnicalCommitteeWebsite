@@ -65,26 +65,6 @@ const Sponsors = () => {
             </a>
           </div>
 
-          <div className="w-40 h-40  border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
-            <a href="https://www.imsindia.com/" target="blank">
-              <div className="absolute inset-0 overflow-hidden bg-white bg-no-repeat m-2">
-                <a href="https://www.imsindia.com/" target="blank">
-                  <div
-                    className="absolute inset-0  bg-cover bg-no-repeat bg-center  "
-                    style={{
-                      backgroundColor: `white`,
-                      backgroundImage: `url("/ims.png")`,
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center -12px",
-                      transform: "rotate(-45deg)",
-                    }}
-                  ></div>
-                </a>
-              </div>
-            </a>
-          </div>
-
           <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
             <a
               href="https://www.instagram.com/ramenoz_pizza_jaipur/"
@@ -200,6 +180,56 @@ const Sponsors = () => {
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
                       transform: "rotate(-45deg) scale(1.8)",
+                    }}
+                  ></div>
+                </a>
+              </div>
+            </a>
+          </div>
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
+            <a
+              href="https://www.bitosarajasthan.org/"
+              target="blank"
+            >
+              <div className="absolute inset-0 overflow-hidden bg-black bg-no-repeat m-2">
+                <a
+              href="https://www.bitosarajasthan.org/"
+              target="blank"
+                >
+                  <div
+                    className="absolute inset-0 bg-no-repeat bg-center  "
+                    style={{
+                      backgroundColor: `black`,
+                      backgroundImage: `url("/bitosa.png")`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      transform: "rotate(-45deg) scale(2.5)",
+                    }}
+                  ></div>
+                </a>
+              </div>
+            </a>
+          </div>
+          <div className="w-40 h-40 bg-transparent border-4 border-[#F4CF8B] rotate-45 m-16 overflow-hidden flex flex-col flex-end transform transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(255,215,0,0.7),0_0_20px_rgba(0,0,0,0.5)] text-center relative group">
+            <a
+              href="https://www.madeeasy.in/"
+              target="blank"
+            >
+              <div className="absolute inset-0 overflow-hidden bg-red-500 bg-no-repeat m-2">
+                <a
+              href="https://www.madeeasy.in/"
+              target="blank"
+                >
+                  <div
+                    className="absolute inset-0 bg-no-repeat bg-center  "
+                    style={{
+                      backgroundColor: `red`,
+                      backgroundImage: `url("/madeeasy.png")`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      transform: "rotate(-45deg) scale(1)",
                     }}
                   ></div>
                 </a>

@@ -37,6 +37,19 @@ const Footer = () => {
 
           <ol className="mt-5">
             <li>
+              <a
+                href="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="#"
+              >
+                Abhijeet Anand
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/kartikayverma56" target="#">
+                Kartikay Verma
+              </a>
+            </li>
+            <li>
               <a href="https://www.linkedin.com/in/somesh-goyal/" target="#">
                 Somesh Goyal
               </a>
@@ -57,19 +70,8 @@ const Footer = () => {
                 Jyotirmya Sharma
               </a>
             </li>
-            <li>
-              <a href="https://www.linkedin.com/in/kartikayverma56" target="#">
-                Kartikay Verma
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/abhijeet-anand-8315aa212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="#"
-              >
-                Abhijeet Anand
-              </a>
-            </li>
+            
+            
           </ol>
         </div>
         {/* App Availability & Contact */}
